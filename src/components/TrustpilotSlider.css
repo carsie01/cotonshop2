@@ -1,0 +1,93 @@
+.trustpilot-wrapper {
+    padding: 40px 0;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .trustpilot-slider {
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    width: 100%;
+    padding: 0 20px;
+    position: relative;
+  }
+  
+  .trustpilot-summary {
+    flex: 0 0 240px;
+    text-align: center;
+    padding-right: 30px;
+    border-right: 1px solid #ccc;
+  }
+  
+  .trustpilot-summary h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+  
+  .tp-stars {
+    height: 18px;
+    width: auto;
+    margin: 6px 0;
+  }
+  
+  .tp-logo {
+    height: 24px;
+    width: auto;
+    margin-top: 10px;
+  }
+  
+  .trustpilot-cards {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    gap: 20px;
+    justify-content: center;
+    padding: 0 20px;
+  }
+  
+  .review-card {
+    border-radius: 10px;
+    padding: 16px;
+    width: 250px;
+    flex-shrink: 0;
+  }
+  
+  .review-card h3 {
+    font-size: 16px;
+    margin: 8px 0;
+  }
+  
+  .review-footer {
+    font-size: 13px;
+    color: #444;
+    margin-top: 10px;
+  }
+  
+  .verified {
+    font-size: 13px;
+    color: #666;
+    margin-top: 4px;
+  }
+  
+  .arrow {
+    position: absolute;
+    background: white;
+    border: 1px solid #bbb;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+  }
+  
+  .arrow.left {
+    left: 280px;
+  }
+  
+  .arrow.right {
+    right: 10px;
+  }
+  
