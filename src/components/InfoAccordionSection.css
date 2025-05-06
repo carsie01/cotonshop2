@@ -1,80 +1,62 @@
 .info-section {
-    background-color: #dff2fb;
-    padding: 60px 20px;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .info-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    max-width: 1200px;
-    width: 100%;
-  }
-  
-  .info-box {
-    background: white;
-    border-radius: 10px;
-    border: 1px solid #cce4ed;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    overflow: hidden;
-    transition: box-shadow 0.2s ease;
-  }
-  
-  .info-box:hover {
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  }
-  
-  .info-toggle {
-    all: unset;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 12px;
-    width: 100%;
-    cursor: pointer;
-    padding: 20px;
-    font-weight: bold;
-    font-size: 16px;
-    color: #333;
-    transition: color 0.2s ease;
-    position: relative;
-  }
-  
-  .info-toggle:hover,
-  .info-toggle:focus {
-    color: #f28b00;
-  }
-  
-  .info-icon {
-    font-size: 24px;
-    flex-shrink: 0;
-  }
-  
-  .info-title {
-    flex: 1;
-    display: flex;
-    align-items: center;
-  }
-  
-  .info-arrow {
-    font-size: 24px;
-    line-height: 1;
-    flex-shrink: 0;
-    color: #333;
-    transition: transform 0.2s ease;
-  }
-  
-  
-  .info-toggle.open .info-arrow {
-    transform: rotate(90deg); /* Drejer pilen ved åben */
-  }
-  
-  .info-content {
-    padding: 0 20px 20px 20px;
-    font-size: 15px;
-    color: #333;
-    line-height: 1.6;
-  }
-  
+  padding: 60px 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Accordion grid */
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.info-box {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: box-shadow 0.2s ease;
+}
+
+.info-box:hover {
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.info-toggle {
+  all: unset;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  cursor: pointer;
+  padding: 20px;
+  font-weight: bold;
+  font-size: 16px;
+  color: #333;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.info-toggle:hover,
+.info-toggle:focus {
+  color: #f28b00;
+}
+
+.info-icon {
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.info-title {
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+

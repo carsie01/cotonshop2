@@ -34,7 +34,7 @@ export default function Nyheder() {
 
   return (
     <main className="nyheder-side">
-      <h1>🆕 Nyheder</h1>
+      <h1>Nyheder</h1>
       <p>Se vores nyeste produkter og tilføjelser her:</p>
 
       <div className="nyheder-grid">

@@ -10,6 +10,7 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 import TrustpilotSlider from "./components/TrustpilotSlider";
 import WelcomeSection from "./components/WelcomeSection";
 import InfoAccordionSection from "./components/InfoAccordionSection";
+import InfoBanner from "./components/InfoBanner";
 
 // Dummy data – flyt evt. til en separat fil senere
 const popularProducts = [
@@ -106,14 +107,11 @@ export default function App() {
           <TrustpilotSlider />
           <WelcomeSection />
           <InfoAccordionSection />
+          <InfoBanner />
         </>
       )}
 
       <Routes>
-        <Route
-          path="/"
-          element={<h1 style={{ textAlign: "center" }}>Velkommen til Cotonshoppen!</h1>}
-        />
         <Route path="/nyheder" element={<Nyheder />} />
         <Route path="/produkt/:id" element={<ProductPage />} />
         <Route path="/kurv" element={<CartPage />} />

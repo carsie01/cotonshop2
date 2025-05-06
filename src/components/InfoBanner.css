@@ -1,0 +1,27 @@
+/* src/components/InfoBanner.css */
+
+.info-banner {
+    background-color: #ffffff;
+    padding: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+    border-top: 1px solid #dceefa;
+    border-bottom: 1px solid #dceefa;
+  }
+  
+  .info-banner-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: bold;
+    color: #000;
+    font-size: 16px;
+  }
+  
+  .info-banner-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  
