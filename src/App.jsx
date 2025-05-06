@@ -1,4 +1,4 @@
-import { Routes, Route, useLocation } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import NyhederCarousel from "./components/NyhederCarousel";
@@ -12,7 +12,7 @@ import WelcomeSection from "./components/WelcomeSection";
 import InfoAccordionSection from "./components/InfoAccordionSection";
 import InfoBanner from "./components/InfoBanner";
 
-// Dummy data – flyt evt. til en separat fil senere
+// Dummy data – flyt evt. til products.js senere
 const popularProducts = [
   {
     id: "123",
@@ -92,30 +92,37 @@ const recommendedProducts = [
 ];
 
 export default function App() {
-  const location = useLocation();
-
   return (
     <div>
       <Navbar />
 
-      {/* Vises kun på forsiden */}
-      {location.pathname === "/" && (
-        <>
-          <NyhederCarousel />
-          <ProductCarousel title="Mest Populære Produkter" products={popularProducts} />
-          <ProductCarousel title="Anbefalet til dig" products={recommendedProducts} />
-          <TrustpilotSlider />
-          <WelcomeSection />
-          <InfoAccordionSection />
-          <InfoBanner />
-        </>
-      )}
-
       <Routes>
+        {/* 🏠 Forside */}
+        <Route
+          path="/"
+          element={
+            <>
+              <NyhederCarousel />
+              <ProductCarousel title="Mest Populære Produkter" products={popularProducts} />
+              <ProductCarousel title="Anbefalet til dig" products={recommendedProducts} />
+              <TrustpilotSlider />
+              <WelcomeSection />
+              <InfoAccordionSection />
+              <InfoBanner />
+            </>
+          }
+        />
+
+        {/* 📰 Nyheder */}
         <Route path="/nyheder" element={<Nyheder />} />
-        <Route path="/produkt/:id" element={<ProductPage />} />
+        <Route path="/nyheder/2025" element={<Nyheder />} />
+        <Route path="/nyheder/populaere" element={<Nyheder />} />
+
+        {/* 🛒 Kurv og produkter */}
         <Route path="/kurv" element={<CartPage />} />
+        <Route path="/produkt/:id" element={<ProductPage />} />
       </Routes>
+
       <ScrollToTopButton />
       <Footer />
     </div>

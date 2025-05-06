@@ -18,19 +18,19 @@ header {
 }
 
 /* Top-info bjælke */
-.whiteboks{
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px; /* lidt luft i siderne på små skærme */
-  width: 100%;
-
-}
 .top-info {
-  
   color: #333;
   font-size: 14px;
   padding: 8px 20px;
   text-align: center;
+}
+
+/* Hvid baggrundsboks (logo, søgning) */
+.whiteboks {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  width: 100%;
 }
 
 /* Main navbar */
@@ -47,6 +47,8 @@ header {
 .navbar-logo {
   font-size: 24px;
   font-weight: bold;
+  color: #333;
+  text-decoration: none;
 }
 
 /* Søgefelt */
@@ -65,11 +67,16 @@ header {
 }
 
 /* Ikoner */
+.nav-icons {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
 .nav-icons button {
   background: none;
   border: none;
   font-size: 20px;
-  margin-left: 10px;
   cursor: pointer;
 }
 
@@ -77,22 +84,66 @@ header {
 .category-bar {
   background-color: #B9D9E8;
   display: flex;
+  flex-wrap: wrap;
   justify-content: center;
   align-items: center;
   padding: 10px 0;
-  height: 60px;
-}
-
-.category-bar a {
-  color: #000;
-  text-decoration: none;
-  margin: 0 15px;
+  height: auto;
+  gap: 20px;
+  position: relative;
   font-weight: bold;
 }
 
-.category-bar a:hover {
-  text-decoration: underline;
+/* Dropdown struktur */
+.category-item {
+  position: relative;
 }
+
+.category-link {
+  color: #000;
+  text-decoration: none;
+  padding: 6px 10px;
+  display: inline-block;
+}
+
+.category-link:hover {
+  text-decoration: underline;
+  color: #f4a740;
+}
+
+.dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: none;
+  flex-direction: column;
+  min-width: 180px;
+  z-index: 1000;
+  padding: 8px 0;
+}
+
+.dropdown-item {
+  padding: 10px 16px;
+  text-decoration: none;
+  color: #333;
+  white-space: nowrap;
+}
+
+.dropdown-item:hover {
+  background: #f4a740;
+  color: white;
+}
+
+/* Vis dropdown ved hover */
+.category-item:hover .dropdown {
+  display: flex;
+}
+
+/* RESPONSIVT */
 @media (max-width: 768px) {
   .navbar {
     flex-direction: column;
@@ -111,9 +162,28 @@ header {
   .category-bar {
     flex-wrap: wrap;
     padding: 10px;
+    height: auto;
   }
 
   .category-bar a {
     margin: 5px 10px;
+  }
+
+  .dropdown {
+    position: static;
+    display: none;
+    box-shadow: none;
+    border: none;
+    background: #eee;
+    padding: 0;
+  }
+
+  .category-item:hover .dropdown {
+    display: block;
+  }
+
+  .dropdown-item {
+    padding: 8px 12px;
+    font-size: 14px;
   }
 }

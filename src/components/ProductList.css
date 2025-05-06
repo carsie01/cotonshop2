@@ -1,39 +1,38 @@
-/* src/pages/Nyheder.css */
+/* src/components/ProductList.css */
 
-.nyheder-container {
+.productlist-container {
     padding: 40px 20px;
     max-width: 1300px;
     margin: auto;
     font-family: system-ui, sans-serif;
   }
   
-  .nyheder-title {
+  .productlist-title {
     text-align: center;
     font-size: 32px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: #333;
   }
   
-  .nyheder-subtext {
+  .productlist-empty {
     text-align: center;
-    margin-bottom: 30px;
-    color: #666;
-    font-size: 16px;
+    margin-top: 40px;
+    color: #777;
   }
   
-  .nyheder-grid {
+  .productlist-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
     gap: 25px;
     justify-content: center;
   }
   
-  .se-flere-wrapper {
+  .productlist-button-wrapper {
     text-align: center;
-    margin-top: 40px;
+    margin-top: 30px;
   }
   
-  .se-flere-knap {
+  .productlist-button {
     padding: 14px 28px;
     font-size: 16px;
     background-color: #f4a740;
@@ -45,7 +44,7 @@
     transition: background 0.2s ease;
   }
   
-  .se-flere-knap:hover {
+  .productlist-button:hover {
     background-color: #d88c00;
   }
   
