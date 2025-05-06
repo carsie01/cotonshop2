@@ -2,12 +2,13 @@
 import { useCart } from "../context/CartContext";
 
 export default function CartPage() {
-  const { cart } = useCart();
-
-  const total = cart.reduce((sum, item) => {
-    const price = parseFloat(item.price.replace(" kr", "").replace(",", "."));
-    return sum + price;
-  }, 0);
+  const {
+    cart,
+    addToCart,
+    removeFromCart,
+    clearCart,
+    totalPrice,
+  } = useCart();
 
   return (
     <main style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
@@ -17,14 +18,48 @@ export default function CartPage() {
         <p>Din kurv er tom.</p>
       ) : (
         <>
-          <ul>
-            {cart.map((item, i) => (
-              <li key={i} style={{ marginBottom: "10px" }}>
-                {item.name} – {item.price}
+          <ul style={{ listStyle: "none", padding: 0 }}>
+            {cart.map((item) => (
+              <li
+                key={item.id}
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  borderBottom: "1px solid #ccc",
+                  padding: "10px 0",
+                }}
+              >
+                <div>
+                  <strong>{item.name}</strong> <br />
+                  {item.price} × {item.quantity}
+                </div>
+                <div style={{ display: "flex", gap: "6px" }}>
+                  <button onClick={() => addToCart(item)}>+</button>
+                  <button onClick={() => removeFromCart(item.id)}>-</button>
+                </div>
               </li>
             ))}
           </ul>
-          <h3>Total: {total.toFixed(2)} kr</h3>
+
+          <h3 style={{ marginTop: "20px" }}>
+            Total: {totalPrice.toFixed(2)} kr
+          </h3>
+
+          <button
+            onClick={clearCart}
+            style={{
+              marginTop: "10px",
+              backgroundColor: "#f44336",
+              color: "#fff",
+              border: "none",
+              padding: "10px 15px",
+              borderRadius: "6px",
+              cursor: "pointer",
+            }}
+          >
+            Tøm kurv
+          </button>
         </>
       )}
     </main>

@@ -1,70 +1,46 @@
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+// src/pages/Nyheder.jsx
+import { useState } from "react";
+import ProductCard from "../components/ProductCard";
+import "./Nyheder.css"; // Husk at oprette denne
 
 export default function Nyheder() {
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
+  // Dummy-produkter
+  const ALL_PRODUCTS = Array.from({ length: 70 }, (_, i) => ({
+    id: `nyh${i + 1}`,
+    name: `Produkt ${i + 1}`,
+    image: `/images/nyhed${(i % 6) + 1}.jpg`, // Roterer mellem 6 billeder
+    brand: "Cotonshoppen",
+    price: `${99 + i * 5} kr`,
+    alt: `Produkt ${i + 1}`,
+  }));
 
-  const produkter = [
-    {
-      id: "nyh1",
-      name: "Reflekshalsbånd",
-      image: "/images/nyhed1.jpg",
-      brand: "Ollipet",
-      price: "89 kr",
-      alt: "Reflekshalsbånd til små hunde",
-    },
-    {
-      id: "nyh2",
-      name: "Hundesko til vinter",
-      image: "/images/nyhed2.jpg",
-      brand: "DogFeet",
-      price: "199 kr",
-      alt: "Skridsikre hundesko",
-    },
-    {
-      id: "nyh3",
-      name: "Køletæppe",
-      image: "/images/nyhed3.jpg",
-      brand: "CoolDog",
-      price: "149 kr",
-      alt: "Blåt køletæppe til varme dage",
-    },
-  ];
+  const [visibleCount, setVisibleCount] = useState(20);
+  const visibleProducts = ALL_PRODUCTS.slice(0, visibleCount);
+
+  const handleShowMore = () => {
+    setVisibleCount((prev) => prev + 20);
+  };
 
   return (
-    <main className="nyheder-side">
-      <h1>Nyheder</h1>
-      <p>Se vores nyeste produkter og tilføjelser her:</p>
+    <main className="nyheder-container">
+      <h1 className="nyheder-title">🆕 Nyheder</h1>
+      <p className="nyheder-subtext">
+        Se vores nyeste produkter og tilføjelser her:
+      </p>
 
       <div className="nyheder-grid">
-        {produkter.map((produkt) => (
-          <div
-            key={produkt.id}
-            className="produktkort"
-            onClick={() => navigate(`/produkt/${produkt.id}`)}
-            role="button"
-            tabIndex={0}
-            onKeyDown={(e) =>
-              e.key === "Enter" && navigate(`/produkt/${produkt.id}`)
-            }
-          >
-            <img src={produkt.image} alt={produkt.alt} />
-            <p className="brand">{produkt.brand}</p>
-            <h3>{produkt.name}</h3>
-            <p>{produkt.price}</p>
-            <button
-              className="add-to-cart"
-              onClick={(e) => {
-                e.stopPropagation();
-                addToCart(produkt);
-              }}
-            >
-              Læg i kurv
-            </button>
-          </div>
+        {visibleProducts.map((product) => (
+          <ProductCard key={product.id} product={product} />
         ))}
       </div>
+
+      {visibleCount < ALL_PRODUCTS.length && (
+        <div className="se-flere-wrapper">
+          <button className="se-flere-knap" onClick={handleShowMore}>
+            Se flere
+          </button>
+        </div>
+      )}
     </main>
   );
 }

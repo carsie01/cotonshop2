@@ -1,0 +1,63 @@
+/* src/pages/Nyheder.css */
+
+.nyheder-container {
+    padding: 40px 20px;
+    max-width: 1100px;
+    margin: auto;
+    font-family: system-ui, sans-serif;
+  }
+  
+  .nyheder-title {
+    text-align: center;
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #333;
+  }
+  
+  .nyheder-subtext {
+    text-align: center;
+    margin-bottom: 40px;
+    color: #666;
+    font-size: 16px;
+  }
+  
+  .nyheder-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    animation: fadeIn 0.3s ease;
+  }
+  
+  .se-flere-wrapper {
+    text-align: center;
+    margin-top: 40px;
+  }
+  
+  .se-flere-knap {
+    padding: 14px 28px;
+    font-size: 16px;
+    background-color: #f4a740;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.2s ease;
+  }
+  
+  .se-flere-knap:hover {
+    background-color: #d88c00;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0.7;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

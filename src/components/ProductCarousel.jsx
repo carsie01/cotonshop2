@@ -1,14 +1,11 @@
+// src/components/ProductCarousel.jsx
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { useCart } from "../context/CartContext";
+import ProductCard from "./ProductCard";
 import "./ProductCarousel.css";
 
 export default function ProductCarousel({ title, products }) {
   const [startIndex, setStartIndex] = useState(0);
   const itemsPerPage = 4;
-  const navigate = useNavigate();
-  const { addToCart } = useCart();
-
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
   const next = () => {
@@ -19,11 +16,16 @@ export default function ProductCarousel({ title, products }) {
 
   const prev = () => {
     setStartIndex((prev) =>
-      prev - itemsPerPage < 0 ? products.length - itemsPerPage : prev - itemsPerPage
+      prev - itemsPerPage < 0
+        ? products.length - itemsPerPage
+        : prev - itemsPerPage
     );
   };
 
-  const visibleProducts = products.slice(startIndex, startIndex + itemsPerPage);
+  const visibleProducts = products.slice(
+    startIndex,
+    startIndex + itemsPerPage
+  );
 
   return (
     <section className="product-carousel" aria-label={title}>
@@ -44,38 +46,7 @@ export default function ProductCarousel({ title, products }) {
           }`}
         >
           {visibleProducts.map((product) => (
-            <div
-              key={product.id}
-              className="product-card"
-              onClick={() => navigate(`/produkt/${product.id}`)}
-              role="button"
-              tabIndex={0}
-              onKeyDown={(e) =>
-                e.key === "Enter" && navigate(`/produkt/${product.id}`)
-              }
-            >
-              <img src={product.image} alt={product.alt} />
-              <p className="brand">{product.brand}</p>
-              <p>{product.name}</p>
-              <p>{product.price}</p>
-              <div className="card-actions">
-                <button
-                  className="add-to-cart"
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    addToCart(product);
-                  }}
-                >
-                  Læg i kurv
-                </button>
-                <button
-                  onClick={(e) => e.stopPropagation()}
-                  aria-label="Føj til favoritter"
-                >
-                  🤍
-                </button>
-              </div>
-            </div>
+            <ProductCard key={product.id} product={product} />
           ))}
         </div>
 
