@@ -1,7 +1,7 @@
 // src/components/Navbar.jsx
 import { useCart } from "../context/CartContext";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const categories = [
   {
@@ -100,6 +100,16 @@ const categories = [
 
 export default function Navbar() {
   const { cart } = useCart();
+  const [search, setSearch] = useState("");
+  const navigate = useNavigate();
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim() !== "") {
+      navigate(`/soeg?q=${encodeURIComponent(search.trim())}`);
+      setSearch("");
+    }
+  };
 
   return (
     <header>
@@ -115,16 +125,20 @@ export default function Navbar() {
             🐶 Cotonshoppen
           </Link>
 
-          <form className="search-form" role="search" aria-label="Søg">
-            <label htmlFor="search" className="sr-only">Søg</label>
+          {/* Søgning */}
+          <form className="search-form" role="search" onSubmit={handleSubmit}>
+            <label htmlFor="search" className="sr-only"></label>
             <input
               id="search"
               name="search"
               type="search"
               placeholder="Søg her..."
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
             />
           </form>
 
+          {/* Ikoner */}
           <div className="nav-icons">
             <button aria-label="Favoritter">🤍</button>
             <Link to="/kurv" aria-label="Kurv">
@@ -145,11 +159,7 @@ export default function Navbar() {
             {cat.subcategories.length > 0 && (
               <div className="dropdown">
                 {cat.subcategories.map((sub) => (
-                  <Link
-                    to={sub.path}
-                    key={sub.name}
-                    className="dropdown-item"
-                  >
+                  <Link to={sub.path} key={sub.name} className="dropdown-item">
                     {sub.name}
                   </Link>
                 ))}
