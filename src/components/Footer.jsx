@@ -1,4 +1,5 @@
 import "./Footer.css";
+import { FaFacebookF, FaYoutube, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
   return (
@@ -9,9 +10,36 @@ export default function Footer() {
           <h3>Følg os</h3>
           <nav aria-label="Sociale medier">
             <ul className="social-icons">
-              <li><a href="#" aria-label="Facebook"><span role="img" aria-hidden="true">📘</span></a></li>
-              <li><a href="#" aria-label="YouTube"><span role="img" aria-hidden="true">▶️</span></a></li>
-              <li><a href="#" aria-label="Instagram"><span role="img" aria-hidden="true">📸</span></a></li>
+              <li>
+                <a
+                  href="https://facebook.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Facebook"
+                >
+                  <FaFacebookF size={20} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://youtube.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="YouTube"
+                >
+                  <FaYoutube size={20} />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://instagram.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="Instagram"
+                >
+                  <FaInstagram size={20} />
+                </a>
+              </li>
             </ul>
           </nav>
         </div>
@@ -20,7 +48,11 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Kontakt os</h3>
           <p><strong>Hej@cotonshoppen.dk</strong></p>
-          <p>CBM Trading ApS<br />Ørvadsvej 55B<br />8220 Brabrand</p>
+          <p>
+            CBM Trading ApS<br />
+            Ørvadsvej 55B<br />
+            8220 Brabrand
+          </p>
           <p>CVR: 37821845</p>
         </div>
 

@@ -4,13 +4,18 @@ import ProductList from "../components/ProductList";
 import "./Nyheder.css";
 
 export default function KategoriSide() {
-  const { kategori = "nyheder", slug } = useParams(); // fallback til nyheder
+  const { kategori = "nyheder", slug } = useParams();
 
-  const sti = slug ? `/${kategori}/${slug}` : `/${kategori}`;
+  // Sørg for at sti matcher formatering i products.js
+  const sti = slug
+    ? `/${decodeURIComponent(kategori).toLowerCase()}/${decodeURIComponent(slug).toLowerCase()}`
+    : `/${decodeURIComponent(kategori).toLowerCase()}`;
 
   const filtreredeProdukter = products.filter((p) =>
     p.kategorier?.some((kat) =>
-      kat === sti || kat.startsWith(`${sti}/`) || (!slug && kat.startsWith(`/${kategori}`))
+      kat === sti ||
+      kat.startsWith(`${sti}/`) ||
+      (!slug && kat.startsWith(`/${kategori}`))
     )
   );
 
@@ -23,7 +28,7 @@ export default function KategoriSide() {
   return (
     <ProductList
       products={filtreredeProdukter}
-      title={titleMap[kategori] || "📦 Kategori"}
+      title={titleMap[kategori.toLowerCase()] || "📦 Kategori"}
     />
   );
 }

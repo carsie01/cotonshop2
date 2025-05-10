@@ -1,3 +1,4 @@
+// src/App.jsx
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -13,21 +14,11 @@ import InfoBanner from "./components/InfoBanner";
 import KategoriSide from "./pages/KategoriSide";
 import SoegeSide from "./pages/SoegeSide";
 
-// Dummy data – flyt evt. til products.js senere
-const popularProducts = [
-  { id: "123", image: "/images/product1.jpg", alt: "Hundesele med snor", brand: "Ollipet", name: "Paris City sæt", price: "376 kr" },
-  { id: "456", image: "/images/product2.jpg", alt: "Hvalpegård foldbar", brand: "PawHut", name: "Hvalpegård", price: "449 kr" },
-  { id: "789", image: "/images/product3.jpg", alt: "Hundevogn brun", brand: "DogRider", name: "3-hjulet hundevogn", price: "999 kr" },
-  { id: "321", image: "/images/product4.jpg", alt: "Hundeseng grå", brand: "LuksusBed", name: "Blød kurv XL", price: "299 kr" },
-  { id: "654", image: "/images/product5.jpg", alt: "Hundeseng lyserød", brand: "LuksusBed", name: "Kurv til små hunde", price: "279 kr" },
-];
+import products from "./data/products"; // ✅ importér fælles datakilde
 
-const recommendedProducts = [
-  { id: "111", image: "/images/product6.jpg", alt: "Hundefrakke med refleks", brand: "Ollipet", name: "Vinterjakke til hund", price: "249 kr" },
-  { id: "222", image: "/images/product7.jpg", alt: "Bold med reb", brand: "PlayDog", name: "Træningslegetøj", price: "59 kr" },
-  { id: "333", image: "/images/product8.jpg", alt: "Snusemåtte", brand: "PawFun", name: "Mental aktivering", price: "199 kr" },
-  { id: "444", image: "/images/product9.jpg", alt: "Køletaske til foder", brand: "FidoBag", name: "Transporttaske m. isolering", price: "379 kr" },
-];
+// 📦 Filtrér produkter med tags
+const popularProducts = products.filter((p) => p.tags?.includes("populaer"));
+const recommendedProducts = products.filter((p) => p.tags?.includes("anbefalet"));
 
 export default function App() {
   return (
@@ -58,7 +49,7 @@ export default function App() {
         <Route path="/:kategori" element={<KategoriSide />} />
         <Route path="/:kategori/:slug" element={<KategoriSide />} />
 
-        {/* 🛒 Kurv og produkter */}
+        {/* 🛒 Kurv og produktsider */}
         <Route path="/kurv" element={<CartPage />} />
         <Route path="/produkt/:id" element={<ProductPage />} />
       </Routes>

@@ -5,7 +5,7 @@ import "./InfoBanner.css";
 const bannerItems = [
   "Billig og hurtig levering i DK",
   "60 Dages returret",
-  "Fri fragt over ---kr",
+  "Fri fragt over 499kr",
   "17 års erfaring",
 ];
 

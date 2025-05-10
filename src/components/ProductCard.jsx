@@ -9,41 +9,54 @@ export default function ProductCard({ product }) {
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false);
 
+  console.log("Klikbart produkt:", product?.id); // ✅ nu er det inde i funktionen
+
   const handleNavigate = () => {
+    if (!product?.id) return;
     navigate(`/produkt/${product.id}`);
   };
 
   const handleAddToCart = (e) => {
-    e.stopPropagation();
+    e.stopPropagation(); // forhindrer klik på kortet
     addToCart(product);
     setShowModal(true);
   };
 
   return (
     <>
-      <div
+      <article
         className="product-card"
         onClick={handleNavigate}
         role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && handleNavigate()}
       >
-        <img src={product.image} alt={product.alt || product.name} />
+        <img
+          src={product.image}
+          alt={product.alt || product.name}
+          className="product-image"
+        />
         <p className="brand">{product.brand}</p>
-        <p>{product.name}</p>
-        <p>{product.price}</p>
+        <p className="product-name">{product.name}</p>
+        <p className="product-price">{product.price}</p>
+
         <div className="card-actions">
-          <button className="add-to-cart" onClick={handleAddToCart}>
+          <button
+            className="add-to-cart"
+            onClick={handleAddToCart}
+            type="button"
+          >
             Læg i kurv
           </button>
           <button
             onClick={(e) => e.stopPropagation()}
+            type="button"
             aria-label="Føj til favoritter"
           >
             🤍
           </button>
         </div>
-      </div>
+      </article>
 
       {showModal && (
         <AddToCartModal

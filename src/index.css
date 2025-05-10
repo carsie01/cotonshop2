@@ -38,7 +38,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
+  padding: 18px 25px;
   background-color: white;
   border-bottom: 1px solid #ddd;
 }
@@ -69,9 +69,27 @@ header {
 /* Ikoner */
 .nav-icons {
   display: flex;
+  gap: 1.5rem;
   align-items: center;
-  gap: 10px;
 }
+
+.nav-icons a,
+.nav-icons button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+  display: flex;
+  align-items: center;
+}
+
+.cart-count {
+  margin-left: 4px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #f4a740;
+}
+
 
 .nav-icons button {
   background: none;
@@ -89,9 +107,10 @@ header {
   align-items: center;
   padding: 10px 0;
   height: auto;
-  gap: 20px;
+  gap: 10px;
   position: relative;
   font-weight: bold;
+  font-size: 15px;
 }
 
 /* Dropdown struktur */
