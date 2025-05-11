@@ -1,7 +1,6 @@
 .carousel-container {
     overflow: hidden;
     background-color: #e0f3fc;
-    padding: 30px 0;
     position: relative;
     
   }
@@ -20,7 +19,7 @@
   
   .carousel-image {
     width: 1150px;
-    max-height: 400px;
+    max-height: 500px;
     object-fit: cover;
     border-radius: 8px;
   }
@@ -30,7 +29,20 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #f4a740;
+    background-color: #E37500;
+    color: white;
+    border: none;
+    padding: 14px 24px;
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .carousel-button:hover {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #9C5000;
     color: white;
     border: none;
     padding: 14px 24px;
@@ -49,7 +61,7 @@
   .dot {
     width: 14px;
     height: 14px;
-    background-color: #f4a740;
+    background-color: #E37500;
     border-radius: 50%;
     border: none;
     cursor: pointer;
@@ -74,7 +86,7 @@
   
   .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.9s ease-in-out;
   }
   
   .carousel-slide {

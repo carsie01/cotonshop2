@@ -1,21 +1,23 @@
 .product-card {
   background: white;
-  border: 3px solid #f4a740;
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px;
   width: 100%;
-  max-width: 200px;
+  max-width: 250px;
   text-align: center;
   flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  z-index: 1;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
+  border: 1px solid transparent;
+  position: relative;
   cursor: pointer;
+  z-index: 1;
 }
 
 .product-card:hover {
   z-index: 10;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 2px solid #333;
 }
 
 .product-card img {
@@ -31,29 +33,104 @@
   color: #333;
 }
 
+.product-name {
+  font-weight: 600;
+}
+
 .brand {
-  color: #0079c2;
+  color: #E37500;
   font-weight: bold;
   font-size: 14px;
 }
 
+.price-wrapper {
+  margin-top: 8px;
+}
+
+.product-price {
+  color: #b22222;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+.old-price {
+  text-decoration: line-through;
+  color: #cc6699;
+  font-size: 13px;
+  margin-left: 6px;
+}
+
+.savings {
+  font-size: 13px;
+  color: #555;
+}
+
+.shipping-info {
+  font-size: 12px;
+  color: #666;
+}
+
+/* Mærker */
+.image-wrapper {
+  position: relative;
+}
+
+.product-badge {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  padding: 3px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 999px;
+  line-height: 1;
+}
+
+.badge-discount {
+  background-color: #c0392b;
+  margin-bottom: 4px;
+}
+
+.badge-new {
+  background-color: #27ae60;
+  top: 32px;
+}
+
+/* Knapper */
 .card-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-top: 10px;
+  gap: 8px;
 }
 
 .add-to-cart {
-  background-color: #f4a740;
+  background-color: #E37500;
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
   color: white;
   cursor: pointer;
   font-size: 14px;
+  flex: 1;
 }
 
 .add-to-cart:hover {
-  background-color: #e69722;
+  background-color: #9C5000;
+}
+
+.heart-button {
+  background: none;
+  border: 1px solid #ccc;
+  padding: 6px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.heart-button:hover {
+  border-color: #999;
 }

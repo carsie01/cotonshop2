@@ -1,0 +1,182 @@
+/* === GENERELT === */
+.kategori-side {
+  background: #e5f6ff;
+  padding: 40px 0;
+}
+
+/* === LAYOUT DESKTOP === */
+.kategori-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+  align-items: start;
+}
+
+/* === FILTERBOKS === */
+.filters {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 16px 20px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  font-family: sans-serif;
+  max-width: 100%;
+  height: fit-content;
+  align-self: start;
+}
+
+.filter-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 700;
+  font-size: 20px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 8px;
+}
+
+.filter-section {
+  border-bottom: 1px solid #e0e0e0;
+  padding: 12px 0;
+}
+
+.filter-toggle {
+  background: none;
+  border: none;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
+  cursor: pointer;
+  color: #333;
+}
+
+.filter-toggle span {
+  font-size: 14px;
+}
+
+/* === CUSTOM DROPDOWN === */
+.custom-dropdown {
+  position: relative;
+  width: 100%;
+  margin-top: 10px;
+}
+
+.dropdown-button {
+  width: 100%;
+  padding: 8px 12px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.dropdown-button .arrow {
+  font-size: 12px;
+}
+
+.dropdown-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: white;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  margin-top: 4px;
+  z-index: 10;
+  max-height: 200px;
+  overflow-y: auto;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.dropdown-list li {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+.dropdown-list li:hover {
+  background: #eee;
+}
+
+/* === PRODUKTER === */
+.produkt-oversigt {
+  width: 100%;
+  min-width: 0;
+}
+
+.intro-text {
+  font-size: 16px;
+  margin: 8px 0 24px;
+  line-height: 1.6;
+  max-width: 700px;
+}
+
+/* === PRODUKTGRID === */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+/* === "SE MERE" KNAP === */
+.produkt-oversigt button {
+  padding: 10px 20px;
+  background-color: #E37500;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.2s ease;
+  margin-top: 24px;
+}
+
+.produkt-oversigt button:hover {
+  background-color: #9C5000;
+}
+
+/* === RESPONSIV === */
+@media (max-width: 1024px) {
+  .kategori-layout {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .filters {
+    order: -1;
+    width: 100%;
+    margin-bottom: 24px;
+    padding: 16px;
+    border-radius: 8px;
+  }
+
+  .produkt-oversigt {
+    order: 1;
+  }
+
+  .product-grid {
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .filters {
+    padding: 12px;
+  }
+
+  .produkt-oversigt button {
+    width: 100%;
+  }
+}

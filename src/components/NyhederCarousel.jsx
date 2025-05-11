@@ -6,23 +6,23 @@ const slides = [
   {
     id: 1,
     image: "/images/nyhed1.jpg",
-    alt: "Lille hund i bæretaske",
+    alt: "billede af nyhedsbrev. Spar 10 procent på nye hundesenge og farver fra ollipet.",
     link: "/hundetilbehoer",
-    text: "Se Udvalget Her",
+    text: "SE UDVALGET HER",
   },
   {
     id: 2,
     image: "/images/nyhed2.jpg",
-    alt: "Hvalpeudstyr nyheder",
-    link: "/hvalpeudstyr",
-    text: "Se Hvalpenyheder",
+    alt: "billede af nyhedsbanner. Mors dag, fejre det med forkælelse. Spar op til 30 procent på udvalgte varer.",
+    link: "/tilbud",
+    text: "SE HER",
   },
   {
     id: 3,
     image: "/images/nyhed3.jpg",
-    alt: "Transportudstyr til hunde",
-    link: "/transport",
-    text: "Se Transport",
+    alt: "billede af nyhedsbanner. Spar 10 procent på nyheder og nye faver i en dusty army grøn og en mat gul, fra dog copenhagen. ",
+    link: "/dogcopenhagen",
+    text: "FIND DEM HER",
   },
 ];
 
@@ -37,7 +37,7 @@ export default function NyhederCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       nextSlide();
-    }, 3000);
+    }, 4000);
     return () => clearInterval(interval);
   }, []);
 
