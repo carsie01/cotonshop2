@@ -14,7 +14,7 @@
   }
   
   .welcome-image {
-    flex: 1 1 300px;
+    flex: 1 1 250px;
     max-width: 400px;
     border-radius: 12px;
     object-fit: cover;
@@ -31,6 +31,15 @@
     font-size: 24px;
     margin-bottom: 16px;
     color: #222;
+  }
+  @media (max-width: 768px) {
+    .welcome-image {
+      flex: 1 1 150px;
+      max-width: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
   }
 
   

@@ -1,10 +1,31 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductCarousel.css";
 
 export default function ProductCarousel({ title, products }) {
   const [startIndex, setStartIndex] = useState(0);
-  const itemsPerPage = 4;
+  const [itemsPerPage, setItemsPerPage] = useState(4);
+
+  // Responsivt: Juster items per page
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      const width = window.innerWidth;
+      if (width < 600) {
+        setItemsPerPage(1);
+      } else if (width < 900) {
+        setItemsPerPage(2);
+      } else if (width < 1200) {
+        setItemsPerPage(3);
+      } else {
+        setItemsPerPage(4);
+      }
+    };
+
+    updateItemsPerPage();
+    window.addEventListener("resize", updateItemsPerPage);
+    return () => window.removeEventListener("resize", updateItemsPerPage);
+  }, []);
+
   const totalPages = Math.ceil(products.length / itemsPerPage);
 
   const next = () => {
@@ -39,11 +60,7 @@ export default function ProductCarousel({ title, products }) {
           ◀
         </button>
 
-        <div
-          className={`product-track ${
-            visibleProducts.length < itemsPerPage ? "centered" : ""
-          }`}
-        >
+        <div className="product-track">
           {visibleProducts.map((product) => (
             <ProductCard
               key={product.id}

@@ -86,11 +86,11 @@ export default function Footer() {
       <div className="footer-bottom container">
         <div className="trust-section">
           <p><strong>Fremragende</strong></p>
-          <img src="/images/trustpilot.png" alt="Trustpilot 5 stjerner" />
+          <img src="/images/stars-5.png" alt="Trustpilot 5 stjerner" />
         </div>
         <div className="cert-section">
-          <img src="/images/emærket.png" alt="E-mærket logo" />
-          <img src="/images/payment.png" alt="Betalingsmetoder" />
+          <img src="/images/emærket.png" alt="E-mærket webshop" />
+          <img src="/images/payment.png" alt="Du kan betale med Dankort, visa, visa electron, mastarcard, maestro, american express, jcb og mobliepay" />
           <img src="/images/vet.png" alt="Lovligt registreret webshop" />
           <img src="/images/co2.png" alt="CO2 neutralt website" />
         </div>

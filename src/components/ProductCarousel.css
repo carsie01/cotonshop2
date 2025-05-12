@@ -31,9 +31,9 @@
   align-items: center;
   justify-content: center;
 }
+
 .arrow-button:hover {
   background-color: #f4a740;
-
 }
 
 .product-track {
@@ -43,7 +43,7 @@
   justify-content: center;
   flex: 1;
   padding: 0 20px;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .carousel-dots {
@@ -66,8 +66,10 @@
 .dot.active {
   opacity: 1;
 }
+
 .product-card.carousel-card {
-  width: 230px;
+  width: 100%;
+  max-width: 230px;
   min-height: 420px;
   display: flex;
   flex-direction: column;
@@ -85,4 +87,16 @@
 
 .product-card.carousel-card .card-actions {
   margin-top: auto;
+}
+
+@media (max-width: 900px) {
+  .product-card.carousel-card {
+    max-width: 48%;
+  }
+}
+
+@media (max-width: 600px) {
+  .product-card.carousel-card {
+    max-width: 100%;
+  }
 }
