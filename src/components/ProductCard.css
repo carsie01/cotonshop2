@@ -1,16 +1,15 @@
 .product-card {
+  max-width: 280px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   background: white;
   border-radius: 8px;
   padding: 12px;
-  width: 100%;
-  max-width: 250px;
-  text-align: center;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border 0.3s ease;
-  border: 1px solid transparent;
+  transition: 0.3s;
   position: relative;
-  cursor: pointer;
-  z-index: 1;
+  border: 1px solid transparent;
 }
 
 .product-card:hover {
@@ -20,61 +19,24 @@
   border: 2px solid #333;
 }
 
+/* Billeder */
 .product-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 6px;
-  margin-bottom: 8px;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
 }
 
-.product-card p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #333;
-}
-
-.product-name {
-  font-weight: 600;
-}
-
-.brand {
-  color: #E37500;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.price-wrapper {
-  margin-top: 8px;
-}
-
-.product-price {
-  color: #b22222;
-  font-weight: bold;
-  font-size: 16px;
-}
-
-.old-price {
-  text-decoration: line-through;
-  color: #cc6699;
-  font-size: 13px;
-  margin-left: 6px;
-}
-
-.savings {
-  font-size: 13px;
-  color: #555;
-}
-
-.shipping-info {
-  font-size: 12px;
-  color: #666;
-}
-
-/* Mærker */
 .image-wrapper {
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+  padding-bottom: 30px;
   position: relative;
 }
 
+/* Mærker */
 .product-badge {
   position: absolute;
   top: 8px;
@@ -97,13 +59,70 @@
   top: 32px;
 }
 
-/* Knapper */
+/* Tekst */
+.product-card .product-card p {
+  margin: 4px 0;
+  font-size: 14px;
+  color: #333;
+}
+
+.product-card .product-name {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.product-card .brand {
+  font-size: 14px;
+  color: #203db3;
+}
+
+.product-card .product-price {
+  font-size: 16px;
+  font-weight: bold;
+  color: #b22222;
+}
+
+.old-price {
+  font-size: 13px;
+  text-decoration: line-through;
+  color: #cc6699;
+  margin-left: 6px;
+}
+
+.price-wrapper {
+  margin-top: 8px;
+}
+
+.savings {
+  font-size: 13px;
+  color: #555;
+}
+
+.shipping-info {
+  font-size: 12px;
+  color: #666;
+}
+
+/* === Knapper === */
 .card-actions {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 10px;
   gap: 8px;
+  margin-top: auto;
+
+  /* Skjult som standard */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+/* Vis kun ved hover */
+.product-card:hover .card-actions {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 .add-to-cart {
@@ -133,4 +152,50 @@
 
 .heart-button:hover {
   border-color: #999;
+}
+/* Gælder kun i modal */
+.product-card.modal-card {
+  max-width: 150px;          /* gør kortet smallere */
+  padding: 8px;              /* mindre padding */
+  font-size: 13px;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  box-shadow: none;
+  height: auto;              /* override fast højde */
+}
+
+/* reducer billedhøjde */
+.product-card.modal-card .image-wrapper {
+  height: 120px;             /* lavere højde */
+  padding-bottom: 0;
+  margin-bottom: 6px;
+}
+
+.product-card.modal-card .product-image {
+  height: 80px;
+  object-fit: contain;
+}
+
+/* reducer tekstafstand og størrelser */
+.product-card.modal-card .product-name {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.product-card.modal-card .brand,
+.product-card.modal-card .product-price {
+  font-size: 13px;
+  margin-bottom: 2px;
+}
+
+/* fjern rabat og fragt-info */
+.product-card.modal-card .savings,
+.product-card.modal-card .shipping-info {
+  display: none;
+}
+
+/* skjul knapper helt */
+.product-card.modal-card .card-actions {
+  display: none !important;
 }

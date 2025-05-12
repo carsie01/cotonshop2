@@ -18,10 +18,10 @@
   }
   
   .carousel-image {
-    width: 1150px;
-    max-height: 500px;
+    width: 100%;
+    max-height: 600px;
     object-fit: cover;
-    border-radius: 8px;
+    
   }
   
   .carousel-button {
@@ -74,7 +74,7 @@
   }
   .carousel-container {
     background-color: #e0f3fc;
-    padding: 30px 0;
+   
   }
   
   .carousel-wrapper {

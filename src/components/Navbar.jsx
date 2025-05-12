@@ -1,179 +1,117 @@
 import { useCart } from "../context/CartContext";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
-import { Heart, User, ShoppingCart } from "lucide-react";
+import { useState, useEffect, useRef } from "react";
+import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
 
 const categories = [
-  {
-    name: "Tilbud",
-    path: "/tilbud",
-    subcategories: [
-      { name: "Sæt af vare m. Rabat", path: "/tilbud/sæt" },
-      { name: "Sidste Chance", path: "/tilbud/sidstechance" },
-      { name: "Spot tilbud", path: "/tilbud/spot" },
-    ],
-  },
-  {
-    name: "Nyheder",
-    path: "/nyheder",
-    subcategories: [{ name: "Se Nyheder", path: "/nyheder/2025" }],
-  },
-  {
-    name: "Hundepleje",
-    path: "/hundepleje",
-    subcategories: [
-      { name: "Pelspleje", path: "/hundepleje/pelspleje" },
-      { name: "Poter og klør", path: "/hundepleje/poterogklør" },
-      { name: "Øjne og ører", path: "/hundepleje/øjneogører" },
-      { name: "Tandpleje", path: "/hundepleje/tandpleje" },
-      { name: "Trimmere og Klippemaskiner", path: "/hundepleje/trimmerogklippemaskiner" },
-      { name: "Diverse hundepleje", path: "/hundepleje/diverse" },
-      { name: "Hunde pleje sæt", path: "/hundepleje/sæt" },
-    ],
-  },
-  {
-    name: "Hvalpeudstyr",
-    path: "/hvalpeudstyr",
-    subcategories: [
-      { name: "Til opdrættere", path: "/hvalpeudstyr/opdrættere" },
-      { name: "Hvalpe sæt", path: "/hvalpeudstyr/sæt" },
-      { name: "Hvalpe legetøj", path: "/hvalpeudstyr/legetøj" },
-      { name: "Foder og godbidder til hvalpe", path: "/hvalpeudstyr/foder" },
-      { name: "Renlighedstræning", path: "/hvalpeudstyr/renlighedstræning" },
-      { name: "Pelspleje til hvalpe", path: "/hvalpeudstyr/pelspleje" },
-      { name: "Hvalpegård", path: "/hvalpeudstyr/hvalpegård" },
-      { name: "Snor og sele", path: "/hvalpeudstyr/snorogsele" },
-    ],
-  },
-  {
-    name: "Hundefoder",
-    path: "/hundefoder",
-    subcategories: [
-      { name: "Godbidder og ben", path: "/hundefoder/godbidderogben" },
-      { name: "Våd foder", path: "/hundefoder/vådfoder" },
-      { name: "Tør foder", path: "/hundefoder/tørfoder" },
-      { name: "Tilskud", path: "/hundefoder/tilskud" },
-    ],
-  },
-  {
-    name: "Hundelegetøj",
-    path: "/hundelegetøj",
-    subcategories: [
-      { name: "Slidestærkt legetøj", path: "/hundelegetøj/slidestærkt" },
-      { name: "Plys legetøj", path: "/hundelegetøj/plys" },
-      { name: "Aktivitetslegetøj", path: "/hundelegetøj/aktivitet" },
-      { name: "Snuse og slikkemåtte", path: "/hundelegetøj/snuseogslikmåtte" },
-      { name: "Bolde", path: "/hundelegetøj/blodt" },
-      { name: "Tandrensende legetøj", path: "/hundelegetøj/tandrens" },
-    ],
-  },
-  {
-    name: "Hundetilbehør",
-    path: "/hundetilbehoer",
-    subcategories: [
-      { name: "Senge og kurve", path: "/hundetilbehoer/sengogkurv" },
-      { name: "Mad-og vandskåle", path: "/hundetilbehoer/skåle" },
-      { name: "Sele og halsbånd", path: "/hundetilbehoer/halsbaandogsele" },
-      { name: "Hundesnor", path: "/hundetilbehoer/hundesnor" },
-      { name: "Hundetegn", path: "/hundetilbehoer/hundetegn" },
-      { name: "Poser og holdere", path: "/hundetilbehoer/poser" },
-      { name: "Tøj", path: "/hundetilbehoer/tøj" },
-      { name: "Sko", path: "/hundetilbehoer/sko" },
-      { name: "Trapper", path: "/hundetilbehoer/trapper" },
-      { name: "Hundebur", path: "/hundetilbehoer/hundebur" },
-      { name: "Tæpper", path: "/hundetilbehoer/tæppe" },
-    ],
-  },
-  {
-    name: "Transport",
-    path: "/transport",
-    subcategories: [
-      { name: "Hunde klapvogn", path: "/transport/klapvogn" },
-      { name: "Autostole", path: "/transport/autostol" },
-      { name: "Cykelkurv", path: "/transport/cykelkurv" },
-      { name: "Rygsæk", path: "/transport/rygsæk" },
-      { name: "Hundebur", path: "/transport/hundebur" },
-    ],
-  },
-  {
-    name: "Show",
-    path: "/show",
-    subcategories: [
-      { name: "Udstillings line", path: "/show/line" },
-      { name: "Udstillings vogn", path: "/show/vogn" },
-      { name: "Nummer clips", path: "/show/clips" },
-    ],
-  },
-  {
-    name: "Diverse",
-    path: "/diverse",
-    subcategories: [
-      { name: "Til hjemmet", path: "/diverse/hjem" },
-      { name: "Bøger om hunde", path: "/diverse/bøger" },
-      { name: "Best sellers", path: "/diverse/bedste" },
-      { name: "Højtider", path: "/diverse/højtid" },
-      { name: "Sæson", path: "/diverse/sæson" },
-      { name: "Batterier", path: "/diverse/batteri" },
-    ],
-  },
-  {
-    name: "Mærker",
-    path: "/maerker",
-    subcategories: [
-      { name: "Ollipet", path: "/maerker/ollipet" },
-      { name: "DogRider", path: "/maerker/dogrider" },
-      { name: "CoolDog", path: "/maerker/cooldog" },
-    ],
-  },
+  { name: "Tilbud", path: "/tilbud" },
+  { name: "Nyheder", path: "/nyheder" },
+  { name: "Hundepleje", path: "/hundepleje" },
+  { name: "Hvalpeudstyr", path: "/hvalpeudstyr" },
+  { name: "Hundefoder", path: "/hundefoder" },
+  { name: "Hundelegetøj", path: "/hundelegetoj" },
+  { name: "Hundetilbehør", path: "/hundetilbehoer" },
+  { name: "Transport", path: "/transport" },
+  { name: "Show", path: "/show" },
+  { name: "Diverse", path: "/diverse" },
+  { name: "Mærker", path: "/maerker" },
 ];
 
 export default function Navbar() {
   const { cart } = useCart();
   const [search, setSearch] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1175);
   const navigate = useNavigate();
+  const searchRef = useRef();
+
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleSearch = () => setShowMobileSearch((prev) => !prev);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (search.trim() !== "") {
+    if (search.trim()) {
       navigate(`/soeg?q=${encodeURIComponent(search.trim())}`);
       setSearch("");
+      setShowMobileSearch(false);
     }
   };
 
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1175);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    const handleKey = (e) => {
+      if (e.key === "Escape") setShowMobileSearch(false);
+    };
+    window.addEventListener("keydown", handleKey);
+    return () => window.removeEventListener("keydown", handleKey);
+  }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (showMobileSearch && searchRef.current && !searchRef.current.contains(event.target)) {
+        setShowMobileSearch(false);
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [showMobileSearch]);
+  
+
+  useEffect(() => {
+    if (showMobileSearch && searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, [showMobileSearch]);
+
   return (
     <header>
-      {/* Info bar */}
       <div className="top-info">
         🇩🇰 Danskejet | Gratis fragt over 499 kr. | 60 dages returret | Hurtig levering
       </div>
 
-      {/* Top del: logo, søgning og ikoner */}
       <div className="whiteboks">
         <div className="navbar">
-        <Link to="/" className="navbar-logo" aria-label="Hjem">
-  <img src="/images/logo.png" alt="Cotonshoppen.dk – For All Dogs" width="200" />
-</Link>
+          {isMobile && (
+            <button className="burger-menu" onClick={toggleMenu} aria-label="Åbn menu">
+              ☰
+            </button>
+          )}
 
-          {/* Søgning */}
-          <form className="search-form" role="search" onSubmit={handleSubmit}>
-            <input
-              id="search"
-              name="search"
-              type="search"
-              placeholder="Søg her..."
-              value={search}
-              onChange={(e) => setSearch(e.target.value)}
-            />
-          </form>
+          <Link to="/" className="navbar-logo" aria-label="Hjem">
+            <img src="/images/logo.png" alt="Cotonshoppen.dk – For All Dogs" width="200" />
+          </Link>
 
-          {/* Ikoner */}
+          {!isMobile && (
+            <form className="search-form" role="search" onSubmit={handleSubmit}>
+              <input
+                id="search"
+                name="search"
+                type="search"
+                placeholder="Søg her..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
+          )}
+
           <div className="nav-icons">
+            {isMobile && (
+              <button className="search-toggle" onClick={toggleSearch} aria-label="Åbn søgning">
+                <Search size={24} strokeWidth={1.75} />
+              </button>
+            )}
             <Link to="/favoritter" aria-label="Favoritter">
               <Heart size={24} strokeWidth={1.75} />
             </Link>
             <Link to="/kurv" aria-label="Kurv" className="cart-icon">
               <ShoppingCart size={24} strokeWidth={1.75} />
-              {cart.length > 0 && <span className="cart-count">({cart.length})</span>}
+              {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
             </Link>
             <Link to="/login" aria-label="Min konto">
               <User size={24} strokeWidth={1.75} />
@@ -182,25 +120,60 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Kategori-navigation */}
-      <nav className="category-bar" aria-label="Kategori-navigation">
-        {categories.map((cat) => (
-          <div className="category-item" key={cat.name}>
-            <Link to={cat.path} className="category-link">
-              {cat.name}
-            </Link>
-            {cat.subcategories.length > 0 && (
-              <div className="dropdown">
-                {cat.subcategories.map((sub) => (
-                  <Link to={sub.path} key={sub.name} className="dropdown-item">
-                    {sub.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+      {!isMobile && (
+        <nav className="category-bar" aria-label="Kategori-navigation">
+          {categories.map((cat) => (
+            <div className="category-item" key={cat.name}>
+              <Link to={cat.path} className="category-link">
+                {cat.name}
+              </Link>
+            </div>
+          ))}
+        </nav>
+      )}
+
+      {isMobile && menuOpen && (
+        <div className="mobile-menu" role="dialog" aria-modal="true">
+          <button className="close-menu" onClick={toggleMenu} aria-label="Luk menu">
+            ✕
+          </button>
+          <div className="mobile-categories">
+            {categories.map((cat) => (
+              <Link key={cat.name} to={cat.path} onClick={toggleMenu}>
+                {cat.name}
+              </Link>
+            ))}
           </div>
-        ))}
-      </nav>
+        </div>
+      )}
+
+      {isMobile && showMobileSearch && (
+        <div className="mobile-search-overlay" onClick={() => setShowMobileSearch(false)}>
+          <form
+            className="mobile-search-form"
+            onSubmit={handleSubmit}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <input
+              type="search"
+              placeholder="Søg her..."
+              value={search}
+              ref={searchRef}
+              onChange={(e) => setSearch(e.target.value)}
+              autoFocus
+            />
+            <button type="submit">Søg</button>
+            <button
+              type="button"
+              onClick={() => setShowMobileSearch(false)}
+              aria-label="Luk søgning"
+              className="search-close-btn"
+            >
+              <X size={20} />
+            </button>
+          </form>
+        </div>
+      )}
     </header>
   );
 }

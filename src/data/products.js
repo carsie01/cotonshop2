@@ -1,479 +1,1334 @@
 const products = [
     {
-      "id": "prod1",
-      "name": "Ollipet City Lux sæt | Små Roser z1",
-      "image": "/images/product1.jpg",
-      "alt": "billedet viser sele sættet, med gennemgående design af smukke små røde roser på en hvis baggrund.",
-      "price": "329,40kr",
-      "brand": "Ollipet",
-      "description": "Træd ind i byens pulserende liv med din firbenede kammerat ved din side og vores fortryllende Ollipet City Lux Serie med Små Roser. D. Den delikate City Lux Serie prydes med små rosendetaljer, der tilføjer en subtil elegance til din hunds udseende. De smukke roser er ikke kun en æstetisk detalje, men også et udtryk for den omsorg og kærlighed, du giver din hund. Kvaliteten af materialerne sikrer en holdbarhed, der matcher byens hektiske tempo. Dette unikke tilbehørssæt tilbyder både stil og funktionalitet til jeres urbane eventyr og gåture. Hold byens gader rene med den elegante høm høm-taske. Den diskrete fastgørelse til selen eller linen sikrer, at du altid er klar til at tage ansvar, uanset hvor I går. Oplev byen med et strejf af elegance og praktisk design med Ollipet City Lux Serie med Små Roser. Dette sæt er skabt til at gøre jeres byeventyr mindeværdige og behagelige. Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser.",
-      "kategorier": ["/hundetilbehoer", "/hundetilbehoer/hundesnore","/tilbud","/tilbud/sæt", "/maerker/ollipet"]
-    },
-    {
-        "id": "prod2",
-        "name": "Rund Hvalpe kravlegård | Kanvas",
-        "image": "/images/product2.jpg",
-        "alt": "Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne.",
-        "price": "199,00 kr",
-        "brand": "Ollipet",
-        "description": "Smart hvalpegård i kraftig kanvas. I denne hvalpegård giver du dine små hvalpe et frirum når de begynder at komme med ud i den store verden. Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne. Vi anbefaler at ligge et lækkert Vetbed tæppe ned i hvalpegården, for at gøre den ekstra hyggelig at være i. Hvalpegård i 2 størrelser - perfekt til første og anden del af hvalpenes liv. Hvalpegården fås i to størrelser, der passer til hvalpenes forskellige faser. Small er ideel til de første uger, hvor hvalpekuldet har brug for tæt kontakt med hundemor. Denne nærhed er vigtig da den hjælper dem med at holde varmen og giver nem adgang til mad. Når hvalpene bliver større og begynder at tumle og udforske, giver Large mere plads til leg. Når hvalpene er flyttet hjemmefra, kan den stilrene hvalpegård bruges som et trygt sted for hunden eller tages med på ferie, da den er let at folde sammen og fylder minimalt.",
-        "kategorier": [
+        id: "prod1",
+        name: "Ollipet City Lux sæt | Små Roser z1",
+        image: "/images/product1.jpg",
+        alt: "Billedet viser sele-sættet med små røde roser på hvid baggrund.",
+        brand: "Ollipet",
+      
+        // Pris & tilbud
+        price: "329.40",
+        oldPrice: "366.00",       // ← bruges til visning af førpris
+        rabat: 10,                // ← procentvis rabat (bruges til badge)
+      
+        // Highlights vises som liste
+        highlights: [
+            
+          "1 stk Ollipet City Lux Step-in hundesele | Små Roser",
+          "1 stk Ollipet City Lux line | Små Roser",
+          "1 stk. Ollipet City Lux høm-høm taske | Små Roser",
+          "1 stk Ollipet City Lux bandana | Små Roser"
+        ],
+      
+        // HTML-beskrivelse (renderes med dangerouslySetInnerHTML)
+        description: `
+         
+        <p>
+<strong>Ollipet City Lux sæt | Små Roser</strong></p> <p>Træd ind i byens pulserende liv med din firbenede kammerat ved din side og vores fortryllende Ollipet City Lux Serie med Små Roser!
+Dette unikke tilbehørssæt tilbyder både stil og funktionalitet til jeres urbane eventyr og gåture.
+
+          </p>
+          <p>
+       Den delikate City Lux Serie prydes med små rosendetaljer, der tilføjer en subtil elegance til din hunds udseende. De smukke roser er ikke kun en æstetisk detalje, men også et udtryk for den omsorg og kærlighed, du giver din hund. Kvaliteten af materialerne sikrer en holdbarhed, der matcher byens hektiske tempo.
+          </p><p>Hold byens gader rene med den elegante høm høm-taske. Den diskrete fastgørelse til selen eller linen sikrer, at du altid er klar til at tage ansvar, uanset hvor I går.</p>
+          <p>Oplev byen med et strejf af elegance og praktisk design med Ollipet City Lux Serie med Små Roser. Dette sæt er skabt til at gøre jeres byeventyr mindeværdige og behagelige.
+Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser.</p>
+         
+          <ul>
+            <li>Lækkert design</li>
+            <li>God pasform</li>
+             <li>Også god hvalpesele</li>
+            <li>Step-in sele, der ikke skal over hovedet</li>
+             <li>Med indvendig åndbar mesh</li>
+            <li>Med kliklås og D-ringe til linen</li>
+             <li>Med refleks</li>
+          </ul>
+         
+        `,
+      
+        // Filtrering og navigation
+        kategorier: [
+          "/hundetilbehoer",
+          "/hundetilbehoer/seler",
+          "/tilbud",
+          "/tilbud/saet",
+          "/maerker/ollipet"
+        ],
+      
+        // Tags bruges til fx “populær”, “anbefalet”, “nyhed”
+        tags: ["nyhed", "populaer"]
+      }
+      ,
+      {
+        id: "prod2",
+        name: "Rund Hvalpe kravlegård | Kanvas",
+        image: "/images/product2.jpg",
+        alt: "Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne.",
+        brand: "Ollipet",
+      
+        // Pris & tilbud
+        price: "199.00",
+     
+      
+        // Highlights som punktopstilling
+        highlights: [
+          "En stor og rummelig model",
+          "En lille model der giver mulighed for nærhed",
+          "Perfekt til hvalpe og voksne hunde af små racer",
+          "Løbegården er ideel til indendørs og udendørs brug",
+          "Foldes let sammen og tages med på tur."
+        ],
+      
+        // HTML-beskrivelse
+        description: `
+          <p><strong>Smart hvalpegård i kraftig kanvas</strong></p>
+          <p>I denne hvalpegård giver du dine små hvalpe et frirum, når de begynder at komme med ud i den store verden.</p>
+          <p>Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne.</p>
+          <p>Vi anbefaler at lægge et lækkert Vetbed tæppe ned i hvalpegården, for at gøre den ekstra hyggelig at være i.</p>
+          <p><strong>Hvorfor vælge en Ollipet Hvalpe kravlegård?</strong></p>
+          <ul>
+            <li>Perfekt til hvalpe og voksne hunde af små racer</li>
+            <li>Large er stor og rummelig</li>
+            <li>Small er lille og giver mulighed for at have hvalpene tæt på moren</li>
+            <li>Løbegården er ideel til indendørs og udendørs brug</li>
+            <li>Net i toppen forhindrer hunden i at springe ud (dette kan lynes helt af, så toppen er helt åben)</li>
+            <li>Holdes sammenklappet med et elastikbånd som er fastsyet</li>
+          </ul>
+          <p>Den stilrene hvalpegård kan også bruges som trygt sted for den voksne hund eller tages med på ferie – den er let at folde og fylder minimalt.</p>
+        `,
+      
+        // Navigation og kategorier
+        kategorier: [
           "/nyheder",
           "/hvalpeudstyr",
           "/hvalpeudstyr/hvalpegård",
           "/maerker/ollipet"
         ],
-        "tags": ["populaer"]
-    },
-    {
-      "id": "prod3",
-      "name": "Aarhus Hundejakke & dressurline | z1",
-      "image": "/images/product3.jpg",
-      "alt": "Hundjakke i faven khaki med matchende ligne. Fåes i blød teddy stoff eller et Quiltet look ",
-      "price": "357 kr",
-      "brand": "Ollipet",
-      "description": "Dette sæt er det perfekte valg til hundeejeren, der ønsker en balance mellem æstetik og praktiske egenskaber. en smuk og funktionel hundejakke kombineret med en matchende dressurline. Dette sæt er skabt til stilfulde gåture i overgangsperioder og lettere kulde, hvor komfort, funktionalitet og design går hånd i hånd.Vælg mellem to unikke varianter af jakken: den klassiske, diamantquiltede version med eksklusivt glat ydermateriale eller den lune og hyggelige teddyfleece-model – begge med blødt, glat inderfor, der skåner pelsen. Dressurlinen er ikke bare praktisk med sin justerbare længde og håndfri funktion – den er også stilkoordineret og udstyret med smukke guldfarvede detaljer, der matcher jakken perfekt.",
-      "kategorier": [ "/hundetilbehoer",
-        "/hundetilbehoer/tøj",
-        "/maerker/ollipet",
-        "/tilbud",
-    "/tilbud/sæt",
-    "/nyheder"],"tags": ["anbefalet"]
-    },
-    {
-      "id": "prod4",
-      "name": "Ollipet Bella Bloom Donutseng",
-      "image": "/images/product4.jpg",
-      "alt": "Rund, fyldig og blød donut hundekuv i plys for maksimal komfort, med sygninger der giver kurven et stillfyldt blomsterdesign",
-      "price": "159,00 kr",
-      "brand": "Ollipet",
-      "description": "Giv din hund den ultimative soveoplevelse med Ollipet Bella Bloom seng, en luksuriøs hundeseng designet til både komfort og stil. Med sit smukke, blomsterformede design og ekstra bløde “kaninbløde syof” er denne seng det perfekte hvilested for hunde, der elsker at putte og føle sig trygge. De runde, blødt kanter, giver en indbydende følelse af omsluttende tryghed, der beroliger både krop og sjæl– ideel til både hvalpe, voksne og ældre hunde. Denne lækre hundeseng kommer i tre størrelser, så du nemt kan finde den perfekte pasform til din firbenede ven af mindre racer. Vælg mellem fem elegante farver – grøn, lyserød, khaki, mørkebrun og mørkegrå – som smukt matcher enhver indretning. Ollipet Bella Bloom seng kombinerer moderne æstetik med praktisk komfort, og er et uundværligt valg for den kræsne hundeejer.",
-      "kategorier": ["/nyheder","/hvalpeudstyr", "/hundetilbehoer","/hundetilbehoer/sengogkurv","/maerker/ollipet",
-]
-,"tags": ["populaer"]
-    },
-    {
-      "id": "prod5",
-      "name": "Yaki Tyggeben",
-      "image": "/images/product5.jpg",
-      "alt": "100% naturlig hundetyggeben med lang tyggetid",
-      "price": "35,95 kr",
-      "brand": "Yaki dog snacks",
-      "description": "Giv din hund en lækker og naturlig snack med Yaki tyggeben, fremstillet af skummetmælk og citronsyre. Denne unikke blanding skaber et tyggeben med lang tyggetid, som hjælper med at reducere stress hos hunde samt forebygger plak og tandsten.Her er hverken tilsat farvestoffer, konserveringsmidler, gluten, lactose eller nogen former for kemi, og de har ekstremt lavt fedtindhold.",
-      "kategorier": ["/hundefoder","/hundefoder/godbidderogben","/maerker/yaki"],"tags": ["anbefalet"]
-    },
-    {
-        "id": "prod6",
-        "name": "Ollipet hvil og spis brown kit | z1",
-        "image": "/images/product6.jpg",
-        "alt": "Matchende sæt i skandinavisk stil. Inkluderer seng, skåle og underlag i jordnære farver. Hvis, sand og khaki",
-        "price": "572,60 kr",
-        "brand": "Ollipet",
-        "description": "Giv din hund en helhedsoplevelse med Ollipet Hvil & Spis Brown Kit – et nøje sammensat sæt bestående af en blød og støttende Ollipet Nordic Star Teddy hundeseng, to stilfulde Ollipet Nordic Delight hundeskåle, samt et praktisk og elegant spiseunderlag. Dette kit er skabt til den kvalitetsbevidste hundeejer, der ikke vil gå på kompromis med hverken æstetik eller funktionalitet. Alle tre dele er designet i matchende, jordnære farver og materialer, som skaber ro og balance i hjemmet, samtidig med at de opfylder hundens behov for komfort, hygiejne og praktisk anvendelighed.",
-        "kategorier": ["/tilbud","/tilbud/sæt","/maerker/ollipet","/hundetilbehoer/sengogkurv","/hundetilbehoer","/nyheder"],"tags": ["anbefalet"]
+      
+        // Tags bruges til labels (populær, nyhed, anbefalet osv.)
+        tags: ["populaer"]
       },
+      
       {
-        "id": "prod7",
-        "name": "KW Pelsplejesæt | Filter i pelsen ",
-        "image": "/images/product7.jpg",
-        "alt": "Billede af sættet som indeholder en 2-i-1 shampoo, en tanglefix, en filtknuser og en rullekam",
-        "price": "316,80 kr",
-        "brand": "KW",
-        "description": "Dette pelsplejesæt fra KW er skræddersyet til langhårede racer, der ofte oplever filt i deres pels. Sættet indeholder en 2-i-1 shampoo, en tanglefix, en filtknuser og en rullekam, som er nødvendige værktøjer til at holde pelsen i topform. <br> KW 2-i-1 shampoo og balsam er en kombineret formel, der giver en blød og glansfuld pels, samtidig med at den gør det nemmere at rede pelsen ud. Den modvirker desuden statisk elektricitet og filt i pelsen, hvilket er særligt nyttigt for langhårede racer.<br> Til at håndtere filt i pelsen kommer KW Tanglefix til undsætning. Denne effektive filtfjerner kan bruges både i våd og tør pels og hjælper med at løsne og fjerne filtre på en skånsom måde.<br>Sættet inkluderer også en KW Filtknuser, der er designet til at håndtere små filtre i pelsen. Denne filtknuser fjerner filtre effektivt og skånsomt for at holde pelsen fri for sammenfiltrede områder.<br> Endelig får du en praktisk rullekam med i sættet, som er velegnet til racer med mellemlangt, langt og tykt pels. Rullekammen er ideel til at fjerne filtre og holde pelsen i god stand.",
-        "kategorier": ["/hundepleje", "/hundepleje/pelspleje","/maerker/kw","/hundepleje/sæt",]
-      },
-      {
-        "id": "prod8",
-        "name": "Ollipet Poteklipper og potevoks ",
-        "image": "/images/product8.jpg",
-        "alt": "billede af sættet som indeholder Ollipet Poteklippemaskine, hvor der medfølger 2 klippeskær 2,5 cm bred og 1,5 cm. bred, 2 afstandskamme 1,5 mm. og 3 mm., 1 neglefil, lille børste og potevoks.",
-        "price": "366,30 kr",
-        "brand": "Ollipet",
-        "description": "Ollipets lille, praktiske 2i1 klippemaskine til trimning af pelsen under- og mellem trædepuderne, samt fil til hundens klør.<br>En støjsvag trimmer, du kan anvende, når pelsen under- og imellem hundens trædepoter skal klippes - eller, hvis kløerne trænger til at blive filet. Maskinen er super handy, og let at anvende - selv til de små hunderacer! Du får 2 forskellige funktioner i én og samme maskine: Det er smart!<br>Ollipet Poteklippemaskine er også god at anvende ved andre små detaljeklip som f.eks. ørerne, pelsen omkring øjnene og på andre mindre trimmeområder som f.eks. ved tissetøjet.<br>Ligeledes er den også god til at klippe mindre filtre af, på både hunde og katte. I pakken medfølger 2 afstandskamme, 1,5mm/3mm. så du kan klippe pelsen i forskellige længder. (Maskinen egner sig ikke til at klippe en hund i bamseklipning)<br>Poteklippemaskine fra Ollipet er ikke bare en klippemaskine: den kan nemlig laves om til en elektrisk neglefil! En smart og nem måde at give neglene en sidste finish efter negleklipning, men den kan også anvendes, hvis hunden ikke bryder sig om neglesaksen, så kan man bruge filen jævnligt i stedet.",
-        "kategorier": ["/hundepleje",  "/hundepleje/poterogklør","/maerker/ollipet","/hundepleje/trimmerogklippemaskiner","/tilbud","/tilbud/sæt","/hundepleje/sæt",]
-      },
-      {
-        "id": "prod9",
-        "name": "John Paul Pet | Ear & Eye Pet Wipes",
-        "image": "/images/product9.jpg",
-        "alt": "Billede af John Paul Pet Ear & Eye Pet Wipes renser ",
-        "price": "149,00 kr",
-        "brand": "John Paul Pet",
-        "description": "John Paul Pet Ear & Eye Pet Wipes renser skånsomt øjenomgivelserne og det ydre øre<br><br>Milde og fugtgivende renseserviet, der på en let og skånsom måde renser dyrets øjne og ører.Natriumklorid (salt, der er tilpasset dyrets pH-værdi) renser nænsomt omkring hundens øjne og det ydre øreområde.<br>Indeholder mild aloe vera, som tilfører fugt og har en dejlig beroligende virkning.<br>Renseservietterne er meget populære, da de er lette at anvende, let at have med på farten, og de kan anvendes til den daglige soignering.",
-        "kategorier": [  "/hundepleje",
-          "/hundepleje/øjneogører",
-          "/maerker/johnpaulpet"]
-      },
-      {
-        "id": "prod10",
-        "name": "Tandplejesæt til hunde",
-        "image": "/images/product10.jpg",
-        "alt": "Billede af sætte som indeholder en pose Whimzees Tandbørste tyggeben, en Plaque Off Pulver, en Tandpasta med Oksekødssmag,en Ollipet Bambus Hundetandbørste og en AFP Dental Cactus som er et tandrensende stykke legetøj i blå. ",
-        "price": "384,76 kr",
-        "brand": "",
-        "description": "Tandplejesæt til Hunde: Alt-i-Én Løsning for Sund Mundhygiejne<br><br>Giv din bedste ven sundt smil med vores omfattende Tandplejesæt.<br>Dette sæt er nøje sammensat for at dække alle aspekter af din hunds mundhygiejne, fra daglig tandbørstning til dybdegående rensning og sjov, der renser tænderne. <br>Perfekt for hunde i alle aldre og størrelser!",
-        "kategorier": [  "/hundepleje",
-          "/hundepleje/tandpleje",
-          "/hundepleje/sæt",
-         "/tilbud",
-         "/tilbud/sæt",]
-      },
-      {
-        "id": "prod11",
-        "name": "Ollipet Hundetrimmer Pakke | Ceramic Pro og Poteklippemaskine 2i1",
-        "image": "/images/product11.jpg",
-        "alt": "Billede af pakken som indeholder 1 x Ollipet Ceramic Pro klippemaskine.1 x Lithium Ion batteri for Ceramic Pro. 1 x Ollipet 2i1 poteklippemaskine. 1 x Oplader for poteklipper.1 x Oplader for Ceramic Pro.1 x Rensebørste.1 x Smalt trimmehoved for poteklipper.1 x Klosliber for potetrimmer.4 x afstandskam for Ceramic Pro.2 x afstandskam for potetrimmer",
-        "price": "654,30 kr",
-        "brand": "Ollipet",
-        "description": "Ollipet tilbyder to uundværlige klippemaskiner for hundeejere, der ønsker at give deres hunde en professionel og behagelig klipning hjemme: Ollipet Ceramic Pro Clipper og Ollipet Poteklippemaskine 2i1.",
-        "kategorier": [  "/hundepleje",
-          "/hundepleje/trimmerogklippemaskiner",
-          "/maerker/ollipet","/hundepleje/sæt",]
-      },
-      {
-        "id": "prod12",
-        "name": "MiniBlue Hundebadekar | Phoenix",
-        "image": "/images/product12.jpg",
-        "alt": "Billede af hundebadekar i farven blå",
-        "price": "1.649,00 kr",
-        "brand": "PHOENIX",
-        "description": "John Paul Pet Ear & Eye Pet Wipes renser skånsomt øjenomgivelserne og det ydre øre<br><br>Milde og fugtgivende renseserviet, der på en let og skånsom måde renser dyrets øjne og ører.Natriumklorid (salt, der er tilpasset dyrets pH-værdi) renser nænsomt omkring hundens øjne og det ydre øreområde.<br>Indeholder mild aloe vera, som tilfører fugt og har en dejlig beroligende virkning.<br>Renseservietterne er meget populære, da de er lette at anvende, let at have med på farten, og de kan anvendes til den daglige soignering.",
-        "kategorier": [  "/hundepleje",
-          "/hundepleje/diverse",
-          "/maerker/phonix"]
-      },
-      {
-        "id": "prod13",
-        "name": "Aeolus Trimmebord Sammenklappeligt | Medium",
-        "image": "/images/product13.jpg",
-        "alt": "Billede af sammenklappeligt trimmebord til hundeklipning i størrelse medium i metal og sort",
-        "price": "1.469,00 kr",
-        "brand": "AEOLUS",
-        "description": "Trimmebord Sammenklappeligt i størrelse medium i høj kvalitet<br>Ved alle typer håndværk er betingelsen for et perfekt resultat at håndværkerens værktøj skal være 100% i orden. Når pelspleje / grooming er dit håndværk er dit arbejdsbord af vital betydning for det færdige resultat af dit arbejde. Dette gælder hjemme i privaten, i din salon såvel som hundeudstillingen ring-side!<br><br>Aeolus trimmebord i størrelse medium er et fuldprofessionelt trimmebord, du kan vælge at have permanent opstillet, hvilket klæder ethvert arbejdsværelse - bordet er smukt designet med kraftigt stel af rustfrie stålrør med justerbare gummifødder, så du kan sikre, at bordet aldrig vipper.<br><br>Selve bordpladen er stor og solid og måler hele 89 x 60 centimeter med en bordhøjde på 76 centimeter - pladen er iøvrigt lamineret med skridsikker gummibelægning, så hunden altid står godt fast. Du kan også vælge at fiksere hunden ved hjælp af den medfølgende trimmebordsgalge og justerbare galgestrop.<br>br>Vælger du at bordet skal klappes sammen og eventuel medtages på en hundeudstilling, sker dette lynhurtigt uden brug af værktøj, da stellet holdes på plads af fjederbelastede beslag.",
-        "kategorier": [  "/hundepleje",
-          "/hundepleje/diverse",
-          "/maerker/aeolus"]
-      },
-      {
-        "id": "prod14",
-        "name": "Ollipet Fødekassesæt",
-        "image": "/images/product14.jpg",
-        "alt": "Billede af Ollipet vaskbart tisseunderlag med pote mønster | 75x68 cm, Ollipet fødekasse Recyclable i hvid, Ollipet VetBedding tæpper i Luxdesig",
-        "price": "609,30 kr",
-        "brand": "Ollipet",
-        "description": "Gør hvalpenes første tid til en tryg og hyggelig oplevelse med dette gennemtænkte sæt.<br><br>Alt-i-ét sæt til en tryg og hygiejnisk hvalpefødsel. <br><br>Skal din hund snart have hvalpe? Dette komplette sæt er skabt til at give både morhunden og de nyfødte hvalpe den bedst mulige start. Sættet indeholder en Ollipet fødekasse, Ollipet VetBedding tæpper i Luxdesign | Kraftig kvalitet samt praktiske tisseunderlag, der gør rengøringen enkel og effektiv.<br><br>Vetbed tæppet er særligt ideelt til hvalpe, da væske som tis hurtigt løber igennem tæppet og opsamles af tisseunderlaget nedenunder. På den måde sikrer du, at hvalpene altid ligger tørt, varmt og hygiejnisk. Den bløde tekstur giver optimal komfort, mens det skridsikre underlag holder tæppet på plads i fødekassen.<br>><br>Fødekassen er fremstillet af robust og genanvendeligt plast, som nemt kan rengøres. Det praktiske design gør, at du hurtigt kan folde kassen ud og forberede den til hvalpenes ankomst. Sættet er perfekt til dig, der ønsker en nem og effektiv løsning, så du kan fokusere på at tage dig af hvalpene.",
-        "kategorier": [   "/hvalpeudstyr","/hvalpeudstyr/opdrættere",
-          "/tilbud","/tilbud/sæt",
-          "/maerker/ollipet"]
-      },
-      {
-        "id": "prod15",
-        "name": "Nordic Star Hvalpesæt Deluxe",
-        "image": "/images/product15.jpg",
-        "alt": "Billede af Nordic Star seng i khaki, Ficcaro Soft Salmon Cubes godbidder, Ollipet Art Deco slikkeskål i khaki, Ollipet panda Krammedyr ",
-        "price": "456,25 kr",
-        "brand": "Ollipet",
-        "description": "Dette sæt er perfekt til nye hundeejere, der ønsker at forkæle deres hvalp med kvalitetsprodukter fra dag ét.<br><br>Med Hvalpesæt deluxe får du alt, hvad du behøver for at give din hvalp den bedste start på livet. Dette nøje udvalgte sæt er designet til at skabe tryghed, glæde og stimulering. Den komfortable Nordic Star seng giver din hvalp et hyggeligt og støttende sted at hvile, mens Ficcaro Soft Salmon Cubes sikrer, at træning og belønning bliver en ren fornøjelse. Den praktiske Ollipet Art Deco slikkeskål fremmer sunde spisevaner og gør spisetid til en sjov og stimulerende oplevelse, mens det søde Ollipet Krammedyr hurtigt bliver din hvalps bedste putteven.<br>Dette sæt er perfekt til nye hundeejere, der ønsker at forkæle deres hvalp med kvalitetsprodukter fra dag ét.",
-        "kategorier": [  "/hvalpeudstyr","/hvalpeudstyr/sæt",
-            "/hundelegetøj",
+        id: "prod3",
+        name: "Aarhus Hundejakke & dressurline | z1",
+        image: "/images/product3.jpg",
+        alt: "Hundjakke i farven khaki med matchende line. Fås i blød teddy-stof eller et quiltet look.",
+        brand: "Ollipet",
+      
+        // Pris og evt. førpris
+        price: "357.00",
+        oldPrice: "397.00",       // Valgfri: førpris
+        rabat: 10,                // Beregnet rabatprocent
+      
+        // Highlights vises som liste
+        highlights: [
+          "Matchende sæt med hundejakke og dressurline",
+          "Vælg mellem teddy fleece eller quiltet jakke",
+          "Blødt inderfor skåner pelsen",
+          "Justerbar dressurline med håndfri funktion",
+          "Smukke gulddetaljer",
+          "Perfekt til overgangsvejr og lettere kulde"
+        ],
+      
+        // HTML-beskrivelse (bruges med dangerouslySetInnerHTML)
+        description: `
+          <p><strong>Aarhus Hundejakke & dressurline</strong></p>
+          <p>Dette sæt er det perfekte valg til hundeejeren, der ønsker en balance mellem æstetik og praktiske egenskaber. En smuk og funktionel hundejakke kombineret med en matchende dressurline.</p>
+          <p>Dette sæt er skabt til stilfulde gåture i overgangsperioder og lettere kulde, hvor komfort, funktionalitet og design går hånd i hånd.</p>
+          <p><strong>To varianter af jakken:</strong></p>
+          <ul>
+            <li>Diamantquiltet jakke med glat ydermateriale</li>
+            <li>Lun teddyfleece-model med blødt inderfor</li>
+          </ul>
+          <p>Dressurlinen er justerbar og kan bæres håndfrit. Den er elegant designet med guldfarvede detaljer, der matcher jakken og fuldender looket.</p>
+          <p>Et perfekt valg for den stilbevidste hundeejer.</p>
+        `,
+      
+        // Navigationskategorier
+        kategorier: [
+          "/hundetilbehoer",
+          "/hundetilbehoer/tøj",
+          "/maerker/ollipet",
           "/tilbud",
           "/tilbud/sæt",
+          "/nyheder"
+        ],
+      
+        // Tags til labels som "anbefalet", "populær", osv.
+        tags: ["anbefalet"]
+      },
+      {
+        id: "prod4",
+        name: "Ollipet Bella Bloom Donutseng",
+        image: "/images/product4.jpg",
+        alt: "Rund, fyldig og blød donut hundekurv i plys for maksimal komfort, med syninger der giver kurven et stilfuldt blomsterdesign.",
+        brand: "Ollipet",
+      
+        // Pris og evt. førpris (kan tilføjes senere hvis ønsket)
+        price: "159.00",
+        oldPrice: "199.00",
+        rabat: 20,
+      
+        // Highlights vises som punktopstilling
+        highlights: [
+          "Blød og rund donutseng i plys",
+          "Blomsterformet design for ekstra stil",
+          "Kaninkarakteristisk stof for maksimal komfort",
+          "Giver omsluttende tryghed til hunden",
+          "Fås i 3 størrelser og 5 elegante farver",
+          "Velegnet til små racer og ældre hunde"
+        ],
+      
+        // HTML-beskrivelse (vises i `ProductPage`)
+        description: `
+          <p><strong>Giv din hund den ultimative soveoplevelse med Ollipet Bella Bloom seng</strong></p>
+          <p>En luksuriøs hundeseng designet til både komfort og stil. Med sit smukke, blomsterformede design og ekstra bløde “kaninbløde” stof er denne seng det perfekte hvilested for hunde, der elsker at putte og føle sig trygge.</p>
+          <p>De runde, bløde kanter giver en indbydende følelse af omsluttende tryghed, der beroliger både krop og sjæl – ideel til både hvalpe, voksne og ældre hunde.</p>
+          <p>Sengen fås i tre størrelser, så du nemt kan finde den perfekte pasform til din firbenede ven. Vælg mellem fem elegante farver – grøn, lyserød, khaki, mørkebrun og mørkegrå – som smukt matcher enhver indretning.</p>
+          <p><strong>Ollipet Bella Bloom</strong> kombinerer moderne æstetik med praktisk komfort, og er et uundværligt valg for den kræsne hundeejer.</p>
+        `,
+      
+        // Kategorier til navigation/filtrering
+        kategorier: [
           "/nyheder",
-          "/maerker/ollipet"],"tags": ["anbefalet"]
-      },
-      {
-        "id": "prod16",
-        "name": "Puppy Reb med Kødben",
-        "image": "/images/product16.jpg",
-        "alt": "Billede af af puppy reb med kødben, som kan fåes i lyserød og blå. For enden af nylonrebet er et kødben med små dutter på",
-        "price": "35,00 kr",
-        "brand": "NAYECO",
-        "description": "Trimmebord Sammenklappeligt i størrelse medium i høj kvalitet<br>Ved alle typer håndværk er betingelsen for et perfekt resultat at håndværkerens værktøj skal være 100% i orden. Når pelspleje / grooming er dit håndværk er dit arbejdsbord af vital betydning for det færdige resultat af dit arbejde. Dette gælder hjemme i privaten, i din salon såvel som hundeudstillingen ring-side!<br><br>Aeolus trimmebord i størrelse medium er et fuldprofessionelt trimmebord, du kan vælge at have permanent opstillet, hvilket klæder ethvert arbejdsværelse - bordet er smukt designet med kraftigt stel af rustfrie stålrør med justerbare gummifødder, så du kan sikre, at bordet aldrig vipper.<br><br>Selve bordpladen er stor og solid og måler hele 89 x 60 centimeter med en bordhøjde på 76 centimeter - pladen er iøvrigt lamineret med skridsikker gummibelægning, så hunden altid står godt fast. Du kan også vælge at fiksere hunden ved hjælp af den medfølgende trimmebordsgalge og justerbare galgestrop.<br>br>Vælger du at bordet skal klappes sammen og eventuel medtages på en hundeudstilling, sker dette lynhurtigt uden brug af værktøj, da stellet holdes på plads af fjederbelastede beslag.",
-        "kategorier": [  "/hvalpeudstyr",
-            "/hvalpeudstyr/legetøj",
-            "/hundelegetøj",
-            "/hundelegetøj/slidestærkt",
-            "/hundelegetøj/tandrens",
-          "/maerker/nayco"]
-      },
-      {
-        "id": "prod17",
-        "name": "CORE Puppy Original - Small/Medium Breed | Tørfoder",
-        "image": "/images/product17.jpg",
-        "alt": "Billede af CORE Puppy Original - Hvalpefoder",
-        "price": "169,00 kr",
-        "brand": "Wellness CORE",
-        "description": "God start på livet med CORE Puppy Original - Hvalpefoder<br><br>Det er så vigtigt, at vi giver vores hvalpe en sund start på livet. Med CORE Puppy får du et foder af højeste kvalitet, med en sammensætning der er nøje sammensat så det passer hvalpens ernæring og vækst. Til hvalpe af små og mellemstore racer.<br><br>Wellness CORE Puppy indeholder 73% proteiningredienser, den er spækket med smagsfuld kylling som første ingrediens. Hvalpefoderet er afbalancerede med niveauer af protein, fedt og kulhydrater, ingredienser der er naturlige og understøtter sund energi og slanke muskler.<br><br>Vil du give din hvalp en god start på livet, så er CORE Puppy Original et rigtig godt valg, et af de bedste på markedet. Med CORE får du alle tiders mulighed for, at hoppe videre på det rette foder, når hvalpen bliver voksen, med et af deres voksen hundefoder varianter.",
-        "kategorier": [   "/hvalpeudstyr","/hvalpeudstyr/foder","/hundefoder", "/hundefoder/tørfoder",
-          "/maerker/wellnesscore"]
-      },
-      {
-        "id": "prod18",
-        "name": "Puppy Aid Training Spray",
-        "image": "/images/product18.jpg",
-        "alt": "Billede af Puppy Aid Training Spray",
-        "price": "75,00 kr",
-        "brand": "simple solution",
-        "description": "Spray som får hunden til at tisse et bestemt sted. <br><br>Denne Puppy Aid Training Spray 500ml fra Simple Solution hjælper med at reducere den tid det tager, at gøre din hvalp stueren. Sprayen er videnskabeligt formuleret til at tilskynde processen, når hvalpen skal lære at tisse i et bestemt område. Puppy Aid Training Spray kan bruges både indendørs og udendørs. Ryst flasken godt inden brug, og spray så en lille mængde ud på det sted, du ønsker din hvalp skal tisse. Lad hvalpen snuse til stedet og ros den, når den viser den ønskede adfærd. Gentag processen med produktet og bliv ved med at føre hvalpen hen til stedet - især efter den har sovet, spist, drukket og leget. ",
-        "kategorier": [  "/hvalpeudstyr",
-            "/hvalpeudstyr/renlighedstræning",
-          "/maerker/simplesolution"]
-      },
-      {
-        "id": "prod19",
-        "name": "Trixie Puppy Dog hvalpesele og line",
-        "image": "/images/product19.jpg",
-        "alt": "billede af hvalpe step in sele i nylon og mesh. med justerbar line i grå",
-        "price": "89,50 kr",
-        "brand": "Trixie",
-        "description": "Super lækker hvalpesele, der passer små hvalpe fra 8 uger. <br><br>Bryst og halsmål kan reguleres, så selen passer netop din hvalp. Selen udvides i takt med, at hvalpen vokser. Selen er en step-in sele, så din hvalp slipper for at få trukket den ned over hovedet, så den skal af- og på.<br><br>Brystmål 26-34cm<br><br>Linen måler 2.00m x 10mm",
-        "kategorier": [  "/hvalpeudstyr",
-          "/hvalpeudstyr/snorogsele",
+          "/hvalpeudstyr",
           "/hundetilbehoer",
-          "/hundetilbehoer/halsbaandogsele",
-          "/hvalpeudstyr/sæt",
-          "/maerker/trixie"]
+          "/hundetilbehoer/sengogkurv",
+          "/maerker/ollipet"
+        ],
+      
+        // Tags bruges til “populær”, “anbefalet”, “nyhed” badges m.m.
+        tags: ["populaer"]
       },
-      {
-        "id": "prod20",
-        "name": "CORE Senior Original | All Breeds",
-        "image": "/images/product20.jpg",
-        "alt": "Billede af CORE Senior Original",
-        "price": "199,00 kr",
-        "brand": "Wellness CORE",
-        "description": "Wellness CORE har nøje sammensat deres senior foder, så det passer godt til ældre de hunderacer. Kun det bedste ingredienser er blevet brugt til Wellness CORE, en let fordøjelig og afbalanceret ernæring der bidrager til et sundt hundeliv. <br><br>Core hundefoder er kornfrit og uden tilsatte fyldstoffer. Det er lavet med et velafbalanceret protein og fedtindhold, der bidrager hunden med god energi og brændstof til hverdagen, uden usunde overskyende kalorier. Dette hjælper med at opretholde en sund og god vægt hos hunden.",
-        "kategorier": [   "/hundefoder",
-            "/hundefoder/tørfoder",
-          "/maerker/wellnesscore"]
-      },
-      {
-        "id": "prod21",
-        "name": "Little Big Paw Duck Vådfoder",
-        "image": "/images/product21.jpg",
-        "alt": "Billede af Little Big Paw Duck Vådfoder",
-        "price": "29,00 kr",
-        "brand": "Little Big Paw",
-        "description": "Little BigPaw Duck vådfoder er tilberedt med nærende let fordøjeligt kalkun kød. Sammensat med blandt andet grøntsager og frugt. <br><br>Vådfoder fyldt med med And, lækre grøntsager og urtesovs - 100% naturligt",
-        "kategorier": [   "/hundefoder",
-            "/hundefoder/vådfoder",
-          "/maerker/littlebigpaw"]
-      },
-      {
-        "id": "prod22",
-        "name": "Oil'it Lakseolie | 500ml",
-        "image": "/images/product22.jpg",
-        "alt": "Billede af Oil'it Lakseolie",
-        "price": "85,95 kr",
-        "brand": "Snack'it",
-        "description": "Wellness CORE har nøje sammensat deres senior foder, så det passer godt til ældre de hunderacer. Kun det bedste ingredienser er blevet brugt til Wellness CORE, en let fordøjelig og afbalanceret ernæring der bidrager til et sundt hundeliv. <br><br>Core hundefoder er kornfrit og uden tilsatte fyldstoffer. Det er lavet med et velafbalanceret protein og fedtindhold, der bidrager hunden med god energi og brændstof til hverdagen, uden usunde overskyende kalorier. Dette hjælper med at opretholde en sund og god vægt hos hunden.",
-        "kategorier": [   "/hundefoder",
-            "/hundefoder/tilskud",
-          "/maerker/snackit"]
-      },
-      {
-        "id": "prod23",
-        "name": "Starmark Everlasting Treat Fireplug",
-        "image": "/images/product23.jpg",
-        "alt": "Billede af Everlasting Treat Fireplug i rød",
-        "price": "99,00 kr",
-        "brand": "Starmark",
-        "description": "Slidstærkt aktivitetslegetøj der forsyner hunden med mange timers underholdning.<br>Fremstillet af et blødt, punkterfrit og slidstærkt gummimateriale. <br>Virker tandrensende når hunden bider i den.<br>1 stk. Everlasting Treat medfølger.<br><br>Kan fyldes med godbidder, tyggeben og tørfoder.",
-        "kategorier": [   "/hundefoder",
+      
+        {
+          id: "prod5",
+          name: "Yaki Tyggeben",
+          image: "/images/product5.jpg",
+          alt: "100% naturlig hundetyggeben med lang tyggetid",
+          brand: "Yaki dog snacks",
+          price: "35.95",
+          highlights: [
+            "Lang tyggetid – reducerer stress",
+            "Forebygger plak og tandsten",
+            "100% naturligt – ingen tilsætningsstoffer",
+            "Laktose- og glutenfri",
+            "Meget lavt fedtindhold"
+          ],
+          description: `
+            <p><strong>Yaki tyggeben</strong> er en lækker og naturlig snack til din hund.</p>
+            <p>Fremstillet af skummetmælk og citronsyre, og uden farvestoffer, konserveringsmidler, gluten, lactose eller kemi.</p>
+            <p>Benet har en lang tyggetid og bidrager til at reducere stress samt forebygger plak og tandsten.</p>
+          `,
+          kategorier: [
+            "/hundefoder",
             "/hundefoder/godbidderogben",
-            "/hundelegetøj",
-            "/hundelegetøj/slidestærkt",
-            "/hundelegetøj/aktivitet",
-            "/hundelegetøj/snuseogslikmåtte",
-            "/hundepleje",
-            "/hundepleje/tandpleje",
-            "/hundelegetøj/tandrens",
-          "/maerker/starmark"]
-      },
-      {
-        "id": "prod24",
-        "name": "Ollipet Hide-a-Treat | Croissant",
-        "image": "/images/product24.jpg",
-        "alt": "Billede af produktet som er et hundelegetøj der har form som en lækker croissant med en tilknyttet blok smør",
-        "price": "39,00 kr",
-        "brand": "Ollipet",
-        "description": "Ollipet Hide-a-Treat | Croissant er den ideelle mulighed for at skabe en hyggelig aktivitetsleg med din pelsede kammerat.<br><br>Dette charmerende hundelegetøj har form som en lækker croissant med en tilknyttet blok smør, der vil vække glæden hos din hund. Croissanten og smøren kan adskilles fra hinanden, hvilket giver dig mulighed for at skjule godbidder indeni. Din hund skal arbejde for at få fat i belønningen ved at tage det smørfyldte hoved af croissanten og finde de gemte godbidder i hulerummet. Dette skaber en sjov og udfordrende aktivitet, der holder din hund engageret og stimuleret.<br><br>Udover den spændene leg har dette hundelegetøj knitrende lyde og pivende lyde i begge dele. Disse lyde har flere fordele, der gør leg og træning endnu mere underholdene og givende for både dig og din firbenede ven. Lydene fanger din hunds opmærksomhed, og opfordrer den til at være endnu mere aktiv under legen.<br><br>Med en en Ollipet Hide-a-Treat | Croissant, er du med til at skabe en sjov og interaktiv leg, der ikke kun styrker båndet mellem dig og din hund, men også holder den mentalt stimuleret.",
-        "kategorier": [    "/hundelegetøj",
-            "/hundelegetøj/plys",
-            "/hundelegetøj/aktivitet",
-            "/hundefoder/tørfoder",
-            "/hvalpeudstyr",
-            "/hvalpeudstyr/legetøj",
-            "/nyheder",
-          "/maerker/ollipet"],"tags": ["anbefalet"]
-      },
-      {
-        "id": "prod25",
-        "name": "Ollipet HoliMoli Snusebold hundelegetøj",
-        "image": "/images/product25.jpg",
-        "alt": "Billede af snusebold, som består af fleecestykker i mange flotte farver, som sidder fast inde i midten af latex skjold / bold i rød, som har et huller i, så fleece stykerne kan rulles ind og ud med godbidder.",
-        "price": "119,00 kr",
-        "brand": "Ollipet",
-        "description": "Ollipet HoliMoli Snusebolden er det perfekte legetøj til din hund, der elsker aktiverende lege med masser af stimulering. <br><br> Snusebolden er sammensat af fleecestykker i mange flotte farver, der er rullede op i folder, hvilket gør dem perfekt til at gemme på godbidder. Se derefter din firbenede ven snuse sig frem til godbidderne og kæmpe for, at få fat i dem. <br><br>Fleecestykkerne sidder fast inde i midten af bolden, så de ikke ryger ud under legen.<br><br>Din hund vil blive underholdt, stimuleret og til sidst udmattet efter at have rusket rundt med denne sjove bold. Derudover er det også en mulighed for at forkæle din hund med dens favoritgodbidder, og belønne den med god samvittighed, da det kræver aktivitet at modtage godbidderne. <br><br>Bolden er ikke nødvendig kun til godbidder, da den også fungerer perfekt som en sjov aktivitetsbold. Den er beskyttet af et latex skjold, der gør den perfekt til at kaste og rulle med, uden den hverken ødelægger dit gulv, eller larmer når din hund leger rundt med den.<br><br>Med en Ollipet HoliMoli snusebold sørger du for, at din hund bliver underholdt, aktiveret, mentalt stimuleret og forkælet.",
-        "kategorier": [    "/hundelegetøj","/hundelegetøj/aktivitet","/hundelegetøj/snuseogslikmåtte",  "/hundelegetøj/ikkepiv",  "/nyheder",
-          "/maerker/ollipet","/hundelegetøj/blodt",],"tags": ["populaer"],
-      },
-      {
-        "id": "prod26",
-        "name": "Ollipet Art Deco slikkeskål | 19 cm",
-        "image": "/images/product26.jpg",
-        "alt": "Billede af pruduktet, som er en slowfeeder i silikone, som er udstyret med sugekop i buden. den her et designet med et unikt mønster og har farven mørk mocca",
-        "price": "99,00 kr",
-        "brand": "Ollipet",
-        "description": "Giv din hund en stimulerende spiseoplevelse med Ollipet Art Deco Slikkeskål! Denne innovative slowfeeder skål er designet med et unikt mønster, der ikke kun er æstetisk tiltalende, men også meget praktisk.<br><br>Denne skål fungerer som en slowfeeder, hvilket hjælper med at forlænge din hunds spisetid. Ved at gøre det sværere at få fat i maden, reduceres risikoen for overspisning. Din hund får samtidig mental stimulering, da den skal arbejde for sin mad. Du kan både anvende vådfoder eller tørfoder. <br><br>Ollipet Art Deco Slikkeskål er udstyret med  en stor sugekop på bunden, der sikre, at skålen forbliver fast på gulvet under brug. Dette forhindrer skålen i at glide rundt og giver din hund en stabil spisestation.<br><br>Skålen er fremstillet af slidstærkt og sikkert materiale. Derudover er den let at rengøre og tåler opvaskemaskine, hvilket gør den yderst praktisk og hygiejnisk. Ollipet Art Deco Slikkeskål fås i tre smukke farver: brun, støvet grøn og støvet rosa. Disse farvevalg gør det nemt at finde en skål, der passer perfekt til din hunds stil og dit hjem.",
-        "kategorier": [    "/hundelegetøj",  "/hundelegetøj/snuseogslikmåtte", "/hundelegetøj/aktivitet",  "/hundetilbehoer",  "/hundetilbehoer/skåle",
-            "/hundefoder/tørfoder",  "/hundelegetøj/slidestærkt","/nyheder",
-          "/maerker/ollipet"], "tags": ["populaer"]
-      },
-      {
-        "id": "prod27",
-        "name": "Ollipet Funky Fodbold | ORIGINAL",
-        "image": "/images/product27.jpg",
-        "alt": "Billede af hundefodbold i sort og hvis, med pote mønster. små nylonstropper i grøn rundt på bolden. og en blå pumpe til.",
-        "price": "129,00 kr",
-        "brand": "ollipet",
-        "description": "Verdens bedste bold til især mindre hunde! Forsynet med stropper hunden let kan tage fat i.<br><br>Hunde skal have lov at lege, og leg skal være sjovt. Med denne sjove fodbold får både din hund og dig masser af muligheder for sjov leg både i haven, på stranden, i skoven eller i hjemmet. Så er din hund vild med bolde, så bør I prøve denne.<br><br>Bolden måler ca. 15 cm i diameter, og er fyldt med masser af små nylonstropper. Stropperne giver hunden mulighed for, at have bedre fat i bolden, og den egner sig derfor til næsten alle hunderacer store som små. Desuden gør stropperne det nemmere for dig, at kaste bolden langt eller holde ekstra godt fast, når I rusker i den sammen.<br><br>Ollipet Catch'a'Ball er god til masser af forskellige lege som apport, kasteleg, ruskeleg og meget mere. Den triller godt henover gulvet og den ekstra lange strop giver dig muligheden for, at kunne kaste den ekstra langt ud over plænerne. Bolden kan flyde så man kan også tage den med til søen og stranden.<br><br>Der medfølger en pumpe, så du bestemmer selv, hvor meget luft du pumper i, og hvor hård/blød bolden skal være. Materialet er PU læder.",
-        "kategorier": [   "/hundelegetøj",
-            "/hundelegetøj/slidestærkt",
-            "/hundelegetøj/blodt",
-            "/hundelegetøj/aktivitet",
-            "/hundefoder/tørfoder",
-          "/maerker/ollipet"], "tags": ["populaer"]
-      },
-      {
-        "id": "prod28",
-        "name": "Trixie Mintfresh Ring",
-        "image": "/images/product28.jpg",
-        "alt": "Billede af mint blå bidering i naturgummi, med små tandrensdene dutter.",
-        "price": "63,00 kr",
-        "brand": "Trixie",
-        "description": "Forkæl din hund med denne Mintfresh Ring hundelegetøj fra Trixie.<br>Denne skønne aktivitetsring er skabt til hunde med et stærkt tyggeinstinkt og er ideel til at fremme sund tand- og mundhygiejne.<br>Lavet af robust naturgummi og formet til at stimulere din hunds tænder og tandkød, er denne ring både sjov og gavnlig.<br>Den forfriskende myntesmag hjælper med at opretholde frisk ånde og sundt tandkød.<br>Lad din hund nyde godt af massage af tandkødet med Trixies Mintfresh Ring - det perfekte valg til leg!",
-        "kategorier": [   "/hundelegetøj",
-            "/hundelegetøj/slidestærkt",
-            "/hundelegetøj/tandrens",
-            "/hvalpeudstyr",
-            "/hvalpeudstyr/legetøj",
-            "/nyheder",
-          "/maerker/trixie"]
-      },
-      {
-        "id": "prod29",
-        "name": "Ollipet hundespisesæt | grå ",
-        "image": "/images/product29.jpg",
-        "alt": "Billede af ollipet spisesæt i grå. Stilfuldt sæt med skåle, i stainless steal, med grå ydrekant og et praktisk, gråt underlag i silikone",
-        "price": "317,74 kr",
-        "brand": "Ollipet",
-        "description": "Forbedr din hunds måltider med dette elegante sæt af Nordic Delight mad- og vandskåle sammen med et smukt Ollipet ovalt spiseunderlag. Hundeskålene har en moderne, mat sølvfinish og kommer i en stilfuld hvid farve, der passer til enhver indretning. Med en skridsikker bund forbliver skålene sikkert på plads, selv under de mest entusiastiske måltider. Begge skåle tåler opvaskemaskine, hvilket gør rengøringen nem og bekvem. Spiseunderlaget i en frisk ferskenfarve beskytter dit gulv mod spild og holder foder og vand på plads med sin forhøjede kant. Underlaget er lavet af slidstærkt silikone, som kan rengøres let med en fugtig klud. Dette sæt er den perfekte kombination af stil og funktionalitet til både hund og hjem.",
-        "kategorier": [    "/hundetilbehoer",
-            "/hundetilbehoer/skåle",
-            "/hundefoder/tørfoder",
+            "/maerker/yaki"
+          ],
+          tags: ["anbefalet"]
+        },
+        {
+          id: "prod6",
+          name: "Ollipet Hvil og Spis Brown Kit | z1",
+          image: "/images/product6.jpg",
+          alt: "Matchende sæt i skandinavisk stil. Inkluderer seng, skåle og underlag i jordnære farver.",
+          brand: "Ollipet",
+          price: "572.60",
+          oldPrice: "636.00",
+          rabat: 10,
+          highlights: [
+            "Komplet sæt: seng, skåle og underlag",
+            "Jordnære farver i skandinavisk stil",
+            "Blød og støttende Ollipet Teddy seng",
+            "Praktisk spiseunderlag og stilfulde skåle",
+            "Designet til både komfort og æstetik"
+          ],
+          description: `
+            <p><strong>Ollipet Hvil & Spis Brown Kit</strong> er perfekt til den kvalitetsbevidste hundeejer.</p>
+            <p>Sættet indeholder en blød seng, to skåle og et praktisk underlag i matchende, jordnære farver. Skaber ro og funktionalitet i hjemmet.</p>
+          `,
+          kategorier: [
             "/tilbud",
             "/tilbud/sæt",
-            "/nyheder",
-          "/maerker/ollipet"], "tags": ["populaer"]
-      },
-      {
-        "id": "prod30",
-        "name": "Ollipet For Wagging Tails | Step in Sele",
-        "image": "/images/product30.jpg",
-        "alt": "Billede af step-in hunde sele i farven khaki, i et nylon mesh matrilate som gør den mere åndbar.",
-        "price": "139,00 kr",
-        "brand": "Ollipet",
-        "description": "Gør gåturen til en fornøjelse for både dig og din hund med Ollipet For Wagging Tails | Step in Sele – en flot og funktionel hundesele, der kombinerer komfort, design og brugervenlighed. Den smarte step-in funktion betyder, at du helt undgår at skulle trække selen hen over hundens hoved – noget mange hunde ikke bryder sig om. I stedet træder hunden nemt i selen, hvorefter du lukker den med et snuptag. Med sine flotte farver og lette, åndbare materialer er denne hundesele ikke kun praktisk, men også elegant – perfekt til alt fra hverdagsgåturen til hyggelige udflugter.",
-        "kategorier": [   "/nyheder",
+            "/maerker/ollipet",
+            "/hundetilbehoer/sengogkurv",
             "/hundetilbehoer",
-            "/hundetilbehoer/halsbaandogsele",
-            "/hvalpeudstyr",
-            "/hvalpeudstyr/snorogsele",
-          "/maerker/wellnesscore"],"tags": ["populaer"]
-      },
-      {
-        "id": "prod31",
-        "name": "Ollipet For Wagging Tails | Hundesnor",
-        "image": "/images/product31.jpg",
-        "alt": "Billede af Slidstærk hundeline i nylon i farven mocca",
-        "price": "79,00 kr",
-        "brand": "Ollipet",
-        "description": "Giv din hund et stilfuldt look med Ollipet For Wagging Tails | Hundesnor, der forener funktionalitet og mode i ét gennemtænkt design. Denne hundesnor er skabt til at matche den populære Ollipet step-in hundesele og fuldender jeres udtryk på gåturen. Med et let, slidstærkt materiale og et blødt, polstret greb er den perfekt til både hvalpe og små hunderacer, der skal opleve verden komfortabelt og med stil. Som en ekstra praktisk detalje har hundelinen en D-ring placeret lige under håndtaget – ideel til at fastgøre en pølleposetaske eller karabinhagen, så du kan bære linen som en smart crossbody, når hunden løber frit, og du ønsker hænderne fri.<br><br>Denne hundeline fås i fem smukke farver – sort, mokka, khaki, gråblå og lyserød – så du nemt kan finde netop den nuance, der passer til din hunds personlighed og din egen stil. Et perfekt valg for dig, der ønsker en både praktisk og æstetisk løsning til dine daglige lufteture.",
-        "kategorier": [    "/nyheder",
-            "/hundetilbehoer",
-            "/hundetilbehoer/hundesnor",
-            "/hvalpeudstyr",
-            "/hvalpeudstyr/snorogsele",
-          "/maerker/ollipet"],"tags": ["populaer"]
-      },
-      {
-        "id": "prod32",
-        "name": "Ollipet Luxor Halsbånd",
-        "image": "/images/product32.jpg",
-        "alt": "Billede af ollipet læderhalsbånd i faven mocca, med guld farvet detaljer.",
-        "price": "169,00 kr",
-        "brand": "Ollipet",
-        "description": "Ollipet Luxor Halsbånd er det ideelle valg for dig, der ønsker at kombinere stil og funktion i ét og samme produkt. Med de lækre dybe farver og eksklusive læderfinish tilfører det et elegant udtryk til enhver hund – uanset race eller størrelse. Dette hundehalsbånd er ikke bare flot at se på, men også designet med omtanke for din hunds komfort og bevægelsesfrihed. Perfekt til både daglige gåture og særlige lejligheder, hvor stilfuldt hundetilbehør gør en forskel.",
-        "kategorier": [    "/nyheder",
-            "/hundetilbehoer",
-            "/hundetilbehoer/halsbaandogsele",
-          "/maerker/ollipet"],"tags": ["anbefalet"]
-      },
-      {
-        "id": "prod33",
-        "name": "iMarc Rundt Hundetegn",
-        "image": "/images/product33.jpg",
-        "alt": "Billede af enkelt rundt hundetegn i guld farve",
-        "price": "79,00 kr",
-        "brand": "iMarc",
-        "description": "Fint og enkelt hundetegn i cirkelformet look. Husk at det er lovpligtigt at din hund bære et hundetegn med din adresse og mobilnummer.",
-        "kategorier": [    
-            "/hundetilbehoer",
-            "/hundetilbehoer/hundetegn",
-          "/maerker/imarc"]
-      },
-      {
-        "id": "prod34",
-        "name": "Ollipet Flora høm-høm taske | Sand",
-        "image": "/images/product34.jpg",
-        "alt": "Billede af kompakt men rummelige søde lille taske som her plads til en rulle hundeposer. Den er praktisk udstyret med en karabinhage og lynlås i guld farve. resten af tasken er i farven sand, med flot og stilrent blomster mønster i hvid",
-        "price": "79,00 kr",
-        "brand": "Ollipet",
-        "description": "Med denne fine Ollipet Flora Høm-Høm taske, kan du diskret opbevare din hunds efterladenskaber, mens I nyder en gåtur.<br><br>Denne kompakte, men rummelige søde lille taske har plads til en rulle hundeposer. Den er praktisk udstyret med en karabinhage og lynlås i guld farve, der gør det let at fastgøre den til hundens line, dine bukser, jakken eller lignende, så du altid har en høm-høm pose lige ved hånden, når du og din firbenede ven er ude at gå.<br><br>Lynlåsen gør det let at fylde tasken op med nye poser, når den sidste er brugt. Den smukke Ollipet Flora Høm-Høm taske er både bekvem og funktionel. <br><br>Lavet af smukt stof, har denne taske et ekstra smart og trendy design, der matcher resten af Ollipet Flora-seriens produkter, så du kan fuldende din hunds look med matchende udstyr til jeres gåture.",
-        "kategorier": [    "/nyheder",
-            "/hundetilbehoer",
-            "/hundetilbehoer/poser",
-          "/maerker/ollipet"]
-      },
-      {
-        "id": "prod35",
-        "name": "Ollipet Flora Step-in hundesele",
-        "image": "/images/product35.jpg",
-        "alt": "Billede af sandfarvet step-in hundesele, med uniskt og simpelt blomster mønster i hvid",
-        "price": "189,00 kr",
-        "brand": "Ollipet",
-        "description": "Vi har designet den fineste step-in sele i Ollipets Flora-serie! Step-in selen er helt eksklusiv med sit design. Forestil dig en smuk sandfarve, lige med et strejf af meget svag rosa, og så med lyse sandfarvede blomster. <br>Det bedste ved denne sele er, at den ikke bare er super smuk - den føles også fantastisk. Den er så blød og behagelig at røre ved, og samtidig super stilfuld og moderne.<br><br>Derudover er den designet med det lette, åndbare mesh-for.<br>Glem alt besvær med at få selen over hovedet på din firbenede ven. Denne sele er lavet til nem påføring. Du skal bare guide poterne gennem hullerne, placere den omkring kroppen og klikke den sikkert på plads med velcro og et klikspænde på ryggen.",
-        "kategorier": [    "/nyheder",
-            "/hundetilbehoer",
-  "/hundetilbehoer/halsbaandogsele",
-            "/hvalpeudstyr",
-            "/hvalpeudstyr/snorogsele",
-          "/maerker/ollipet"],"tags": ["anbefalet"]
-      },
-      {
-        "id": "prod36",
-        "name": "Vandtætte strømpestøvler m. velcrobånd",
-        "image": "/images/product36.jpg",
-        "alt": "Billede af stræmpestøvler, med sort hund, og sandfarvet top, med sort ollipet logo. og sorte velcobånd",
-        "price": "97,20 kr",
-        "brand": "Ollipet",
-        "description": "Med dette sæt sikrer du, at dine hund poter bliver beskyttet mod alt slags terræn, og at støvler sidder fast på. <br><br>De vandtætte Ollipet støvler skåner din hunds poeter mod fugtig og kold sne samt grus, vejslat og varme overflader. Derfor kan de bruges i alle årstider. Støvlerne har et slidstærkt design og en behagelig pasform, der gør at din hund knap nok lægger mærke til, at de har den på. De er særligt gode til de ældre hunde, der døjer med ryg- og ledproblemer. <br><br>For at sikre, at sokkerne bliver, hvor de skal, medfølger velcrobånd. De er designet til at holde strømperne på plads hele dagen, uden at genere hunden. Velcrobåndene er nemme at justere og montere, og de giver en sikker og behagelig pasform, som gør hverdagen lettere for både dig og din hund.",
-        "kategorier": [    "/nyheder",
-            "/hundetilbehoer",
-            "/hundetilbehoer/sko",
-            "/hundetilbehoer/tøj",
-          "/maerker/ollipet"]
-      },
+            "/nyheder"
+          ],
+          tags: ["anbefalet"]
+        },
+        {
+          id: "prod7",
+          name: "KW Pelsplejesæt | Filter i pelsen",
+          image: "/images/product7.jpg",
+          alt: "Sæt med 2-i-1 shampoo, tanglefix, filtknuser og rullekam",
+          brand: "KW",
+          price: "316.80",
+          highlights: [
+            "Velegnet til langhårede racer",
+            "2-i-1 shampoo og balsam",
+            "Effektiv Tanglefix til filt",
+            "Filtknuser og rullekam inkluderet",
+            "Reducerer statisk elektricitet"
+          ],
+          description: `
+            <p><strong>Pelsplejesæt fra KW</strong> til langhårede hunde med tendens til filt.</p>
+            <p>Indeholder 2-i-1 shampoo, Tanglefix, filtknuser og rullekam. Skånsom og effektiv pleje af pels og filtre.</p>
+          `,
+          kategorier: [
+            "/hundepleje",
+            "/hundepleje/pelspleje",
+            "/maerker/kw",
+            "/hundepleje/sæt"
+          ]
+        },
+        {
+          id: "prod8",
+          name: "Ollipet Poteklipper og potevoks",
+          image: "/images/product8.jpg",
+          alt: "Sæt med poteklippemaskine, neglefil og potevoks.",
+          brand: "Ollipet",
+          price: "366.30",
+          oldPrice: "429.00",
+          rabat: 15,
+          highlights: [
+            "2-i-1 poteklipper og neglefil",
+            "Støjsvag og handy maskine",
+            "Inkl. afstandskamme og tilbehør",
+            "Velegnet til detaljeret klip",
+            "Med potevoks til pleje"
+          ],
+          description: `
+            <p><strong>Smart 2-i-1 løsning</strong> fra Ollipet til klip og pleje af poter.</p>
+            <p>Med poteklippemaskine, neglefil og potevoks. Brugervenlig og ideel til små detaljer og sarte områder.</p>
+          `,
+          kategorier: [
+            "/hundepleje",
+            "/hundepleje/poterogklør",
+            "/maerker/ollipet",
+            "/hundepleje/trimmerogklippemaskiner",
+            "/tilbud",
+            "/tilbud/sæt",
+            "/hundepleje/sæt"
+          ]
+        },
+        {
+          id: "prod9",
+          name: "John Paul Pet | Ear & Eye Pet Wipes",
+          image: "/images/product9.jpg",
+          alt: "Renseservietter til øjne og ører hos hunde",
+          brand: "John Paul Pet",
+          price: "149.00",
+          highlights: [
+            "Milde og fugtgivende servietter",
+            "Til øjne og ydre øre",
+            "Med aloe vera og natriumklorid",
+            "Let at bruge og tage med",
+            "pH-tilpasset til dyr"
+          ],
+          description: `
+            <p><strong>John Paul Pet Wipes</strong> er skånsomme renseservietter til øjne og ører.</p>
+            <p>Med aloe vera og natriumklorid for nænsom rengøring. Praktisk til daglig brug og rejser.</p>
+          `,
+          kategorier: [
+            "/hundepleje",
+            "/hundepleje/øjneogører",
+            "/maerker/johnpaulpet"
+          ]
+        },
+        {
+          id: "prod10",
+          name: "Tandplejesæt til hunde",
+          image: "/images/product10.jpg",
+          alt: "Sæt med tyggeben, tandpasta, tandbørste, pulver og legetøj",
+          brand: "Diverse",
+          price: "384.76",
+          oldPrice: "429.00",
+          rabat: 10,
+          highlights: [
+            "Komplet mundplejesæt til hunde",
+            "Whimzees tyggeben og tandpasta med oksekød",
+            "Plaque Off-pulver og bambustandbørste",
+            "AFP Dental Cactus legetøj",
+            "Velegnet til hunde i alle aldre"
+          ],
+          description: `
+            <p><strong>Tandplejesæt</strong> – alt du behøver til din hunds tandpleje i ét kit.</p>
+            <p>Effektiv rengøring og forebyggelse af tandproblemer med tyggeben, tandpasta, pulver, legetøj og børste.</p>
+          `,
+          kategorier: [
+            "/hundepleje",
+            "/hundepleje/tandpleje",
+            "/hundepleje/sæt",
+            "/tilbud",
+            "/tilbud/sæt"
+          ]
+        },
+        {
+          id: "prod11",
+          name: "Ollipet Hundetrimmer Pakke | Ceramic Pro og Poteklippemaskine 2i1",
+          image: "/images/product11.jpg",
+          alt: "Komplet sæt med to klippemaskiner, opladere, afstandskamme og børste",
+          brand: "Ollipet",
+          price: "654.30",
+          oldPrice: "729.00",
+          rabat: 10,
+          highlights: [
+            "Professionel trimmerpakke",
+            "Inkl. Ceramic Pro og Poteklippemaskine 2-i-1",
+            "Afstandskamme og opladere medfølger",
+            "Til både krop og poter",
+            "God til hjemmebrug og detaljeklip"
+          ],
+          description: `
+            <p><strong>Komplet klippepakke fra Ollipet</strong> – Ceramic Pro og Poteklipper 2-i-1.</p>
+            <p>Med alt nødvendigt tilbehør til trimning af både pels og poter. Ideel til hjemmebrug.</p>
+          `,
+          kategorier: [
+            "/hundepleje",
+            "/hundepleje/trimmerogklippemaskiner",
+            "/maerker/ollipet",
+            "/hundepleje/sæt"
+          ]
+        },
+      
+        {
+            id: "prod12",
+            name: "MiniBlue Hundebadekar | Phoenix",
+            image: "/images/product12.jpg",
+            alt: "Billede af hundebadekar i farven blå",
+            brand: "PHOENIX",
+            price: "1649.00",
+            highlights: [
+              "Kompakt og praktisk hundebadekar",
+              "Ideel til mindre racer",
+              "Let at rengøre og flytte",
+              "Stabil konstruktion",
+              "Blå farve – passer ind i moderne hjem"
+            ],
+            description: `
+              <p><strong>MiniBlue Hundebadekar fra PHOENIX</strong> er et praktisk og stilfuldt valg til hjemmebrug.</p>
+              <p>Det kompakte design og den stabile opbygning gør det nemt og sikkert at bade din hund – især de mindre racer.</p>
+              <p>Let at rengøre, og passer perfekt ind i hjem med fokus på både funktionalitet og æstetik.</p>
+            `,
+            kategorier: [
+              "/hundepleje",
+              "/hundepleje/diverse",
+              "/maerker/phonix"
+            ]
+          },
+          {
+            id: "prod13",
+            name: "Aeolus Trimmebord Sammenklappeligt | Medium",
+            image: "/images/product13.jpg",
+            alt: "Trimmebord i sort og metal, sammenklappeligt",
+            brand: "AEOLUS",
+            price: "1469.00",
+            highlights: [
+              "Professionelt trimmebord i medium størrelse",
+              "89 x 60 cm bordplade med skridsikkert underlag",
+              "Justerbare gummifødder og rustfrit stel",
+              "Sammenklappeligt uden værktøj",
+              "Trimmebordsgalge og galgestrop medfølger"
+            ],
+            description: `
+              <p><strong>Aeolus Trimmebord</strong> er et fuldprofessionelt bord til pelspleje og grooming.</p>
+              <p>Robust design med rustfrit stel og gummibelagt bordplade. Let at folde sammen uden værktøj – perfekt til både salon og udstilling.</p>
+            `,
+            kategorier: [
+              "/hundepleje",
+              "/hundepleje/diverse",
+              "/maerker/aeolus"
+            ]
+          },
+          {
+            id: "prod14",
+            name: "Ollipet Fødekassesæt",
+            image: "/images/product14.jpg",
+            alt: "Fødekasse, vetbed-tæppe og tisseunderlag i ét sæt",
+            brand: "Ollipet",
+            price: "609.30",
+            highlights: [
+              "Komplet sæt til hvalpefødsel",
+              "Vetbed tæppe og tisseunderlag",
+              "Genanvendelig og rengøringsvenlig fødekasse",
+              "Skridsikkert underlag for sikkerhed",
+              "Giver tryghed til mor og hvalpe"
+            ],
+            description: `
+              <p><strong>Ollipet Fødekassesæt</strong> gør hvalpenes første tid tryg og hygiejnisk.</p>
+              <p>Sættet inkluderer fødekasse, vetbed og tisseunderlag – klar til brug og nemt at rengøre.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/opdrættere",
+              "/tilbud",
+              "/tilbud/sæt",
+              "/maerker/ollipet"
+            ]
+          },
+          {
+            id: "prod15",
+            name: "Nordic Star Hvalpesæt Deluxe",
+            image: "/images/product15.jpg",
+            alt: "Seng, godbidder, slikkeskål og bamse i ét sæt",
+            brand: "Ollipet",
+            price: "456.25",
+            highlights: [
+              "Blød og støttende seng i Nordic Star design",
+              "Lækre godbidder fra Ficcaro",
+              "Slikkeskål der stimulerer langsom spisning",
+              "Sødt krammedyr til hvalpen",
+              "Perfekt til nye hundeejere"
+            ],
+            description: `
+              <p><strong>Hvalpesæt Deluxe</strong> fra Ollipet giver din hvalp den bedste start.</p>
+              <p>Indeholder seng, godbidder, slikkeskål og krammedyr i matchende stil og farver.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/sæt",
+              "/hundelegetøj",
+              "/tilbud",
+              "/tilbud/sæt",
+              "/nyheder",
+              "/maerker/ollipet"
+            ],
+            tags: ["anbefalet"]
+          },
+          {
+            id: "prod16",
+            name: "Puppy Reb med Kødben",
+            image: "/images/product16.jpg",
+            alt: "Reb med gummi-kødben i lyserød og blå",
+            brand: "NAYECO",
+            price: "35.00",
+            highlights: [
+              "Holdbart legetøj til hvalpe",
+              "Kødben med dutter for tandrens",
+              "Godt for tyggebehov",
+              "Fås i flere farver",
+              "Ideelt til leg og stimulering"
+            ],
+            description: `
+              <p><strong>Puppy Reb med Kødben</strong> er et slidstærkt og sjovt legetøj til hvalpe.</p>
+              <p>Rebet og kødbenet stimulerer tyggeinstinktet og hjælper med tandrens. Fås i lyserød og blå.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/legetøj",
+              "/hundelegetøj",
+              "/hundelegetøj/slidestærkt",
+              "/hundelegetøj/tandrens",
+              "/maerker/nayco"
+            ]
+          },
+          {
+            id: "prod17",
+            name: "CORE Puppy Original - Small/Medium Breed | Tørfoder",
+            image: "/images/product17.jpg",
+            alt: "CORE Puppy Original tørfoder til hvalpe",
+            brand: "Wellness CORE",
+            price: "169.00",
+            highlights: [
+              "73% proteinkilder med kylling",
+              "Sund ernæring til hvalpe",
+              "Afbalanceret protein, fedt og kulhydrat",
+              "Støtter energi og vækst",
+              "Velegnet til små/mellemstore racer"
+            ],
+            description: `
+              <p><strong>CORE Puppy Original</strong> er et komplet hvalpefoder med høj kvalitet.</p>
+              <p>Indeholder smagsfuld kylling og næringsstoffer der understøtter sund vækst og energi hos små og mellemstore racer.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/foder",
+              "/hundefoder",
+              "/hundefoder/tørfoder",
+              "/maerker/wellnesscore"
+            ]
+          },
+          {
+            id: "prod18",
+            name: "Puppy Aid Training Spray",
+            image: "/images/product18.jpg",
+            alt: "Puppy Aid Spray til renlighedstræning",
+            brand: "simple solution",
+            price: "75.00",
+            highlights: [
+              "Gør renlighedstræning lettere",
+              "Stimulerer hunden til at tisse et bestemt sted",
+              "Kan bruges både inde og ude",
+              "Nem at anvende",
+              "Videnskabeligt formuleret"
+            ],
+            description: `
+              <p><strong>Puppy Aid Training Spray</strong> gør renlighedstræning lettere og hurtigere.</p>
+              <p>Bruges til at få hvalpen til at tisse samme sted. Velegnet til både indendørs og udendørs brug.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/renlighedstræning",
+              "/maerker/simplesolution"
+            ]
+          },
+          {
+            id: "prod19",
+            name: "Trixie Puppy Dog hvalpesele og line",
+            image: "/images/product19.jpg",
+            alt: "Hvalpesele i grå mesh med line",
+            brand: "Trixie",
+            price: "89.50",
+            highlights: [
+              "Step-in sele til små hvalpe",
+              "Justerbart bryst- og halsmål",
+              "Linen måler 2m x 10mm",
+              "Ingen sele over hovedet",
+              "Perfekt fra 8 uger"
+            ],
+            description: `
+              <p><strong>Trixie Puppy Dog hvalpesele</strong> er perfekt til de første gåture.</p>
+              <p>Med justerbar pasform og praktisk sele i step-in design. Komfortabel og nem at bruge.</p>
+            `,
+            kategorier: [
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/snorogsele",
+              "/hundetilbehoer",
+              "/hundetilbehoer/halsbaandogsele",
+              "/hvalpeudstyr/sæt",
+              "/maerker/trixie"
+            ]
+          },
+          
+          {
+            id: "prod20",
+            name: "CORE Senior Original | All Breeds",
+            image: "/images/product20.jpg",
+            alt: "Billede af CORE Senior Original",
+            brand: "Wellness CORE",
+            price: "199.00",
+            highlights: [
+              "Letfordøjeligt og afbalanceret",
+              "Til ældre hunde af alle racer",
+              "Proteinrig uden overskydende kalorier",
+              "Kornfrit og uden fyldstoffer",
+              "Støtter sund vægt og energiniveau"
+            ],
+            description: `
+              <p><strong>CORE Senior Original</strong> fra Wellness CORE er skræddersyet til ældre hunde.</p>
+              <p>Med en balanceret sammensætning og gode ingredienser giver det energi uden at overbelaste kroppen – kornfrit og sundt.</p>
+            `,
+            kategorier: [
+              "/hundefoder",
+              "/hundefoder/tørfoder",
+              "/maerker/wellnesscore"
+            ]
+          },
+          {
+            id: "prod21",
+            name: "Little Big Paw Duck Vådfoder",
+            image: "/images/product21.jpg",
+            alt: "Billede af Little Big Paw Duck Vådfoder",
+            brand: "Little Big Paw",
+            price: "29.00",
+            highlights: [
+              "100% naturlige ingredienser",
+              "Med and, grøntsager og urtesovs",
+              "Nærende og letfordøjeligt",
+              "Velegnet som fuldfoder eller topping",
+              "Uden tilsætningsstoffer"
+            ],
+            description: `
+              <p><strong>Little Big Paw Duck</strong> er et naturligt vådfoder med and, grøntsager og urtesovs.</p>
+              <p>Let at fordøje og fyldt med smag – perfekt som fuldfoder eller supplement.</p>
+            `,
+            kategorier: [
+              "/hundefoder",
+              "/hundefoder/vådfoder",
+              "/maerker/littlebigpaw"
+            ]
+          },
+          {
+            id: "prod22",
+            name: "Oil'it Lakseolie | 500ml",
+            image: "/images/product22.jpg",
+            alt: "Billede af Oil'it Lakseolie",
+            brand: "Snack'it",
+            price: "85.95",
+            highlights: [
+              "Naturlig lakseolie til hunde",
+              "Rig på omega 3 og 6 fedtsyrer",
+              "Støtter pels, hud og led",
+              "Velegnet til alle racer",
+              "Nem at dosere og blande i foder"
+            ],
+            description: `
+              <p><strong>Oil'it Lakseolie</strong> er et næringstilskud til hundens daglige kost.</p>
+              <p>Giver en sundere pels og hud og er let at bruge sammen med tørfoder eller vådfoder.</p>
+            `,
+            kategorier: [
+              "/hundefoder",
+              "/hundefoder/tilskud",
+              "/maerker/snackit"
+            ]
+          },
+          {
+            id: "prod23",
+            name: "Starmark Everlasting Treat Fireplug",
+            image: "/images/product23.jpg",
+            alt: "Billede af Everlasting Treat Fireplug i rød",
+            brand: "Starmark",
+            price: "99.00",
+            highlights: [
+              "Slidstærkt aktivitetslegetøj",
+              "Tandrensende overflade",
+              "Kan fyldes med snacks og foder",
+              "Punkterfrit gummimateriale",
+              "Inkl. 1 Everlasting Treat"
+            ],
+            description: `
+              <p><strong>Starmark Fireplug</strong> tilbyder langvarig underholdning og tyggeglæde.</p>
+              <p>Fyld den med godbidder eller tørfoder og lad din hund arbejde for belønningen – sjov og sund aktivering.</p>
+            `,
+            kategorier: [
+              "/hundefoder",
+              "/hundefoder/godbidderogben",
+              "/hundelegetøj",
+              "/hundelegetøj/slidestærkt",
+              "/hundelegetøj/aktivitet",
+              "/hundelegetøj/snuseogslikmåtte",
+              "/hundepleje",
+              "/hundepleje/tandpleje",
+              "/hundelegetøj/tandrens",
+              "/maerker/starmark"
+            ]
+          },
+          {
+            id: "prod24",
+            name: "Ollipet Hide-a-Treat | Croissant",
+            image: "/images/product24.jpg",
+            alt: "Legetøj formet som croissant med skjult hulrum",
+            brand: "Ollipet",
+            price: "39.00",
+            highlights: [
+              "Interaktivt gemme-legetøj med lyde",
+              "Croissant og smør-del kan skilles ad",
+              "Skjul godbidder indeni",
+              "Med knitre- og pivelyd",
+              "Styrker bånd og stimulerer mental aktivitet"
+            ],
+            description: `
+              <p><strong>Ollipet Hide-a-Treat</strong> er en croissantformet legeoplevelse med skjulte godbidder og knitrelyde.</p>
+              <p>Holder hunden engageret og aktiveret med sjov og stimulering.</p>
+            `,
+            kategorier: [
+              "/hundelegetøj",
+              "/hundelegetøj/plys",
+              "/hundelegetøj/aktivitet",
+              "/hundefoder/tørfoder",
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/legetøj",
+              "/nyheder",
+              "/maerker/ollipet"
+            ],
+            tags: ["anbefalet"]
+          },
+          {
+            id: "prod25",
+            name: "Ollipet HoliMoli Snusebold hundelegetøj",
+            image: "/images/product25.jpg",
+            alt: "Fleecestykker i latexbold til gemmeleg",
+            brand: "Ollipet",
+            price: "119.00",
+            highlights: [
+              "Snusebold med skjulte godbidder",
+              "Fleecestykker indbygget i latexskjold",
+              "Stimulerer hundens sanser",
+              "Tåler kaste- og ruskeleg",
+              "Aktiv og mentalt stimulerende leg"
+            ],
+            description: `
+              <p><strong>HoliMoli Snusebold</strong> fra Ollipet aktiverer din hund med gemmeleg og tyggetid.</p>
+              <p>Fremmer mental og fysisk stimulering – perfekt til regnvejrsdage og indendørs hygge.</p>
+            `,
+            kategorier: [
+              "/hundelegetøj",
+              "/hundelegetøj/aktivitet",
+              "/hundelegetøj/snuseogslikmåtte",
+              "/hundelegetøj/ikkepiv",
+              "/nyheder",
+              "/maerker/ollipet",
+              "/hundelegetøj/blodt"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod26",
+            name: "Ollipet Art Deco slikkeskål | 19 cm",
+            image: "/images/product26.jpg",
+            alt: "Slikkeskål i silikone med sugekop og mønster",
+            brand: "Ollipet",
+            price: "99.00",
+            highlights: [
+              "Slowfeeder til våd- og tørfoder",
+              "Sugekop i bunden for stabilitet",
+              "Stimulerer mental aktivitet under måltider",
+              "Let at rengøre – tåler opvaskemaskine",
+              "Fås i flere stilfulde farver"
+            ],
+            description: `
+              <p><strong>Art Deco slikkeskål</strong> forlænger spisetiden og stimulerer din hund mentalt.</p>
+              <p>Elegant og praktisk med skridsikker bund og slidstærkt silikone – perfekt til daglig brug.</p>
+            `,
+            kategorier: [
+              "/hundelegetøj",
+              "/hundelegetøj/snuseogslikmåtte",
+              "/hundelegetøj/aktivitet",
+              "/hundetilbehoer",
+              "/hundetilbehoer/skåle",
+              "/hundefoder/tørfoder",
+              "/hundelegetøj/slidestærkt",
+              "/nyheder",
+              "/maerker/ollipet"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod27",
+            name: "Ollipet Funky Fodbold | ORIGINAL",
+            image: "/images/product27.jpg",
+            alt: "Hundefodbold med stropper og pumpe",
+            brand: "Ollipet",
+            price: "129.00",
+            highlights: [
+              "Bold med stropper for bedre greb",
+              "Kan flyde og tåler ruskeleg",
+              "Perfekt til både små og store hunde",
+              "Medfølgende pumpe til tilpasning",
+              "PU-læder og sjovt design"
+            ],
+            description: `
+              <p><strong>Ollipet Funky Fodbold</strong> er den perfekte bold til sjov og fysisk aktivitet.</p>
+              <p>Stropperne giver godt greb for både hund og ejer – brug den til kaste-, ruske- og vandleg.</p>
+            `,
+            kategorier: [
+              "/hundelegetøj",
+              "/hundelegetøj/slidestærkt",
+              "/hundelegetøj/blodt",
+              "/hundelegetøj/aktivitet",
+              "/hundefoder/tørfoder",
+              "/maerker/ollipet"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod28",
+            name: "Trixie Mintfresh Ring",
+            image: "/images/product28.jpg",
+            alt: "Mintblå bidering i naturgummi",
+            brand: "Trixie",
+            price: "63.00",
+            highlights: [
+              "Naturgummi med tandrensende dutter",
+              "Frisk myntesmag",
+              "Masserer tandkød og styrker tænder",
+              "Ideel til tyggeinstinkt",
+              "Holdbart og sikkert materiale"
+            ],
+            description: `
+              <p><strong>Mintfresh Ring</strong> fra Trixie er tyggelegetøj med sundhedsfordele.</p>
+              <p>Stimulerer tænder og tandkød og opretholder frisk ånde. Lavet af slidstærkt naturgummi.</p>
+            `,
+            kategorier: [
+              "/hundelegetøj",
+              "/hundelegetøj/slidestærkt",
+              "/hundelegetøj/tandrens",
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/legetøj",
+              "/nyheder",
+              "/maerker/trixie"
+            ]
+          },
+          {
+            id: "prod29",
+            name: "Ollipet hundespisesæt | grå",
+            image: "/images/product29.jpg",
+            alt: "Spisesæt med grå silikoneunderlag og rustfri skåle",
+            brand: "Ollipet",
+            price: "317.74",
+            highlights: [
+              "Stilfuldt sæt med to skåle og underlag",
+              "Rustfri skåle med skridsikker bund",
+              "Gråt silikoneunderlag med forhøjet kant",
+              "Tåler opvaskemaskine",
+              "Praktisk og æstetisk design"
+            ],
+            description: `
+              <p><strong>Ollipet Spisesæt</strong> kombinerer funktion og stil med praktiske skåle og underlag.</p>
+              <p>Hold måltidet rent og pænt – perfekt til moderne hjem.</p>
+            `,
+            kategorier: [
+              "/hundetilbehoer",
+              "/hundetilbehoer/skåle",
+              "/hundefoder/tørfoder",
+              "/tilbud",
+              "/tilbud/sæt",
+              "/nyheder",
+              "/maerker/ollipet"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod30",
+            name: "Ollipet For Wagging Tails | Step in Sele",
+            image: "/images/product30.jpg",
+            alt: "Step-in hundesele i khaki nylon mesh – åndbart og komfortabelt",
+            brand: "Ollipet",
+            price: "139.00",
+            highlights: [
+              "Step-in design – undgå at trække selen over hovedet",
+              "Let og åndbart mesh-materiale",
+              "Komfortabel og nem at tage på",
+              "Stilrent design – perfekt til daglige gåture",
+              "Fås i flotte farver"
+            ],
+            description: `
+              <p><strong>Ollipet Step-in Sele</strong> er en smart løsning til gåture uden besvær.</p>
+              <p>Hunden træder blot i selen, og du lukker den nemt – perfekt til hunde der ikke bryder sig om seler over hovedet.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/halsbaandogsele",
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/snorogsele",
+              "/maerker/wellnesscore"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod31",
+            name: "Ollipet For Wagging Tails | Hundesnor",
+            image: "/images/product31.jpg",
+            alt: "Slidstærk hundesnor i nylon – farven mocca",
+            brand: "Ollipet",
+            price: "79.00",
+            highlights: [
+              "Slidstærk og let nylonline",
+              "Polstret greb for komfort",
+              "Matchende til Ollipet step-in seler",
+              "D-ring til karabinhage eller poseholder",
+              "Fås i 5 smukke farver"
+            ],
+            description: `
+              <p><strong>Ollipet Hundesnor</strong> matcher din sele og kombinerer design med funktion.</p>
+              <p>Komfortabel og praktisk med D-ring til poseholder eller crossbody-funktion – perfekt til hverdagsture.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/hundesnor",
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/snorogsele",
+              "/maerker/ollipet"
+            ],
+            tags: ["populaer"]
+          },
+          {
+            id: "prod32",
+            name: "Ollipet Luxor Halsbånd",
+            image: "/images/product32.jpg",
+            alt: "Elegant læderhalsbånd i mocca med guldfarvede detaljer",
+            brand: "Ollipet",
+            price: "169.00",
+            highlights: [
+              "Eksklusivt læderdesign",
+              "Guldfarvede detaljer for stilfuldt look",
+              "Komfortabel pasform",
+              "Egnet til både hverdag og fest",
+              "Passer til mange racer og størrelser"
+            ],
+            description: `
+              <p><strong>Ollipet Luxor Halsbånd</strong> kombinerer klassisk stil og komfort.</p>
+              <p>Det perfekte valg til hundeejere, der ønsker noget særligt – både praktisk og flot.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/halsbaandogsele",
+              "/maerker/ollipet"
+            ],
+            tags: ["anbefalet"]
+          },
+          {
+            id: "prod33",
+            name: "iMarc Rundt Hundetegn",
+            image: "/images/product33.jpg",
+            alt: "Enkelt rundt hundetegn i guld",
+            brand: "iMarc",
+            price: "79.00",
+            highlights: [
+              "Elegant og enkelt design",
+              "Let og slidstærkt",
+              "Lovpligtigt med navn og kontaktinfo",
+              "Velegnet til alle hunderacer"
+            ],
+            description: `
+              <p><strong>iMarc Hundetegn</strong> i rund form – elegant og vigtigt.</p>
+              <p>Lovpligtigt tegn med plads til kontaktoplysninger – let at fastgøre og passer til enhver halsbåndstype.</p>
+            `,
+            kategorier: [
+              "/hundetilbehoer",
+              "/hundetilbehoer/hundetegn",
+              "/maerker/imarc"
+            ]
+          },
+          {
+            id: "prod34",
+            name: "Ollipet Flora høm-høm taske | Sand",
+            image: "/images/product34.jpg",
+            alt: "Sød og stilren hundeposetaske i sandfarve med blomsterprint",
+            brand: "Ollipet",
+            price: "79.00",
+            highlights: [
+              "Matchende taske til Flora-serien",
+              "Plads til en rulle poser",
+              "Karabinhage og guld-lynlås",
+              "Let at åbne og genfylde",
+              "Praktisk og æstetisk løsning"
+            ],
+            description: `
+              <p><strong>Flora Høm-Høm taske</strong> fra Ollipet – både smart og diskret.</p>
+              <p>Med karabinhage til nem fastgørelse og flot design i match med Flora-serien. Praktisk til hverdagens gåture.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/poser",
+              "/maerker/ollipet"
+            ]
+          },
+          {
+            id: "prod35",
+            name: "Ollipet Flora Step-in hundesele",
+            image: "/images/product35.jpg",
+            alt: "Sandfarvet step-in hundesele med hvidt blomsterdesign",
+            brand: "Ollipet",
+            price: "189.00",
+            highlights: [
+              "Step-in funktion for nem påføring",
+              "Stilfuldt blomsterdesign",
+              "Blødt og åndbart mesh-for",
+              "Velegnet til små og mellemstore hunde",
+              "Dejligt komfortabel og moderne"
+            ],
+            description: `
+              <p><strong>Flora Step-in Sele</strong> er en elegant og praktisk løsning til din hunds gåture.</p>
+              <p>Med floralt mønster, mesh og nem lukning – perfekt for både funktion og stil.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/halsbaandogsele",
+              "/hvalpeudstyr",
+              "/hvalpeudstyr/snorogsele",
+              "/maerker/ollipet"
+            ],
+            tags: ["anbefalet"]
+          },
+          {
+            id: "prod36",
+            name: "Vandtætte strømpestøvler m. velcrobånd",
+            image: "/images/product36.jpg",
+            alt: "Strømpestøvler med velcro og slidstærk sål – sort og sandfarvet",
+            brand: "Ollipet",
+            price: "97.20",
+            highlights: [
+              "Beskytter mod sne, grus og varme",
+              "Velegnet til alle årstider",
+              "Slidstærkt og vandtæt design",
+              "Velcrobånd holder dem på plads",
+              "Ideel til ældre eller sarte poter"
+            ],
+            description: `
+              <p><strong>Vandtætte strømpestøvler</strong> fra Ollipet beskytter din hunds poter mod vejr og underlag.</p>
+              <p>Let at tage på og behagelig pasform – især god til ældre hunde med ledproblemer.</p>
+            `,
+            kategorier: [
+              "/nyheder",
+              "/hundetilbehoer",
+              "/hundetilbehoer/sko",
+              "/hundetilbehoer/tøj",
+              "/maerker/ollipet"
+            ]
+          }, {
+            id: "prod37",
+            name: "",
+            image: "/images/product37.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "", // valgfri
+            rabat: "",    // valgfri
+            highlights: [
+              "",
+              "",
+              "",
+              "",
+              ""
+            ],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [
+              ""
+            ],
+            tags: [] // fx ["populaer", "anbefalet", "nyhed"]
+          },
+          {
+            id: "prod38",
+            name: "",
+            image: "/images/product38.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod39",
+            name: "",
+            image: "/images/product39.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod40",
+            name: "",
+            image: "/images/product40.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod41",
+            name: "",
+            image: "/images/product41.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod42",
+            name: "",
+            image: "/images/product42.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod43",
+            name: "",
+            image: "/images/product43.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod44",
+            name: "",
+            image: "/images/product44.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod45",
+            name: "",
+            image: "/images/product45.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod46",
+            name: "",
+            image: "/images/product46.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod47",
+            name: "",
+            image: "/images/product47.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod48",
+            name: "",
+            image: "/images/product48.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod49",
+            name: "",
+            image: "/images/product49.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod50",
+            name: "",
+            image: "/images/product50.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          },
+          {
+            id: "prod51",
+            name: "",
+            image: "/images/product51.jpg",
+            alt: "",
+            brand: "",
+            price: "",
+            oldPrice: "",
+            rabat: "",
+            highlights: ["", "", "", "", ""],
+            description: `
+              <p><strong></strong></p>
+              <p></p>
+            `,
+            kategorier: [""],
+            tags: []
+          }
+          
+            
+     
     // ... (fortsætter op til prod70)
   ];
   

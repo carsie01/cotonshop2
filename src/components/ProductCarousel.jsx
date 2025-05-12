@@ -1,4 +1,3 @@
-// src/components/ProductCarousel.jsx
 import { useState } from "react";
 import ProductCard from "./ProductCard";
 import "./ProductCarousel.css";
@@ -46,7 +45,11 @@ export default function ProductCarousel({ title, products }) {
           }`}
         >
           {visibleProducts.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <ProductCard
+              key={product.id}
+              product={product}
+              className="carousel-card"
+            />
           ))}
         </div>
 

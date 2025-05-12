@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
+
 import "./KategoriSide.css";
 
 // 🔽 CustomDropdown-komponent
@@ -171,7 +172,7 @@ export default function KategoriSide() {
 
           {visibleCount < visteProdukter.length && (
             <div style={{ textAlign: "center", marginTop: "24px" }}>
-              <button onClick={() => setVisibleCount(visibleCount + 20)}>
+              <button className="load-more-button" onClick={() => setVisibleCount(visibleCount + 20)}>
                 Se flere produkter
               </button>
             </div>

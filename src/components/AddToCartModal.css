@@ -1,60 +1,132 @@
 .modal-backdrop {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.4);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-  }
-  
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+
+}
+
+/* --- MODAL --- */
+.modal {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 700px;
+  max-width: 95vw;
+  max-height: 90vw;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Scroll kun på mobil */
+@media (max-width: 767px) {
   .modal {
-    background: #fff;
-    padding: 30px;
-    border-radius: 10px;
-    max-width: 400px;
-    width: 90%;
-    text-align: center;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-    outline: none;
+    width: 95vw;
+    height: 95vh;
+    overflow-y: auto;
   }
+}
+
+/* --- Luk-knap (X) --- */
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+  cursor: pointer;
+  color: #555;
+}
+
+/* --- Header med billede og titel --- */
+.modal-header {
+  display: flex;
+ flex-direction: column;
+ align-items: center;
+  gap: 20px;
+  text-align: left;
+  margin-bottom: 30px;
+}
+
+.modal-product-img {
+  width: 250px;
+  height: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.modal-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #222;
+  margin-bottom: 5px;
+}
+
+.modal-confirmation {
+  color: #555;
+  font-size: 20px;
+  margin: 0;
+}
+
+/* --- Action knapper --- */
+.modal-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+.modal-actions button {
+  flex: 1;
+  background-color: #5e4b44;
+  color: white;
+  border-radius: 8px;
+  padding: 12px;
+  border: none;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.modal-actions button:hover {
+  background-color: #4d3d36;
+}
+
+/* --- Forslag til dig --- */
+.modal-suggestions {
+  text-align: left;
+}
+
+.modal-suggestions h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.modal-suggestion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
   
-  .modal-title {
-    font-size: 1.3rem;
-    color: #2e7d32; /* grøn check */
-    margin-bottom: 10px;
-  }
-  
-  .modal-confirmation {
-    color: #555;
-    margin-bottom: 20px;
-    font-size: 0.95rem;
-  }
-  
-  .modal-buttons {
-    display: flex;
+}
+
+/* Mobiltilpasning */
+@media (max-width: 767px) {
+  .modal-header {
     flex-direction: column;
+    text-align: center;
     gap: 10px;
   }
-  
-  .modal-buttons button {
-    padding: 10px 15px;
-    font-size: 15px;
-    font-weight: bold;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-    background-color: #f4a740;
-    color: white;
-    transition: background 0.2s ease;
+
+  .modal-actions {
+    flex-direction: column;
   }
-  
-  .modal-buttons button:hover:enabled {
-    background-color: #d88c00;
+
+  .modal-suggestion-grid {
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
   }
-  
-  .modal-buttons button:disabled {
-    background-color: #ccc;
-    cursor: default;
-  }
-  
+}

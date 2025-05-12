@@ -1,7 +1,7 @@
-// src/pages/SoegeSide.jsx
 import { useLocation } from "react-router-dom";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
+import "./KategoriSide.css"; // Brug samme styling som kategori
 
 export default function SoegeSide() {
   const { search } = useLocation();
@@ -17,21 +17,28 @@ export default function SoegeSide() {
   });
 
   return (
-    <main className="nyheder-container">
-      <h1 className="nyheder-title">🔍 Søgeresultater</h1>
-      <p className="nyheder-subtext">
-        Resultater for: <strong>{query}</strong>
-      </p>
+    <main className="kategori-side">
+      <div className="kategori-layout">
+        {/* Tom sidebar for at bevare grid-layoutet */}
+        <aside className="filters" style={{ visibility: "hidden" }}></aside>
 
-      {resultater.length > 0 ? (
-        <div className="nyheder-grid">
-          {resultater.map((product) => (
-            <ProductCard key={product.id} product={product} />
-          ))}
-        </div>
-      ) : (
-        <p className="nyheder-subtext">Ingen produkter matchede din søgning.</p>
-      )}
+        <section className="produkt-oversigt">
+          <h1>Søgeresultater</h1>
+          <p className="intro-text">
+            Resultater for: <strong>{query}</strong>
+          </p>
+
+          {resultater.length > 0 ? (
+            <div className="product-grid">
+              {resultater.map((product) => (
+                <ProductCard key={product.id} product={product} />
+              ))}
+            </div>
+          ) : (
+            <p className="intro-text">Ingen produkter matchede din søgning.</p>
+          )}
+        </section>
+      </div>
     </main>
   );
 }

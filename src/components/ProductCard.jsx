@@ -5,10 +5,11 @@ import AddToCartModal from "./AddToCartModal";
 import { Heart } from "lucide-react";
 import "./ProductCard.css";
 
-export default function ProductCard({ product }) {
+export default function ProductCard({ product, className = "" }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false);
+  const [isFavorite, setIsFavorite] = useState(false); // 💖 favoritstatus
 
   const handleNavigate = () => {
     if (!product?.id) return;
@@ -21,10 +22,16 @@ export default function ProductCard({ product }) {
     setShowModal(true);
   };
 
+  const toggleFavorite = (e) => {
+    e.stopPropagation();
+    setIsFavorite((prev) => !prev);
+    // Her kan du evt. tilføje localStorage eller context-sync
+  };
+
   return (
     <>
       <article
-        className="product-card"
+        className={`product-card ${className}`}
         onClick={handleNavigate}
         role="button"
         tabIndex={0}
@@ -71,13 +78,18 @@ export default function ProductCard({ product }) {
             Læg i kurv
           </button>
           <button
-  onClick={(e) => e.stopPropagation()}
-  type="button"
-  aria-label="Føj til favoritter"
-  className="heart-button"
->
-  <Heart size={20} strokeWidth={1.75} />
-</button>
+            onClick={toggleFavorite}
+            type="button"
+            aria-label="Føj til favoritter"
+            className="heart-button"
+          >
+            <Heart
+              size={20}
+              strokeWidth={1.75}
+              fill={isFavorite ? "#E37500" : "none"}
+              color={isFavorite ? "#E37500" : "#333"}
+            />
+          </button>
         </div>
       </article>
 

@@ -1,5 +1,6 @@
 // src/pages/CartPage.jsx
 import { useCart } from "../context/CartContext";
+import "./CartPage.css";
 
 export default function CartPage() {
   const {
@@ -10,57 +11,69 @@ export default function CartPage() {
     totalPrice,
   } = useCart();
 
+  const shipping = totalPrice >= 499 ? 0 : 39;
+  const freeShippingLeft = Math.max(0, 499 - totalPrice).toFixed(2);
+  const totalWithShipping = (totalPrice + shipping).toFixed(2);
+
   return (
-    <main style={{ maxWidth: "800px", margin: "auto", padding: "20px" }}>
-      <h1>🛒 Din Kurv</h1>
+    <main className="cart-page">
+      <h1>Indkøbskurv</h1>
 
       {cart.length === 0 ? (
         <p>Din kurv er tom.</p>
       ) : (
-        <>
-          <ul style={{ listStyle: "none", padding: 0 }}>
-            {cart.map((item) => (
-              <li
-                key={item.id}
-                style={{
-                  display: "flex",
-                  justifyContent: "space-between",
-                  alignItems: "center",
-                  borderBottom: "1px solid #ccc",
-                  padding: "10px 0",
-                }}
-              >
-                <div>
-                  <strong>{item.name}</strong> <br />
-                  {item.price} × {item.quantity}
-                </div>
-                <div style={{ display: "flex", gap: "6px" }}>
-                  <button onClick={() => addToCart(item)}>+</button>
-                  <button onClick={() => removeFromCart(item.id)}>-</button>
-                </div>
-              </li>
-            ))}
-          </ul>
+        <div className="cart-container">
+          <table className="cart-table">
+            <thead>
+              <tr>
+                <th>Produkt</th>
+                <th>Beskrivelse</th>
+                <th>Antal</th>
+                <th>Pris</th>
+              </tr>
+            </thead>
+            <tbody>
+              {cart.map((item) => (
+                <tr key={item.id}>
+                  <td>
+                    <img src={item.image} alt={item.name} className="cart-img" />
+                  </td>
+                  <td>
+                    <div className="product-name">{item.name}</div>
+                    <small>{item.brand}</small>
+                  </td>
+                  <td>
+                    <div className="quantity-control">
+                      <button onClick={() => removeFromCart(item.id)}>-</button>
+                      <input type="text" readOnly value={item.quantity} />
+                      <button onClick={() => addToCart(item)}>+</button>
+                    </div>
+                  </td>
+                  <td>{(item.price * item.quantity).toFixed(2)} DKK</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
 
-          <h3 style={{ marginTop: "20px" }}>
-            Total: {totalPrice.toFixed(2)} kr
-          </h3>
+          <div className="cart-summary">
+            <p><strong>Sub-Total:</strong> {totalPrice.toFixed(2)} DKK</p>
+            <p><strong>Levering:</strong> {shipping.toFixed(2)} DKK</p>
+            <p><strong>Total:</strong> {totalWithShipping} DKK</p>
 
-          <button
-            onClick={clearCart}
-            style={{
-              marginTop: "10px",
-              backgroundColor: "#f44336",
-              color: "#fff",
-              border: "none",
-              padding: "10px 15px",
-              borderRadius: "6px",
-              cursor: "pointer",
-            }}
-          >
-            Tøm kurv
-          </button>
-        </>
+            {shipping > 0 && (
+              <div className="free-shipping-alert">
+                Gratis levering ved køb over 499,00 DKK!<br />
+                <strong>Tilføj {freeShippingLeft} DKK for at få gratis fragt</strong>
+              </div>
+            )}
+
+            <div className="summary-actions">
+              <button className="continue">Shop videre</button>
+              <button className="checkout">Til kassen</button>
+              <button className="clear" onClick={clearCart}>Tøm kurv</button>
+            </div>
+          </div>
+        </div>
       )}
     </main>
   );
