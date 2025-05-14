@@ -1497,166 +1497,103 @@ Derudover er den designet med det lette, åndbare mesh-for.</p>
             `,
             kategorier: ["/nyheder",
                 "/hundetilbehoer",
-              "/transport","/transport/cykelkurv",],
+              "/transport","/transport/cykelkurv","/transport/rygsæk"],
             
           },
           {
             id: "prod43",
-            name: "",
+            name: "Nummerclips: Pekingeser | OUTLET",
             image: "/images/product43.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
+            alt: "Nummerclips med racen Pekingeser",
+            brand: "Ollipet",
+            price: "67,50",
+            oldPrice: "135,00",
+            rabat: "50",
+            highlights: ["Nummerclips med racen Pekingeser til at holde nummeret når du skal i ringen med din hund.", ],
             description: `
-              <p><strong></strong></p>
-              <p></p>
+              <p><strong>Nummerclips med racen Pekingeser til at holde nummeret når du skal i ringen med din hund</strong></p>
+              <p>Her får du en eksklusiv og håndlavet nummerclips med den smukke Pekingeser race</p>
+              <p>Sæt den på dit tøj, og kom dit ringnummer i. Nu er I klar til at indtage ringen, så dommeren tydeligt kan se jeres ringnummer.</p>
+              <p>Måler ca. 5 cm</p>
             `,
-            kategorier: [""],
-            tags: []
+            kategorier: ["/show","/show/clips","/tilbud", "/tilbud/sidstechance",],
+            
           },
           {
             id: "prod44",
-            name: "",
+            name: "Justerbar Showline | Show Tech",
             image: "/images/product44.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
+            alt: "Stilren og justerbar udstillingsline med halvkvæl, i sort med guldfarvet kæde",
+            brand: "Show Tech",
+            price: "119,00",
+            
+            highlights: [ "Sidder perfekt på hunden og gnaver ikke omkring halsen da linen er 8 mm bred.", "Stilren og justerbar udstillingsline med halvkvæl fra Show Tech. Enkelt og fin showline der let kommes over hovedet på din hund."],
             description: `
-              <p><strong></strong></p>
-              <p></p>
+              <p><strong>Stilren og justerbar udstillingsline med halvkvæl fra Show Tech</strong></p>
+              <p>Enkelt og fin showline i slidstærkt nylon der let kommes over hovedet på din hund. Sidder perfekt på hunden og gnaver ikke omkring halsen da linen er 8 mm bred.</p>
+              <p>Her hos Cotonshoppen, ved vi hvor vigtigt det er med den rette showline, når hunden skal udstilles. Med den rette showline kommer din hund langt i udstillingsringen, og I vil sammen opnå gode resultater.</p>
+              <p>Det er vigtigt at hunden går og står korrekt, når du viser den frem for dommeren. Giver du din hund en udstillingsline på, den ikke er glad for, vil det smitte af på dens optræden i ringen.</p>
+              <p>Med denne line vil din hund opleve, at det er behageligt at få linen på grundet det store hovedmål og justerbare halsstykke, der sikre at udstillingslinen passer til netop din hund. </p>
             `,
-            kategorier: [""],
-            tags: []
+            kategorier: ["/show", "/show/line", "/hundetilbehoer","/hundetilbehoer/hundesnor",],
+            
           },
           {
             id: "prod45",
-            name: "",
+            name: "Ollipet Hudson godbidskrukke",
             image: "/images/product45.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
+            alt: "hvid sylender godbidskrykke med træ låg",
+            brand: "Ollipet",
+            price: "89,00",
+           
+            highlights: ["Fremstillet af keramik", "Elegant design"],
             description: `
-              <p><strong></strong></p>
-              <p></p>
+              <p><strong>Elegant opbevaring til din hunds godbidder.</strong></p>
+              <p>Ollipet Hudson godbidskrukken har et simpelt, men stilfuldt design, som pynter flot i ethvert hjem. Med denne krukke kan du skabe en mere overskuelig og æstetisk hverdag.  Bare fyld krukken med godbidder og placer den et sted, hvor den er let tilgængelig. Du har nu hurtig adgang til lækre godbidder, når din hund har fortjent noget lækkert. Krukken kan rumme tyggestænger, godbidder eller noget helt tredje.</p>
+              <p>Krukken er fremstillet af høj kvalitets keramik, der er designet til at holde i lang tid. Desuden har den et flot trælåg, der holder skålen tæt. Skålen kommer i to forskellige størrelser, så du kan vælge den perfekt skål til din firbenede ven. Small måler 10,3 x 14,5 cm og Large måler 10,3 x 15,5 cm.</p>
+              <p>Ollipet Hudson godbidskrukken er ikke bare praktisk, den er også en elegant tilføjelse til dit hjem. Med sit stilfulde design, holdbare keramiske materiale og tætsluttende trælåg er denne krukke den perfekte løsning til at opbevare din hunds favoritsnacks.</p>
             `,
-            kategorier: [""],
-            tags: []
+            kategorier: [  "/diverse","/diverse/hjem",],
+            
           },
           {
             id: "prod46",
-            name: "",
+            name: "Bogen om Coton de Tuléar | Christina Bæk Møller",
             image: "/images/product46.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
+            alt: "bogen om coton de tulear med et billede af racen på forsiden",
+            brand: "cotonshoppen",
+            price: "169,00",
+           
+            highlights: [ "Bogen er spækket med spændende læsning, flotte billeder og fine illustrationer", "Udarbejdet med anerkendte dyrelæger", "2. udgave, revideret 2020"],
             description: `
-              <p><strong></strong></p>
-              <p></p>
+              <p><strong>'Coton de Tuléar' af Christina Bæk Møller</strong></p>
+              <p>Cotonbogen er den perfekte bog om bomuldshunde! Med Bogen om Coton de Tuléar af Christina Bæk Møller - ofte blot kaldet Cotonbogen,  får du en detaljeret og dybdegående bog om den skønne hunderace Coton de Tuléar, også kendt som bomuldshunde.</p>
+              <p>Bogen er spækket med spændende læsning, flotte billeder og fine illustrationer om bomuldshunde, samt nyttige tips og tricks.</p>
+              <p>Denne bog vil derfor give dig svar på mange af de spørgsmål, der melder sig – uanset om du har interesse for Coton de Tuléar som familiehund eller udstillingshund.</p>
             `,
-            kategorier: [""],
-            tags: []
+            kategorier: ["/diverse", "/diverse/bøger"],
+           
           },
           {
             id: "prod47",
-            name: "",
+            name: "Kong Holiday Julesok",
             image: "/images/product47.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
+            alt: "julesok i proteform, med hvid plys kant, med to plys kugler til pynt på grøn snor. rødstik med hvid vinter mønter, som pote sok og et grønt potetryk som ligner trædepuderne",
+            brand: "KONG",
+            price: "89,95",
+           
+            highlights: [ "Hyggelig julesok til hunden", "Formet som en pote", "Den ideelle juledekoration", "Måler:26,5x22x3cm"],
             description: `
-              <p><strong></strong></p>
-              <p></p>
+              <p><strong>Glæd din hund med en julesok til små hyggelige gaver/godbidder og lad julestemningen sprede sig i hjemmet </strong></p>
+              <p>Poteformet julesok med hyggeligt sweaterdesign, perfekt til at fylde med lækre godbidder og legetøj til dit kæledyr denne jul. Gør højtiden ekstra speciel med den ideelle sok til din firbenede ven!</p>
+              <p>Selvom juletiden ofte er travl, så skal vi ikke glemme at forkæle vores hunde. Vores hunde fortjener nemlig også at mærke, at det er jul. Forkæl din hund med dens helt egen julesok fra Kong, som kan fyldes med lækre godbidder og sjovt legetøj. Lad hunden være med, hver gang julesokken skal tømmes, så lærer den hurtigt at forbinde sokken med noget lækkert og hyggeligt. Så kan i sammen skabe et nyt, hyggeligt juleritual. </p>
+              <p>Julesokken kan både bruges til adventsgaver eller som en hyggelig pakkekalender. Den giver dig mulighed for at overraske din hund med noget nyt hver dag og bidrager til endnu mere hygge i december. </p>
+              <p>Julesokken er designet som en pote med mange søde detaljer. Sokken vil passe perfekt ind imellem resten af husets julepynt. Denne hyggelige pote-julesok fra Kong sikrer, at både du og din hund kommer i rigtig julestemning.</p>
             `,
-            kategorier: [""],
-            tags: []
+            kategorier: ["/diverse","/diverse/højtid"],
+           
           },
-          {
-            id: "prod48",
-            name: "",
-            image: "/images/product48.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
-            description: `
-              <p><strong></strong></p>
-              <p></p>
-            `,
-            kategorier: [""],
-            tags: []
-          },
-          {
-            id: "prod49",
-            name: "",
-            image: "/images/product49.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
-            description: `
-              <p><strong></strong></p>
-              <p></p>
-            `,
-            kategorier: [""],
-            tags: []
-          },
-          {
-            id: "prod50",
-            name: "",
-            image: "/images/product50.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
-            description: `
-              <p><strong></strong></p>
-              <p></p>
-            `,
-            kategorier: [""],
-            tags: []
-          },
-          {
-            id: "prod51",
-            name: "",
-            image: "/images/product51.jpg",
-            alt: "",
-            brand: "",
-            price: "",
-            oldPrice: "",
-            rabat: "",
-            highlights: ["", "", "", "", ""],
-            description: `
-              <p><strong></strong></p>
-              <p></p>
-            `,
-            kategorier: [""],
-            tags: []
-          }
-          
-            
-     
-    // ... (fortsætter op til prod70)
+       
   ];
   
   export default products;

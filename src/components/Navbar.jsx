@@ -101,7 +101,6 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
       path: "/show",
       subcategories: [
         { name: "Udstillings line", path: "/show/line" },
-        { name: "Udstillings vogn", path: "/show/vogn" },
         { name: "Nummer clips", path: "/show/clips" },
       ],
     },
@@ -111,9 +110,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
       subcategories: [
         { name: "Til hjemmet", path: "/diverse/hjem" },
         { name: "Bøger om hunde", path: "/diverse/bøger" },
-        { name: "Best sellers", path: "/diverse/bedste" },
         { name: "Højtider", path: "/diverse/højtid" },
-        { name: "Sæson", path: "/diverse/sæson" },
         { name: "Batterier", path: "/diverse/batteri" },
       ],
     },
