@@ -88,6 +88,7 @@ export default function ProductCarousel({ title, products }) {
             }`}
             aria-label={`Gå til side ${i + 1}`}
             role="tab"
+            aria-selected={i === Math.floor(startIndex / itemsPerPage)}
             onClick={() => setStartIndex(i * itemsPerPage)}
           />
         ))}

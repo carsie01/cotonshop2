@@ -25,6 +25,10 @@
   max-height: 100%;
   object-fit: contain;
 }
+.product-card button:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
 
 .image-wrapper {
   height: 250px;
@@ -34,6 +38,18 @@
   margin-bottom: 8px;
   padding-bottom: 30px;
   position: relative;
+}
+/* Skjuler element visuelt, men holder det tilgængeligt for skærmlæsere */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
 }
 
 /* Mærker */
@@ -119,7 +135,9 @@
 }
 
 /* Vis kun ved hover */
-.product-card:hover .card-actions {
+.product-card:hover .card-actions,
+.product-card:focus .card-actions,
+.product-card:focus-within .card-actions {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);

@@ -11,13 +11,13 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
       subcategories: [
         { name: "Sæt af vare m. Rabat", path: "/tilbud/sæt" },
         { name: "Sidste Chance", path: "/tilbud/sidstechance" },
-        { name: "Spot tilbud", path: "/tilbud/spot" },
+        { name: "Se alle", path: "/tilbud" },
       ],
     },
     {
       name: "Nyheder",
       path: "/nyheder",
-      subcategories: [{ name: "Se Nyheder", path: "/nyheder/2025" }],
+      subcategories: [{ name: "Se Nyheder", path: "/nyheder" }],
     },
     {
       name: "Hundepleje",
@@ -30,6 +30,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Trimmere og Klippemaskiner", path: "/hundepleje/trimmerogklippemaskiner" },
         { name: "Diverse hundepleje", path: "/hundepleje/diverse" },
         { name: "Hunde pleje sæt", path: "/hundepleje/sæt" },
+        { name: "Se alle", path: "/hundepleje" },
       ],
     },
     {
@@ -44,6 +45,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Pelspleje til hvalpe", path: "/hvalpeudstyr/pelspleje" },
         { name: "Hvalpegård", path: "/hvalpeudstyr/hvalpegård" },
         { name: "Snor og sele", path: "/hvalpeudstyr/snorogsele" },
+        { name: "Se alle", path: "/hvalpeudstyr" },
       ],
     },
     {
@@ -54,11 +56,12 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Våd foder", path: "/hundefoder/vådfoder" },
         { name: "Tør foder", path: "/hundefoder/tørfoder" },
         { name: "Tilskud", path: "/hundefoder/tilskud" },
+        { name: "Se alle", path: "/hundefoder" },
       ],
     },
     {
       name: "Hundelegetøj",
-      path: "/hundelegetoj",
+      path: "/hundelegetøj",
       subcategories: [
         { name: "Slidestærkt legetøj", path: "/hundelegetoj/slidestærkt" },
         { name: "Plys legetøj", path: "/hundelegetoj/plys" },
@@ -66,6 +69,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Snuse og slikkemåtte", path: "/hundelegetoj/snuseogslikmåtte" },
         { name: "Bolde", path: "/hundelegetoj/blodt" },
         { name: "Tandrensende legetøj", path: "/hundelegetoj/tandrens" },
+        { name: "Se alle", path: "/hundelegetoj" },
       ],
     },
     {
@@ -83,6 +87,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Trapper", path: "/hundetilbehoer/trapper" },
         { name: "Hundebur", path: "/hundetilbehoer/hundebur" },
         { name: "Tæpper", path: "/hundetilbehoer/tæppe" },
+        { name: "Se alle", path: "/hundetilbehoer" },
       ],
     },
     {
@@ -94,6 +99,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Cykelkurv", path: "/transport/cykelkurv" },
         { name: "Rygsæk", path: "/transport/rygsæk" },
         { name: "Hundebur", path: "/transport/hundebur" },
+        { name: "Se alle", path: "/transport" },
       ],
     },
     {
@@ -102,6 +108,7 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
       subcategories: [
         { name: "Udstillings line", path: "/show/line" },
         { name: "Nummer clips", path: "/show/clips" },
+        { name: "Se alle", path: "/show" },
       ],
     },
     {
@@ -112,206 +119,251 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
         { name: "Bøger om hunde", path: "/diverse/bøger" },
         { name: "Højtider", path: "/diverse/højtid" },
         { name: "Batterier", path: "/diverse/batteri" },
+        { name: "Se alle", path: "/diverse" },
       ],
     },
     {
       name: "Mærker",
       path: "/maerker",
       subcategories: [
-        { name: "Ollipet", path: "/maerker/ollipet" },
-        { name: "DogRider", path: "/maerker/dogrider" },
-        { name: "CoolDog", path: "/maerker/cooldog" },
+        { name: "C", path: "/maerker/cooldog" },
+        { name: "D", path: "/maerker/dogrider" },
+        { name: "O", path: "/maerker/ollipet" },
+        { name: "T", path: "/maerker/trixi" },
+        { name: "K", path: "/maerker/kong" },
+        { name: "Se alle", path: "/maerker" },
       ],
     },
   ];
   
 
+export default function Navbar() {
+  const { cart } = useCart();
+  const [search, setSearch] = useState("");
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [showMobileSearch, setShowMobileSearch] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1175);
+  const [openMobileCategory, setOpenMobileCategory] = useState(null);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const navigate = useNavigate();
+  const searchRef = useRef();
 
-  export default function Navbar() {
-    const { cart } = useCart();
-    const [search, setSearch] = useState("");
-    const [menuOpen, setMenuOpen] = useState(false);
-    const [showMobileSearch, setShowMobileSearch] = useState(false);
-    const [isMobile, setIsMobile] = useState(window.innerWidth < 1175);
-    const [openMobileCategory, setOpenMobileCategory] = useState(null);
-    const navigate = useNavigate();
-    const searchRef = useRef();
+  const toggleMenu = () => setMenuOpen((prev) => !prev);
+  const toggleSearch = () => setShowMobileSearch((prev) => !prev);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (search.trim()) {
+      navigate(`/soeg?q=${encodeURIComponent(search.trim())}`);
+      setSearch("");
+      setShowMobileSearch(false);
+    }
+  };
+
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1175);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
+  useEffect(() => {
+    if (showMobileSearch && searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, [showMobileSearch]);
   
-    const toggleMenu = () => setMenuOpen((prev) => !prev);
-    const toggleSearch = () => setShowMobileSearch((prev) => !prev);
-  
-    const handleSubmit = (e) => {
-      e.preventDefault();
-      if (search.trim()) {
-        navigate(`/soeg?q=${encodeURIComponent(search.trim())}`);
-        setSearch("");
-        setShowMobileSearch(false);
-      }
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if (e.key === "Escape") setShowMobileSearch(false);
     };
-  
-    useEffect(() => {
-      const handleResize = () => setIsMobile(window.innerWidth < 1175);
-      window.addEventListener("resize", handleResize);
-      return () => window.removeEventListener("resize", handleResize);
-    }, []);
-  
-    useEffect(() => {
-      if (showMobileSearch && searchRef.current) {
-        searchRef.current.focus();
-      }
-    }, [showMobileSearch]);
-  
-    return (
-      <header>
-        <div className="top-info">
-          🇩🇰 Danskejet | Gratis fragt over 499 kr. | 60 dages returret | Hurtig levering
-        </div>
-  
-        <div className="whiteboks">
-          <div className="navbar">
-            {isMobile && (
-              <button
-                className="burger-menu"
-                onClick={toggleMenu}
-                aria-label="Åbn menu"
-                aria-haspopup="true"
-                aria-controls="mobile-menu"
-                aria-expanded={menuOpen}
-              >
-                ☰
-              </button>
-            )}
-  
-            <Link to="/" className="navbar-logo" aria-label="Hjem">
-              <img src="/images/logo.png" alt="Cotonshoppen.dk – For All Dogs" width="200" />
-            </Link>
-  
-            {!isMobile && (
-              <form className="search-form" role="search" onSubmit={handleSubmit}>
-                <input
-                  id="search"
-                  name="search"
-                  type="search"
-                  placeholder="Søg her..."
-                  value={search}
-                  onChange={(e) => setSearch(e.target.value)}
-                />
-              </form>
-            )}
-  
-            <div className="nav-icons">
-              {isMobile && (
-                <button className="search-toggle" onClick={toggleSearch} aria-label="Åbn søgning">
-                  <Search size={24} strokeWidth={1.75} />
-                </button>
-              )}
-              <Link to="/favoritter" aria-label="Favoritter">
-                <Heart size={24} strokeWidth={1.75} />
-              </Link>
-              <Link to="/kurv" aria-label="Kurv" className="cart-icon">
-                <ShoppingCart size={24} strokeWidth={1.75} />
-                {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
-              </Link>
-              <Link to="/login" aria-label="Min konto">
-                <User size={24} strokeWidth={1.75} />
-              </Link>
-            </div>
-          </div>
-        </div>
-  
-        {/* Desktop dropdown */}
-        {!isMobile && (
-          <nav className="category-bar" aria-label="Kategori-navigation">
-            {categories.map((cat) => (
-              <div className="category-item" key={cat.name}>
-                <Link to={cat.path} className="category-link">{cat.name}</Link>
-                {cat.subcategories?.length > 0 && (
-                  <div className="dropdown">
-                    {cat.subcategories.map((sub) => (
-                      <Link to={sub.path} key={sub.name} className="dropdown-item">
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ))}
-          </nav>
-        )}
-  
-        {/* Mobilmenu */}
-        {isMobile && menuOpen && (
-          <div
-            id="mobile-menu"
-            className="mobile-menu"
-            role="dialog"
-            aria-modal="true"
-            aria-label="Mobil navigation"
-          >
-            <button
-              className="close-menu"
-              onClick={toggleMenu}
-              aria-label="Luk menu"
-            >
-              ✕
-            </button>
-  
-            <nav className="mobile-categories" role="navigation" aria-label="Primære kategorier">
-            {categories.map((cat) => {
-  const isOpen = openMobileCategory === cat.name;
-  const subId = `subcategory-${cat.name}`;
-  const catId = `category-${cat.name}`;
+    document.addEventListener("keydown", handleKeyDown);
+    return () => document.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   return (
-    <div key={cat.name} className="mobile-category-group">
-      <button
-        className="mobile-category-button"
-        aria-expanded={isOpen}
-        aria-controls={subId}
-        id={catId}
-        onClick={() =>
-          setOpenMobileCategory((prev) => (prev === cat.name ? null : cat.name))
-        }
-      >
-        <span>{cat.name}</span>
-        {cat.subcategories?.length > 0 && (
-          <span aria-hidden="true">{isOpen ? "▲" : "▼"}</span>
-        )}
-      </button>
+    <header>
+      <div className="top-info">
+        🇩🇰 Danskejet | Gratis fragt over 499 kr. | 60 dages returret | Hurtig levering
+      </div>
 
-      {/* ✅ Her er ændringen: kun render hvis åben */}
-      {isOpen && cat.subcategories?.length > 0 && (
-        <div
-          id={subId}
-          role="region"
-          aria-labelledby={catId}
-          className="mobile-subcategories"
-        >
-          {cat.subcategories.map((sub) => (
-            <Link
-              key={sub.name}
-              to={sub.path}
-              onClick={toggleMenu}
-              className="mobile-sub-item"
+      <div className="whiteboks">
+        <div className="navbar">
+        {isMobile && menuOpen && (
+  <nav
+    id="mobile-menu"
+    className="mobile-categories"
+    role="navigation"
+    aria-label="Mobil navigation"
+  >
+    {categories.map((cat, index) => {
+      const isOpen = openMobileCategory === index;
+      const subId = `mobile-sub-${index}`;
+      const buttonId = `mobile-btn-${index}`;
+
+      return (
+        <div key={cat.name} className="mobile-category-group">
+          <button
+            id={buttonId}
+            className="mobile-category-button"
+            aria-expanded={isOpen}
+            aria-controls={subId}
+            onClick={() =>
+              setOpenMobileCategory((prev) =>
+                prev === index ? null : index
+              )
+            }
+            onKeyDown={(e) => {
+              if (e.key === "Escape") setOpenMobileCategory(null);
+            }}
+          >
+            {cat.name} <span>{isOpen ? "▲" : "▼"}</span>
+          </button>
+
+          {isOpen && (
+            <ul
+              id={subId}
+              className="mobile-subcategories"
+              aria-labelledby={buttonId}
             >
-              – {sub.name}
-            </Link>
-          ))}
+              {cat.subcategories.map((sub) => (
+                <li key={sub.name}>
+                  <Link
+                    to={sub.path}
+                    className="mobile-sub-item"
+                    onClick={() => {
+                      setMenuOpen(false);
+                      setOpenMobileCategory(null);
+                    }}
+                  >
+                    {sub.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          )}
         </div>
-      )}
-    </div>
-  );
-})}
+      );
+    })}
+  </nav>
+)}
 
-            </nav>
+
+          {isMobile && (
+            <button
+              className="burger-menu"
+              onClick={toggleMenu}
+              aria-label="Åbn menu"
+              aria-haspopup="true"
+              aria-controls="mobile-menu"
+              aria-expanded={menuOpen}
+            >
+              ☰
+            </button>
+          )}
+
+          <Link to="/" className="navbar-logo" aria-label="Hjem">
+            <img src="/images/logo.png" alt="Cotonshoppen.dk – For All Dogs" width="200" />
+          </Link>
+
+          {!isMobile && (
+            <form className="search-form" role="search" onSubmit={handleSubmit}>
+              <label htmlFor="search" className="sr-only">Søg efter produkter</label>
+              <input
+                id="search"
+                name="search"
+                type="search"
+                placeholder="Søg her..."
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
+              />
+            </form>
+          )}
+
+          <div className="nav-icons">
+            {isMobile && (
+              <button className="search-toggle" onClick={toggleSearch} aria-label="Åbn søgning">
+                <Search size={24} strokeWidth={1.75} />
+              </button>
+            )}
+            <Link to="/favoritter" aria-label="Favoritter">
+              <Heart size={24} strokeWidth={1.75} />
+            </Link>
+            <Link to="/kurv" aria-label="Kurv" className="cart-icon">
+              <ShoppingCart size={24} strokeWidth={1.75} />
+              {cart.length > 0 && <span className="cart-count">{cart.length}</span>}
+            </Link>
+            <Link to="/login" aria-label="Min konto">
+              <User size={24} strokeWidth={1.75} />
+            </Link>
           </div>
-        )}
+        </div>
+      </div>
+
+      {!isMobile && (
+        <nav className="category-bar" aria-label="Primær kategorinavigation">
+          {categories.map((cat, index) => {
+            const dropdownId = `dropdown-${index}`;
+            const linkId = `category-link-${index}`;
+
+            return (
+              <div
+                key={cat.name}
+                className="category-item"
+                onMouseEnter={() => setOpenDropdown(dropdownId)}
+                onMouseLeave={() => setOpenDropdown(null)}
+              >
+                <Link
+                  to={cat.path}
+                  id={linkId}
+                  className="category-link"
+                  aria-haspopup="true"
+                  aria-expanded={openDropdown === dropdownId}
+                  aria-controls={dropdownId}
+                  onFocus={() => setOpenDropdown(dropdownId)}
+                  onKeyDown={(e) => {
+                    if (e.key === "Enter" || e.key === " ") {
+                      e.preventDefault();
+                      setOpenDropdown(dropdownId);
+                    }
+                  }}
+                >
+                  {cat.name}
+                </Link>
+
+                <ul
+                  id={dropdownId}
+                  className={`dropdown ${openDropdown === dropdownId ? "visible" : "hidden"}`}
+                  aria-labelledby={linkId}
+                >
+                  {cat.subcategories?.map((sub) => (
+                    <li key={sub.name}>
+                      <Link
+                        to={sub.path}
+                        onClick={() => setOpenDropdown(null)}
+                        onKeyDown={(e) => {
+                          if (e.key === "Escape") setOpenDropdown(null);
+                        }}
+                      >
+                        {sub.name}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </nav>
+      )}
   
-        {/* Mobil søgning */}
         {isMobile && showMobileSearch && (
-          <div className="mobile-search-overlay" onClick={() => setShowMobileSearch(false)}>
+          <div className="mobile-search-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobil søgning"
+          onClick={() => setShowMobileSearch(false)}>
             <form
               className="mobile-search-form"
+              role="search"
               onSubmit={handleSubmit}
               onClick={(e) => e.stopPropagation()}
             >

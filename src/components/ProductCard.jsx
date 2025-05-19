@@ -9,7 +9,7 @@ export default function ProductCard({ product, className = "" }) {
   const navigate = useNavigate();
   const { addToCart } = useCart();
   const [showModal, setShowModal] = useState(false);
-  const [isFavorite, setIsFavorite] = useState(false); // 💖 favoritstatus
+  const [isFavorite, setIsFavorite] = useState(false);
 
   const handleNavigate = () => {
     if (!product?.id) return;
@@ -25,7 +25,6 @@ export default function ProductCard({ product, className = "" }) {
   const toggleFavorite = (e) => {
     e.stopPropagation();
     setIsFavorite((prev) => !prev);
-    // Her kan du evt. tilføje localStorage eller context-sync
   };
 
   return (
@@ -33,29 +32,45 @@ export default function ProductCard({ product, className = "" }) {
       <article
         className={`product-card ${className}`}
         onClick={handleNavigate}
-        role="button"
         tabIndex={0}
         onKeyDown={(e) => e.key === "Enter" && handleNavigate()}
+        role="group"
+        aria-label={`Produkt: ${product.name}, mærke: ${product.brand}, pris: ${product.price} kr${product.oldPrice ? `, førpris: ${product.oldPrice} kr` : ""}${product.rabat ? `, rabat: ${product.rabat}%` : ""}`}
       >
+        <a
+          href={`/produkt/${product.id}`}
+          className="sr-only"
+          aria-hidden="false"
+        >
+          Gå til produkt: {product.name}
+        </a>
+
         <div className="image-wrapper">
           {product?.rabat && (
-            <span className="product-badge badge-discount">-{product.rabat}%</span>
+            <span
+              className="product-badge badge-discount"
+              aria-label={`Rabat: ${product.rabat}%`}
+            >
+              -{product.rabat}%
+            </span>
           )}
           {product?.nyhed && (
-            <span className="product-badge badge-new">NYHED</span>
+            <span className="product-badge badge-new" aria-label="Nyhed">
+              NYHED
+            </span>
           )}
           <img
             src={product.image}
-            alt={product.alt || product.name}
+            alt={product.alt || `Billede af ${product.name}`}
             className="product-image"
           />
         </div>
 
-        <p className="product-name">{product.name}</p>
+        <h3 className="product-name">{product.name}</h3>
         <p className="brand">{product.brand}</p>
 
         <div className="price-wrapper">
-          <span className="product-price">{product.price} </span>
+          <span className="product-price">{product.price} kr</span>
           {product.oldPrice && (
             <span className="old-price">{product.oldPrice} kr</span>
           )}
@@ -70,17 +85,32 @@ export default function ProductCard({ product, className = "" }) {
         <p className="shipping-info">ekskl. levering</p>
 
         <div className="card-actions">
+          
+          <button
+            className="view-details"
+            onClick={(e) => {
+              e.stopPropagation();
+              handleNavigate();
+            }}
+            type="button"
+            aria-label={`Se detaljer for ${product.name}`}
+          >
+            Se detaljer
+          </button>
+
           <button
             className="add-to-cart"
             onClick={handleAddToCart}
             type="button"
+            aria-label="Føj til kurv"
           >
             Læg i kurv
           </button>
+
           <button
             onClick={toggleFavorite}
             type="button"
-            aria-label="Føj til favoritter"
+            aria-label={isFavorite ? "Fjern fra favoritter" : "Føj til favoritter"}
             className="heart-button"
           >
             <Heart

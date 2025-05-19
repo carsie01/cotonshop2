@@ -89,6 +89,7 @@
   margin-top: auto;
 }
 
+
 @media (max-width: 900px) {
   .product-card.carousel-card {
     max-width: 48%;

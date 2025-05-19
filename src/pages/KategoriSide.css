@@ -1,6 +1,5 @@
 /* === GENERELT === */
 .kategori-side {
-  background: #e5f6ff;
   padding: 40px 0;
 }
 
@@ -156,12 +155,46 @@
     flex-direction: column;
   }
 
-  .filters {
+  .filters {display: flex;
+    justify-content: center;
+    align-items: center;
     order: -1;
     width: 100%;
-    margin-bottom: 24px;
     padding: 16px;
     border-radius: 8px;
+    gap: 20px;
+  }
+  .filter-header {
+    display: flex;
+
+    align-items: center;
+    font-weight: 700;
+    font-size: 10px;
+    padding-bottom: 16px;
+    margin-bottom: 8px;
+  }
+  
+  .filter-section {
+    padding: 12px 0;
+    width: 100%;
+   
+  }
+  
+  .filter-toggle {
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0;
+    cursor: pointer;
+    color: #333;
+  }
+  
+  .filter-toggle span {
+    font-size: 14px;
   }
 
   .produkt-oversigt {

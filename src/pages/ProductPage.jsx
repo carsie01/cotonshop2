@@ -62,8 +62,9 @@ export default function ProductPage() {
 
         {/* Info */}
         <div className="product-info">
+        <h1>{product.name}</h1>
           <p className="brand">Fra: {product.brand}</p>
-          <h1>{product.name}</h1>
+          
 
           {/* Highlights */}
           {product.highlights?.length > 0 && (
