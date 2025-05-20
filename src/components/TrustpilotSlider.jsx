@@ -78,7 +78,7 @@ export default function TrustpilotSlider() {
   return (
     <section className="trustpilot-wrapper" aria-label="Trustpilot anmeldelser">
       <div className="trustpilot-slider">
-        {/* Venstre fast felt (kun til desktop) */}
+      
         <div className="trustpilot-summary" aria-hidden={visibleCount < 3}>
           <h2>Fremragende</h2>
           <img src="/images/stars-5.png" alt="5 ud af 5 stjerner" className="tp-stars" />
@@ -86,7 +86,7 @@ export default function TrustpilotSlider() {
           <img src="/images/trustpilot-logo.png" alt="Trustpilot logo" className="tp-logo" />
         </div>
 
-        {/* Pile og anmeldelser */}
+       
         <button className="arrow left" onClick={prev} aria-label="Forrige anmeldelser">◀</button>
 
         <div className="trustpilot-cards">

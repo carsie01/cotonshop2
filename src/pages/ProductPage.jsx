@@ -60,13 +60,12 @@ export default function ProductPage() {
           />
         </div>
 
-        {/* Info */}
+   
         <div className="product-info">
         <h1>{product.name}</h1>
           <p className="brand">Fra: {product.brand}</p>
           
 
-          {/* Highlights */}
           {product.highlights?.length > 0 && (
             <>
               <ul className="highlights">
@@ -80,7 +79,7 @@ export default function ProductPage() {
             </>
           )}
 
-          {/* Pris */}
+      
           <div className="price-box">
             <p className="product-price">
               {product.price} kr
@@ -92,7 +91,6 @@ export default function ProductPage() {
             </p>
           </div>
 
-          {/* Kurv og favorit */}
           <div className="cart-actions">
             <input type="number" defaultValue={1} min={1} />
             <button onClick={() => addToCart(product)} className="buy-button">
@@ -112,7 +110,7 @@ export default function ProductPage() {
             </button>
           </div>
 
-          {/* Trust info */}
+        
           <div className="shipping-info fixed">
             <p>✅ Dansk kundeservice og topkarakter på Trustpilot</p>
             <p>✅ Tryghed, når du handler</p>
@@ -122,7 +120,7 @@ export default function ProductPage() {
         </div>
       </div>
 
-      {/* HTML-beskrivelse */}
+    
       <section id="product-description" className="product-description">
         <h2>Om produktet</h2>
         <div className={`description-html ${showFullDescription ? "expanded" : "collapsed"}`}>
@@ -138,7 +136,7 @@ export default function ProductPage() {
         )}
       </section>
 
-      {/* Relaterede produkter */}
+ 
       <section className="related-products">
         <h2>Relaterede produkter</h2>
         <div className="related-grid">
@@ -148,7 +146,7 @@ export default function ProductPage() {
         </div>
       </section>
 
-      {/* Anbefalet */}
+ 
       {products.some((p) => p.tags?.includes("anbefalet")) && (
         <section className="recommended-products">
           <h2>Anbefalet til dig</h2>

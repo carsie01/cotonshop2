@@ -35,7 +35,7 @@
   .productlist-button {
     padding: 14px 28px;
     font-size: 16px;
-    background-color: #f4a740;
+    background-color: #E37500;
     color: white;
     border: none;
     border-radius: 8px;
@@ -45,6 +45,6 @@
   }
   
   .productlist-button:hover {
-    background-color: #d88c00;
+    background-color: #8e4a01;
   }
   

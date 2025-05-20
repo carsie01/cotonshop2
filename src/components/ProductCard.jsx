@@ -97,6 +97,7 @@ export default function ProductCard({ product, className = "" }) {
           >
             Se detaljer
           </button>
+          <div className="buttonstyle">
 
           <button
             className="add-to-cart"
@@ -120,6 +121,7 @@ export default function ProductCard({ product, className = "" }) {
               color={isFavorite ? "#E37500" : "#333"}
             />
           </button>
+          </div>
         </div>
       </article>
 

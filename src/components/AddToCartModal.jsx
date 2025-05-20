@@ -15,14 +15,13 @@ export default function AddToCartModal({ product, onClose }) {
     return () => window.removeEventListener("keydown", handleEsc);
   }, [onClose]);
 
-  // Sæt fokus i modal
   useEffect(() => {
     modalRef.current?.focus();
   }, []);
 
   if (!product) return null;
 
-  // Forslagsprodukter (fx "populær")
+
   const suggestions = products
     .filter((p) => p.id !== product.id && p.tags?.includes("populaer"))
     .slice(0, 4);
@@ -68,7 +67,7 @@ export default function AddToCartModal({ product, onClose }) {
                 <ProductCard
                   key={item.id}
                   product={item}
-                  className="modal-card" // ✅ Gør kort mindre og tilpasset
+                  className="modal-card" 
                 />
               ))}
             </div>

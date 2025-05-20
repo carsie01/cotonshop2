@@ -41,7 +41,13 @@
   top: 15px;
   right: 20px;
   cursor: pointer;
-  color: #555;
+  color: #ff0000;
+}
+.modal-close:hover {
+  background-color: #ff0000;
+  color: #fff;
+
+  border-radius: 40px;
 }
 
 /* --- Header med billede og titel --- */
@@ -84,7 +90,7 @@
 
 .modal-actions button {
   flex: 1;
-  background-color: #5e4b44;
+  background-color: #E37500;
   color: white;
   border-radius: 8px;
   padding: 12px;
@@ -95,7 +101,7 @@
 }
 
 .modal-actions button:hover {
-  background-color: #4d3d36;
+  background-color: #8e4a01;
 }
 
 /* --- Forslag til dig --- */

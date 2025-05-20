@@ -31,7 +31,7 @@
     transform: translateX(-50%);
     background-color: #E37500;
     color: white;
-    border: none;
+    border: solid 2px white;
     padding: 14px 24px;
     font-size: 18px;
     border-radius: 8px;
@@ -42,7 +42,7 @@
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
-    background-color: #9C5000;
+    background-color: #8e4a01;
     color: white;
     border: none;
     padding: 14px 24px;
@@ -72,10 +72,7 @@
   .dot:hover {
     opacity: 1;
   }
-  .carousel-container {
-    background-color: #e0f3fc;
-   
-  }
+  
   
   .carousel-wrapper {
     max-width: 1150px;
@@ -94,5 +91,9 @@
     position: relative;
     text-align: center;
   }
-  
+  .carousel-button:focus,
+.dot:focus {
+  outline: 3px solid #E37500; 
+  outline-offset: 4px;
+}
   

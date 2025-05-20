@@ -1,4 +1,4 @@
-// src/App.jsx
+
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -14,9 +14,9 @@ import InfoBanner from "./components/InfoBanner";
 import KategoriSide from "./pages/KategoriSide";
 import SoegeSide from "./pages/SoegeSide";
 
-import products from "./data/products"; // ✅ importér fælles datakilde
+import products from "./data/products"; // importér fælles datakilde
 
-// 📦 Filtrér produkter med tags
+// Filtrér produkter med tags
 const popularProducts = products.filter((p) => p.tags?.includes("populaer"));
 const recommendedProducts = products.filter((p) => p.tags?.includes("anbefalet"));
 
@@ -26,7 +26,7 @@ export default function App() {
       <Navbar />
 
       <Routes>
-        {/* 🏠 Forside */}
+        {/* Forside */}
         <Route
           path="/"
           element={
@@ -42,14 +42,14 @@ export default function App() {
           }
         />
 
-        {/* 🔍 Global søgning */}
+        {/* Global søgning */}
         <Route path="/soeg" element={<SoegeSide />} />
 
-        {/* 📰 Dynamisk kategorivisning */}
+        {/* Dynamisk kategorivisning */}
         <Route path="/:kategori" element={<KategoriSide />} />
         <Route path="/:kategori/:slug" element={<KategoriSide />} />
 
-        {/* 🛒 Kurv og produktsider */}
+        {/* Kurv og produktsider */}
         <Route path="/kurv" element={<CartPage />} />
         <Route path="/produkt/:id" element={<ProductPage />} />
       </Routes>

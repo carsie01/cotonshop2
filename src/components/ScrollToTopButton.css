@@ -6,7 +6,7 @@
     height: 48px;
     border: none;
     border-radius: 50%;
-    background-color: #0079c2;
+    background-color: #E37500;
     color: white;
     cursor: pointer;
     display: flex;
@@ -17,6 +17,6 @@
   }
   
   .scroll-top-btn:hover {
-    background-color: #E37500;
+    background-color: #8e4a01;
   }
   

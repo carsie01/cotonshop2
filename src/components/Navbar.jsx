@@ -147,6 +147,7 @@ export default function Navbar() {
   const [openDropdown, setOpenDropdown] = useState(null);
   const navigate = useNavigate();
   const searchRef = useRef();
+  const mobileMenuRef = useRef();
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const toggleSearch = () => setShowMobileSearch((prev) => !prev);
@@ -179,6 +180,35 @@ export default function Navbar() {
     document.addEventListener("keydown", handleKeyDown);
     return () => document.removeEventListener("keydown", handleKeyDown);
   }, []);
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        menuOpen &&
+        mobileMenuRef.current &&
+        !mobileMenuRef.current.contains(event.target)
+      ) {
+        setMenuOpen(false);
+        setOpenMobileCategory(null);
+      }
+    };
+  
+    const handleEscape = (event) => {
+      if (event.key === "Escape") {
+        setMenuOpen(false);
+        setOpenMobileCategory(null);
+      }
+    };
+  
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("keydown", handleEscape);
+  
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("keydown", handleEscape);
+    };
+  }, [menuOpen]);
+  
+
 
   return (
     <header>
@@ -191,6 +221,7 @@ export default function Navbar() {
         {isMobile && menuOpen && (
   <nav
     id="mobile-menu"
+    ref={mobileMenuRef}
     className="mobile-categories"
     role="navigation"
     aria-label="Mobil navigation"
@@ -261,9 +292,13 @@ export default function Navbar() {
             </button>
           )}
 
-          <Link to="/" className="navbar-logo" aria-label="Hjem">
-            <img src="/images/logo.png" alt="Cotonshoppen.dk – For All Dogs" width="200" />
-          </Link>
+<Link to="/" className="navbar-logo" aria-label="Hjem">
+  <img
+    src={isMobile ? "/images/logo-mobile.png" : "/images/logo.png"}
+    alt="Cotonshoppen.dk – For All Dogs"
+    style={{ width: isMobile ? "60px" : "200px", height: "auto" }}
+  />
+</Link>
 
           {!isMobile && (
             <form className="search-form" role="search" onSubmit={handleSubmit}>

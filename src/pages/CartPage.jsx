@@ -1,4 +1,4 @@
-// src/pages/CartPage.jsx
+
 import { useCart } from "../context/CartContext";
 import "./CartPage.css";
 

@@ -97,7 +97,7 @@ export default function NyhederCarousel() {
           ))}
         </div>
 
-        {/* aria-live læser beskrivelse + knaptekst ved fokus og dotskift */}
+       
         {userFocused && (
           <div
             aria-live="polite"

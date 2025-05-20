@@ -95,13 +95,13 @@
 .product-card .product-price {
   font-size: 16px;
   font-weight: bold;
-  color: #b22222;
+  color: #2d2d2d;
 }
 
 .old-price {
   font-size: 13px;
   text-decoration: line-through;
-  color: #cc6699;
+  color: #a82b2b;
   margin-left: 6px;
 }
 
@@ -122,12 +122,11 @@
 /* === Knapper === */
 .card-actions {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
-  align-items: center;
   gap: 8px;
   margin-top: auto;
 
-  /* Skjult som standard */
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
@@ -142,6 +141,21 @@
   visibility: visible;
   transform: translateY(0);
 }
+.view-details {
+  background: transparent;
+  border: none;
+  padding: 6px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+}
+
+.view-details:hover,
+.view-details:focus {
+  background-color: transparent !important;
+  text-decoration: underline;
+  outline: none;
+}
 
 .add-to-cart {
   background-color: #E37500;
@@ -155,7 +169,7 @@
 }
 
 .add-to-cart:hover {
-  background-color: #9C5000;
+  background-color: #8e4a01;
 }
 
 .heart-button {
@@ -170,21 +184,22 @@
 
 .heart-button:hover {
   border-color: #999;
+  background-color: #E37500;
 }
 /* Gælder kun i modal */
 .product-card.modal-card {
-  max-width: 150px;          /* gør kortet smallere */
-  padding: 8px;              /* mindre padding */
+  max-width: 150px;          
+  padding: 8px;             
   font-size: 13px;
   border: 1px solid #eee;
   border-radius: 6px;
   box-shadow: none;
-  height: auto;              /* override fast højde */
+  height: auto;             
 }
 
-/* reducer billedhøjde */
+
 .product-card.modal-card .image-wrapper {
-  height: 120px;             /* lavere højde */
+  height: 120px;             
   padding-bottom: 0;
   margin-bottom: 6px;
 }
@@ -194,7 +209,7 @@
   object-fit: contain;
 }
 
-/* reducer tekstafstand og størrelser */
+
 .product-card.modal-card .product-name {
   font-size: 14px;
   font-weight: 600;
@@ -207,7 +222,7 @@
   margin-bottom: 2px;
 }
 
-/* fjern rabat og fragt-info */
+
 .product-card.modal-card .savings,
 .product-card.modal-card .shipping-info {
   display: none;

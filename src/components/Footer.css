@@ -9,7 +9,7 @@
   padding: 0 20px;
 }
 
-/* Øverste del */
+
 .footer-top {
   display: flex;
   flex-wrap: wrap;
@@ -48,7 +48,7 @@
   text-decoration: underline;
 }
 
-/* Sociale ikoner */
+
 .social-icons {
   display: flex;
   gap: 1rem;
@@ -70,7 +70,7 @@
 }
 
 .social-icons a:hover {
-  background-color: #1d305e;
+  background-color: #E37500;
 }
 
 /* Nederste del */
@@ -106,7 +106,7 @@
 
   .footer-top {
     flex-direction: column;
-    text-align: center; /* Centrerer alt indhold */
+    text-align: center; 
   }
 
   .footer-col {
@@ -114,16 +114,16 @@
   }
 
   .footer-col ul li {
-    margin-bottom: 4px; /* Mindre afstand mellem punkter */
+    margin-bottom: 4px; 
   }
 
   .footer-col h3 {
-    margin-bottom: 8px; /* Tættere på listen */
+    margin-bottom: 8px; 
   }
 
   .footer-bottom {
     flex-direction: column;
-    align-items: center; /* Centrer logo og info */
+    align-items: center; 
     text-align: center;
   }
 

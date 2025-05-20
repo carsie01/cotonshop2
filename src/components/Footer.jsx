@@ -5,7 +5,7 @@ export default function Footer() {
   return (
     <footer className="footer" aria-label="Sidefod">
       <div className="footer-top container">
-        {/* Følg os */}
+      
         <div className="footer-col">
           <h3>Følg os</h3>
           <nav aria-label="Sociale medier">
@@ -44,7 +44,7 @@ export default function Footer() {
           </nav>
         </div>
 
-        {/* Kontakt os */}
+        
         <div className="footer-col">
           <h3>Kontakt os</h3>
           <p><strong>Hej@cotonshoppen.dk</strong></p>
@@ -56,7 +56,7 @@ export default function Footer() {
           <p>CVR: 37821845</p>
         </div>
 
-        {/* Servicevilkår */}
+        
         <div className="footer-col">
           <h3>Servicevilkår</h3>
           <ul>
@@ -68,7 +68,7 @@ export default function Footer() {
           </ul>
         </div>
 
-        {/* Information */}
+        
         <div className="footer-col">
           <h3>Information</h3>
           <ul>
@@ -82,7 +82,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Certifikater / betalingsikoner */}
+      
       <div className="footer-bottom container">
         <div className="trust-section">
           <p><strong>Fremragende</strong></p>

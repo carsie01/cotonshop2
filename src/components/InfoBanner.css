@@ -1,4 +1,4 @@
-/* src/components/InfoBanner.css */
+
 
 .info-banner {
     background-color: #ffffff;
@@ -7,6 +7,7 @@
     flex-wrap: wrap;
     align-items: center;
     justify-content: center;
+    justify-content: space-around;
     gap: 40px;
     border-top: 1px solid #dceefa;
     border-bottom: 1px solid #dceefa;

@@ -1,9 +1,9 @@
-/* === GENERELT === */
+
 .kategori-side {
   padding: 40px 0;
 }
 
-/* === LAYOUT DESKTOP === */
+
 .kategori-layout {
   display: grid;
   grid-template-columns: 230px 1fr;
@@ -14,7 +14,7 @@
   align-items: start;
 }
 
-/* === FILTERBOKS === */
+
 .filters {
   background: #ffffff;
   border-radius: 12px;
@@ -108,7 +108,7 @@
   background: #eee;
 }
 
-/* === PRODUKTER === */
+
 .produkt-oversigt {
   width: 100%;
   min-width: 0;
@@ -124,14 +124,14 @@
   border-radius: 6px;
 }
 
-/* === PRODUKTGRID === */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
+  justify-content: center;  
 }
 
-/* === "SE MERE" KNAP === */
+
 .load-more-button {
   padding: 10px 20px;
   background-color: #E37500;
@@ -155,46 +155,7 @@
     flex-direction: column;
   }
 
-  .filters {display: flex;
-    justify-content: center;
-    align-items: center;
-    order: -1;
-    width: 100%;
-    padding: 16px;
-    border-radius: 8px;
-    gap: 20px;
-  }
-  .filter-header {
-    display: flex;
-
-    align-items: center;
-    font-weight: 700;
-    font-size: 10px;
-    padding-bottom: 16px;
-    margin-bottom: 8px;
-  }
-  
-  .filter-section {
-    padding: 12px 0;
-    width: 100%;
-   
-  }
-  
-  .filter-toggle {
-    background: none;
-    border: none;
-    font-size: 16px;
-    font-weight: 600;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    padding: 0;
-    cursor: pointer;
-    color: #333;
-  }
-  
-  .filter-toggle span {
-    font-size: 14px;
+  .filters {display: none;
   }
 
   .produkt-oversigt {
@@ -208,11 +169,24 @@
 }
 
 @media (max-width: 600px) {
-  .filters {
-    padding: 12px;
+  .kategori-layout {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    max-width: 550px;
+    margin: 0 auto;
+    padding: 0 24px;
+    align-items: start;
   }
 
-  .produkt-oversigt button {
-    width: 100%;
-  }
+  .filters {display: none;
+   
+ 
+}
+.product-grid {
+  display: grid;
+  gap: 30px;
+  justify-content: center;  
+}
+
 }

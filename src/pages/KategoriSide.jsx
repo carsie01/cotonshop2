@@ -5,7 +5,7 @@ import ProductCard from "../components/ProductCard";
 
 import "./KategoriSide.css";
 
-// CustomDropdown-komponent
+
 function CustomDropdown({ label, options, value, onChange }) {
   const [open, setOpen] = useState(false);
 

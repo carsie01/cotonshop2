@@ -5,13 +5,9 @@ const products = [
         image: "/images/product1.jpg",
         alt: "Billedet viser sele-sættet med små røde roser på hvid baggrund.",
         brand: "Ollipet",
-      
-        // Pris & tilbud
         price: "329.40",
-        oldPrice: "366.00",       // ← bruges til visning af førpris
-        rabat: 10,                // ← procentvis rabat (bruges til badge)
-      
-        // Highlights vises som liste
+        oldPrice: "366.00",       
+        rabat: 10,            
         highlights: [
             
           "1 stk Ollipet City Lux Step-in hundesele | Små Roser",
@@ -19,8 +15,6 @@ const products = [
           "1 stk. Ollipet City Lux høm-høm taske | Små Roser",
           "1 stk Ollipet City Lux bandana | Små Roser"
         ],
-      
-        // HTML-beskrivelse (renderes med dangerouslySetInnerHTML)
         description: `
          
         <p>
@@ -46,7 +40,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
          
         `,
       
-        // Filtrering og navigation
+
         kategorier: [
           "/hundetilbehoer",
           "/hundetilbehoer/seler",
@@ -55,7 +49,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "/maerker/ollipet"
         ],
       
-        // Tags bruges til fx “populær”, “anbefalet”, “nyhed”
+
         tags: ["nyhed", "populaer"]
       }
       ,
@@ -66,11 +60,10 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
         alt: "Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne.",
         brand: "Ollipet",
       
-        // Pris & tilbud
+
         price: "199.00",
      
-      
-        // Highlights som punktopstilling
+
         highlights: [
           "En stor og rummelig model",
           "En lille model der giver mulighed for nærhed",
@@ -79,7 +72,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "Foldes let sammen og tages med på tur."
         ],
       
-        // HTML-beskrivelse
+
         description: `
           <p><strong>Smart hvalpegård i kraftig kanvas</strong></p>
           <p>I denne hvalpegård giver du dine små hvalpe et frirum, når de begynder at komme med ud i den store verden.</p>
@@ -96,8 +89,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           </ul>
           <p>Den stilrene hvalpegård kan også bruges som trygt sted for den voksne hund eller tages med på ferie – den er let at folde og fylder minimalt.</p>
         `,
-      
-        // Navigation og kategorier
+
         kategorier: [
           "/nyheder",
           "/hvalpeudstyr",
@@ -105,7 +97,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "/maerker/ollipet"
         ],
       
-        // Tags bruges til labels (populær, nyhed, anbefalet osv.)
+
         tags: ["populaer"]
       },
       
@@ -115,12 +107,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
         image: "/images/product3.jpg",
         alt: "Hundjakke i farven khaki med matchende line. Fås i blød teddy-stof eller et quiltet look.",
         brand: "Ollipet",
-      
-        // Pris og evt. førpris
         price: "299.00",
-                       // Beregnet rabatprocent
-      
-        // Highlights vises som liste
         highlights: [
           "Vælg mellem quiltet eller teddy-design",
           "Indbygget sele med refleksdetaljer",
@@ -128,8 +115,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "Luksuriøse detaljer i guld og lækkert finish",
           "Dansk design af Christina Bæk Møller",
         ],
-      
-        // HTML-beskrivelse (bruges med dangerouslySetInnerHTML)
+
         description: `
           <p><strong>Stilfuld hundejakke til de kolde dage året rundt. kommer i både quiltet og teddy-variant</strong></p>
           <p>Gør din hund klar til omskiftelige vejr med den elegante Ollipet Aarhus Hundejakke, der fås i to stilfulde varianter: Quilted og Teddy. Uanset om du foretrækker det klassiske, diamantquiltede look eller det hyggelige teddyfleece-ydermateriale, får du en jakke med både komfort og funktionalitet i topklasse. Den indbyggede, justerbare sele med refleks gør gåturen både sikker og bekvem, mens det glatte inderfor passer ekstra godt på pelsen. Smukke detaljer som guldspænder, dekorative lommer og teddy-krave fuldender designet. Et must-have for den kvalitetsbevidste hundeejer, der ønsker både stil og beskyttelse året rundt.</p>
@@ -148,8 +134,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           </ul>
        
         `,
-      
-        // Navigationskategorier
+ 
         kategorier: [
           "/hundetilbehoer",
           "/hundetilbehoer/tøj",
@@ -158,8 +143,6 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "/tilbud/sæt",
           "/nyheder"
         ],
-      
-        // Tags til labels som "anbefalet", "populær", osv.
         tags: ["anbefalet"]
       },
       {
@@ -169,11 +152,10 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
         alt: "Rund, fyldig og blød donut hundekurv i plys for maksimal komfort, med syninger der giver kurven et stilfuldt blomsterdesign.",
         brand: "Ollipet",
       
-        // Pris og evt. førpris (kan tilføjes senere hvis ønsket)
+   
         price: "159.00",
     
       
-        // Highlights vises som punktopstilling
         highlights: [
           "Ekstra blød plys for maksimal komfort",
           "Unikt blomsterdesign med høj kant",
@@ -181,7 +163,6 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "Holder sig pæn / Let at rengøre",
         ],
       
-        // HTML-beskrivelse (vises i `ProductPage`)
         description: `
           <p><strong>Skab ro og tryghed med Ollipet Bella Bloom hundeseng</strong></p>
           <p>Giv din hund den ultimative soveoplevelse med Ollipet Bella Bloom seng, en luksuriøs hundeseng designet til både komfort og stil. Med sit smukke, blomsterformede design og ekstra bløde “kaninbløde syof” er denne seng det perfekte hvilested for hunde, der elsker at putte og føle sig trygge. De runde, blødt kanter, giver en indbydende følelse af omsluttende tryghed, der beroliger både krop og sjæl– ideel til både hvalpe, voksne og ældre hunde.</p>
@@ -201,8 +182,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
             li>Egnet til: mindre hunderacer</li>
           </ul>
         `,
-      
-        // Kategorier til navigation/filtrering
+    
         kategorier: [
           "/nyheder",
           "/hvalpeudstyr",
@@ -210,8 +190,7 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "/hundetilbehoer/sengogkurv",
           "/maerker/ollipet"
         ],
-      
-        // Tags bruges til “populær”, “anbefalet”, “nyhed” badges m.m.
+    
         tags: ["populaer"]
       },
       

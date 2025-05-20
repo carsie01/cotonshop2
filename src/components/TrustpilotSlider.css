@@ -13,7 +13,7 @@
   position: relative;
 }
 
-/* Venstre oversigt */
+
 .trustpilot-summary {
   flex: 0 0 240px;
   text-align: center;
@@ -38,7 +38,7 @@
   margin-top: 10px;
 }
 
-/* Anmeldelser */
+
 .trustpilot-cards {
   flex: 1;
   display: flex;
@@ -73,7 +73,7 @@
   margin-top: 4px;
 }
 
-/* Pile */
+
 .arrow {
   position: absolute;
   background-color: transparent;
@@ -88,7 +88,7 @@
   z-index: 10;
 }
 .arrow:hover{
-  background-color: aqua;
+  background-color: #8e4a01;
 
 }
 

@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
-import "./KategoriSide.css"; // Brug samme styling som kategori
+import "./KategoriSide.css";
 
 export default function SoegeSide() {
   const { search } = useLocation();
@@ -19,7 +19,7 @@ export default function SoegeSide() {
   return (
     <main className="kategori-side">
       <div className="kategori-layout">
-        {/* Tom sidebar for at bevare grid-layoutet */}
+       
         <aside className="filters" style={{ visibility: "hidden" }}></aside>
 
         <section className="produkt-oversigt">

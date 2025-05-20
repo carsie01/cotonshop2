@@ -33,7 +33,7 @@
 }
 
 .arrow-button:hover {
-  background-color: #f4a740;
+  background-color: #8e4a01;
 }
 
 .product-track {
@@ -56,7 +56,7 @@
 .dot {
   width: 12px;
   height: 12px;
-  background-color: #f4a740;
+  background-color: #E37500;
   opacity: 0.5;
   border-radius: 50%;
   border: none;

@@ -6,7 +6,7 @@
   margin-top: 2rem;
 }
 
-/* Accordion grid */
+
 .info-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -17,12 +17,20 @@
 }
 
 .info-box {
-
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+padding-top: 8px;
+padding-bottom: 12px;
+padding-left: 20px;
+padding-right: 30px;
   overflow: hidden;
 }
 
 .info-box:hover {
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+ background-color: #fff;
+ border-radius: 8px;
+ 
 }
 
 .info-toggle {
@@ -37,17 +45,16 @@
   font-weight: bold;
   font-size: 16px;
   color: #333;
-  transition: color 0.2s ease;
   position: relative;
 }
 
 .info-toggle:hover,
 .info-toggle:focus {
-  color: #f28b00;
+  color: #E37500;
 }
 
 .info-icon {
-  font-size: 24px;
+  font-size: 30px;
   flex-shrink: 0;
 }
 
@@ -55,5 +62,10 @@
   flex: 1;
   display: flex;
   align-items: center;
+}
+.info-content{
+  background-color: rgb(255, 255, 255);
+  padding: 40px;
+  border-radius: 8px;
 }
 
