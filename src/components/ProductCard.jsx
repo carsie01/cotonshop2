@@ -59,11 +59,21 @@ export default function ProductCard({ product, className = "" }) {
               NYHED
             </span>
           )}
-          <img
-            src={product.image}
-            alt={product.alt || `Billede af ${product.name}`}
-            className="product-image"
-          />
+       <div className="product-image-container">
+  <img
+    src={product.image}
+    alt={product.alt || `Billede af ${product.name}`}
+    className="product-image main"
+  />
+  {product.hoverImage && (
+    <img
+      src={product.hoverImage}
+      alt=""
+      aria-hidden="true"
+      className="product-image hover"
+    />
+  )}
+</div>
         </div>
 
         <h3 className="product-name">{product.name}</h3>
@@ -84,45 +94,32 @@ export default function ProductCard({ product, className = "" }) {
 
         <p className="shipping-info">ekskl. levering</p>
 
+
         <div className="card-actions">
-          
-          <button
-            className="view-details"
-            onClick={(e) => {
-              e.stopPropagation();
-              handleNavigate();
-            }}
-            type="button"
-            aria-label={`Se detaljer for ${product.name}`}
-          >
-            Se detaljer
-          </button>
-          <div className="buttonstyle">
+  <button
+    className="add-to-cart"
+    onClick={handleAddToCart}
+    type="button"
+    aria-label="Føj til kurv"
+  >
+    Tilføj kurv
+  </button>
 
-          <button
-            className="add-to-cart"
-            onClick={handleAddToCart}
-            type="button"
-            aria-label="Føj til kurv"
-          >
-            Læg i kurv
-          </button>
+  <button
+    onClick={toggleFavorite}
+    type="button"
+    aria-label={isFavorite ? "Fjern fra favoritter" : "Føj til favoritter"}
+    className="heart-button"
+  >
+    <Heart
+      size={20}
+      strokeWidth={1.75}
+      fill={isFavorite ? "#E37500" : "none"}
+      color={isFavorite ? "#E37500" : "#333"}
+    />
+  </button>
+</div>
 
-          <button
-            onClick={toggleFavorite}
-            type="button"
-            aria-label={isFavorite ? "Fjern fra favoritter" : "Føj til favoritter"}
-            className="heart-button"
-          >
-            <Heart
-              size={20}
-              strokeWidth={1.75}
-              fill={isFavorite ? "#E37500" : "none"}
-              color={isFavorite ? "#E37500" : "#333"}
-            />
-          </button>
-          </div>
-        </div>
       </article>
 
       {showModal && (

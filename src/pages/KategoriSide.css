@@ -168,25 +168,6 @@
   }
 }
 
-@media (max-width: 600px) {
-  .kategori-layout {
-    display: flex;
-    align-items: center;
-    gap: 25px;
-    max-width: 550px;
-    margin: 0 auto;
-    padding: 0 24px;
-    align-items: start;
-  }
 
-  .filters {display: none;
-   
- 
-}
-.product-grid {
-  display: grid;
-  gap: 30px;
-  justify-content: center;  
-}
 
-}
+

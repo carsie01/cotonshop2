@@ -90,7 +90,7 @@
 
 .modal-actions button {
   flex: 1;
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   border-radius: 8px;
   padding: 12px;
@@ -101,7 +101,7 @@
 }
 
 .modal-actions button:hover {
-  background-color: #8e4a01;
+  background-color: #9EBEC5;
 }
 
 /* --- Forslag til dig --- */

@@ -2,6 +2,7 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+import HeroSection from "./components/HeroSection";
 import NyhederCarousel from "./components/NyhederCarousel";
 import ProductCarousel from "./components/ProductCarousel";
 import ProductPage from "./pages/ProductPage";
@@ -31,9 +32,10 @@ export default function App() {
           path="/"
           element={
             <>
+            <HeroSection />
               <NyhederCarousel />
-              <ProductCarousel title="Mest Populære Produkter" products={popularProducts} />
-              <ProductCarousel title="Anbefalet til dig" products={recommendedProducts} />
+              <ProductCarousel title="Nyt på shoppen" products={popularProducts} />
+              <ProductCarousel title="Sælger hurtigt" products={recommendedProducts} />
               <TrustpilotSlider />
               <WelcomeSection />
               <InfoAccordionSection />

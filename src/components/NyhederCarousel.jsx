@@ -1,5 +1,5 @@
-import { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useState, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./NyhederCarousel.css";
 
 const slides = [
@@ -28,31 +28,85 @@ const slides = [
 
 export default function NyhederCarousel() {
   const [current, setCurrent] = useState(0);
-  const [userFocused, setUserFocused] = useState(false);
   const [liveMessage, setLiveMessage] = useState("");
-  const navigate = useNavigate();
-  const intervalRef = useRef(null);
-
-  const nextSlide = () => {
-    const nextIndex = (current + 1) % slides.length;
-    setCurrent(nextIndex);
-    setLiveMessage(`${slides[nextIndex].alt} ${slides[nextIndex].text}`);
-  };
-
-  useEffect(() => {
-    if (!userFocused) {
-      intervalRef.current = setInterval(() => {
-        nextSlide();
-      }, 6000);
-    } else {
-      clearInterval(intervalRef.current);
-    }
-    return () => clearInterval(intervalRef.current);
-  }, [current, userFocused]);
+  const trackRef = useRef(null);
+  const slideRefs = useRef([]);
 
   const goToSlide = (index) => {
+    slideRefs.current[index]?.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest",
+      inline: "center", // midtstiller i stedet for start
+    });
     setCurrent(index);
     setLiveMessage(`${slides[index].alt} ${slides[index].text}`);
+  };
+
+  const scrollTimeout = useRef(null);
+
+const handleScroll = () => {
+  if (scrollTimeout.current) {
+    cancelAnimationFrame(scrollTimeout.current);
+  }
+
+  scrollTimeout.current = requestAnimationFrame(() => {
+    const track = trackRef.current;
+    if (!track || slideRefs.current.length === 0) return;
+
+    const trackRect = track.getBoundingClientRect();
+    const trackCenter = trackRect.left + trackRect.width / 2;
+
+    let closestIndex = 0;
+    let smallestDistance = Infinity;
+
+    slideRefs.current.forEach((slide, index) => {
+      if (!slide) return;
+      const slideRect = slide.getBoundingClientRect();
+      const slideCenter = slideRect.left + slideRect.width / 2;
+      const distance = Math.abs(slideCenter - trackCenter);
+
+      if (distance < smallestDistance) {
+        smallestDistance = distance;
+        closestIndex = index;
+      }
+    });
+
+    setCurrent((prev) => {
+      if (prev !== closestIndex) {
+        setLiveMessage(`${slides[closestIndex].alt} ${slides[closestIndex].text}`);
+        return closestIndex;
+      }
+      return prev;
+    });
+  });
+};
+
+
+  const touchStartX = useRef(null);
+  const touchEndX = useRef(null);
+
+  const handleTouchStart = (e) => {
+    touchStartX.current = e.changedTouches[0].screenX;
+  };
+
+  const handleTouchEnd = (e) => {
+    touchEndX.current = e.changedTouches[0].screenX;
+    handleSwipeGesture();
+  };
+
+  const handleSwipeGesture = () => {
+    if (!touchStartX.current || !touchEndX.current) return;
+    const distance = touchStartX.current - touchEndX.current;
+    const slideCount = slides.length;
+    let newIndex = current;
+
+    if (distance > 50 && current < slideCount - 1) {
+      newIndex = current + 1;
+    } else if (distance < -50 && current > 0) {
+      newIndex = current - 1;
+    }
+
+    goToSlide(newIndex);
   };
 
   return (
@@ -60,77 +114,72 @@ export default function NyhederCarousel() {
       className="carousel-container"
       aria-label="Nyheder karusel"
       aria-describedby="carousel-desc"
-      onFocus={() => setUserFocused(true)}
-      onBlur={() => setUserFocused(false)}
     >
-      <h1 className="sr-only">Velkommen til Cotonshoppen.dk</h1>
       <p className="sr-only" id="carousel-desc">
-        Karusel med nyheder. Skifter automatisk hvert 6. sekund. Brug Tab for at navigere til knapperne.
+        Karusel med nyheder. Brug swipe eller prikkerne nedenfor for at skifte indhold.
       </p>
 
-      <div className="carousel-wrapper">
+      <div
+        className="carousel-wrapper"
+        onTouchStart={handleTouchStart}
+        onTouchEnd={handleTouchEnd}
+      >
         <div
           className="carousel-track"
-          style={{ transform: `translateX(-${current * 100}%)` }}
+          ref={trackRef}
+          onScroll={handleScroll}
         >
           {slides.map((slide, index) => (
-            <div
-              className="carousel-slide"
+            <Link
+              to={slide.link}
               key={slide.id}
-              aria-hidden={current !== index}
-              role="group"
-              aria-roledescription="slide"
-              aria-label={`${index + 1} af ${slides.length}: ${slide.alt} ${slide.text}`}
+              className="carousel-slide clickable-slide"
+              aria-label={`Nyhed ${index + 1}: ${slide.alt}`}
+              ref={(el) => (slideRefs.current[index] = el)}
             >
               <img
                 src={slide.image}
                 alt={slide.alt}
                 className="carousel-image"
               />
-              <button
-                onClick={() => navigate(slide.link)}
-                className="carousel-button"
-              >
-                {slide.text}
-              </button>
-            </div>
+              <div className="carousel-button-overlay">{slide.text}</div>
+            </Link>
           ))}
         </div>
+      </div>
 
-       
-        {userFocused && (
-          <div
-            aria-live="polite"
-            aria-atomic="true"
-            role="status"
-            className="sr-only"
-            id="carousel-announcer"
-          >
-            {liveMessage && (
-              <>
-                <img
-                  src={slides[current].image}
-                  alt={slides[current].alt}
-                  style={{ display: "none" }}
-                />
-                <span>{slides[current].text}</span>
-              </>
-            )}
-          </div>
-        )}
-
-        <div className="carousel-dots" role="tablist">
-          {slides.map((_, index) => (
-            <button
-              key={index}
-              className={`dot ${index === current ? "active" : ""}`}
-              onClick={() => goToSlide(index)}
-              aria-label={`Gå til slide ${index + 1}`}
-              role="tab"
-              aria-selected={index === current}
+      {/* Skærmlæser-besked */}
+      <div
+        aria-live="polite"
+        aria-atomic="true"
+        role="status"
+        className="sr-only"
+        id="carousel-announcer"
+      >
+        {liveMessage && (
+          <>
+            <img
+              src={slides[current].image}
+              alt={slides[current].alt}
+              style={{ display: "none" }}
             />
-          ))}
-        </div>
+            <span>{slides[current].text}</span>
+          </>
+        )}
+      </div>
+
+      {/* Navigation dots */}
+      <div className="carousel-dots" role="tablist">
+        {slides.map((_, index) => (
+          <button
+            key={index}
+            className={`dot ${index === current ? "active" : ""}`}
+            onClick={() => goToSlide(index)}
+            aria-label={`Gå til slide ${index + 1}`}
+            role="tab"
+            aria-selected={index === current}
+          />
+        ))}
       </div>
     </section>
   );

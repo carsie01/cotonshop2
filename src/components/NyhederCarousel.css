@@ -1,99 +1,192 @@
-.carousel-container {
-    overflow: hidden;
-    background-color: #e0f3fc;
-    position: relative;
-    
+
+  .carousel-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;        /* centrer indhold horisontalt */
+    justify-content: center;    /* centrer indhold vertikalt – kun hvis du ønsker det */
+    margin: 0 auto;             /* centrer containeren på siden */
+    padding: 2rem 1rem;
+    max-width: 90%;
+    width: 100%;
+    margin-top: 1rem; /* eller f.eks. 48px */
   }
   
+
+.carousel-wrapper {
+  max-width: 90%;
+  margin: 0 auto;
+  overflow: hidden;
+  position: relative;
+  overflow-x: auto;
+  -ms-overflow-style: none;  /* IE og Edge */
+  scrollbar-width: none; 
+}
+.carousel-wrapper::-webkit-scrollbar {
+  display: none;             /* Chrome, Safari og Opera */
+}
+
+.carousel-track {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+}
+
+.carousel-slide {
+  flex: 0 0 85%; /* viser lidt af næste kort */
+  max-width: 400px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  text-align: center;
+  scroll-snap-align: start;
+}
+
+.carousel-image {
+  width: 100%;
+  max-width: 400px;
+  max-height: 600px;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  margin-bottom: 1rem;
+  box-shadow: 0px 0 5px 5px #605f5f17;
+}
+
+/* Fokusmarkering til tastaturbrugere */
+.carousel-slide:focus,
+.carousel-slide:focus-visible,
+.carousel-dots button:focus,
+.carousel-dots button:focus-visible {
+  outline: 3px solid #125B6B;
+  outline-offset: 4px;
+  border-radius: 10px;
+}
+
+/* Knap overlay */
+.carousel-button-overlay {
+  margin-top: auto;
+  color: #125B6B;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* Knap (hvis brugt) */
+.carousel-button {
+  margin-top: 1rem;
+  background-color: #125B6B;
+  color: white;
+  border: 2px solid white;
+  padding: 14px 24px;
+  font-size: 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-button:hover {
+  background-color: #9EBEC5;
+  border: none;
+}
+
+/* Dots – mobil og tablet */
+.carousel-dots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative; /* sikrer placering uden overlap */
+  z-index: 10; /* sørg for de ikke skjules */
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background-color: #125B6B;
+  border-radius: 50%;
+  opacity: 0.4;
+  cursor: pointer;
+  border: none;
+  transition: opacity 0.3s ease, outline 0.3s ease;
+}
+
+.dot.active,
+.dot:hover,
+.dot:focus,
+.dot:focus-visible {
+  opacity: 1;
+  outline: 2px solid #125B6B;
+  outline-offset: 2px;
+}
+
+/* MOBIL + TABLET swipe layout med "peek" */
+@media (max-width: 1023px) {
+  .carousel-wrapper {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 1rem;
+  }
+    .carousel-container {
+      padding-left: 0;
+      padding-right: 0;
+      margin-left: 0;
+      margin-right: 0;
+      max-width: 100%;
+      width: 100%;
+    }
+  
+
   .carousel-track {
     display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 100%;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    padding: 0 1rem;
   }
-  
+
   .carousel-slide {
-    min-width: 100%;
-    position: relative;
-    text-align: center;
+    flex: 0 0 75%;
+    max-width: 320px;
+    padding: 1rem 0.5rem;
   }
-  
+
   .carousel-image {
     width: 100%;
-    max-height: 600px;
-    object-fit: cover;
-    
+    max-width: 280px;
+    height: auto;
+    aspect-ratio: 2 / 3;
   }
-  
-  .carousel-button {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #E37500;
-    color: white;
-    border: solid 2px white;
-    padding: 14px 24px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  .carousel-button:hover {
-    position: absolute;
-    bottom: 30px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #8e4a01;
-    color: white;
-    border: none;
-    padding: 14px 24px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-  }
-  
-  .carousel-dots {
-    margin-top: 20px;
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-  }
-  
-  .dot {
-    width: 14px;
-    height: 14px;
-    background-color: #E37500;
-    border-radius: 50%;
-    border: none;
-    cursor: pointer;
-    opacity: 0.5;
-  }
-  
-  .dot.active,
-  .dot:hover {
-    opacity: 1;
-  }
-  
-  
-  .carousel-wrapper {
-    max-width: 1150px;
-    margin: 0 auto;
-    overflow: hidden;
-    position: relative;
-  }
-  
-  .carousel-track {
-    display: flex;
-    transition: transform 0.9s ease-in-out;
-  }
-  
-  .carousel-slide {
-    min-width: 100%;
-    position: relative;
-    text-align: center;
-  }
-  .carousel-button:focus,
-.dot:focus {
-  outline: 3px solid #E37500; 
-  outline-offset: 4px;
 }
-  
+
+/* DESKTOP: Grid uden dots */
+@media (min-width: 1000px) {
+  .carousel-track {
+    transform: none !important;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .carousel-slide {
+    min-width: unset;
+    flex-shrink: unset;
+    padding: 1rem;
+    max-width: 100%;
+  }
+
+  .carousel-image {
+    width: 100%;
+    height: 500px;
+    aspect-ratio: auto;
+  }
+
+  .carousel-dots {
+    display: none !important;
+  }
+
+  .carousel-button {
+    position: static;
+    transform: none;
+  }
+}

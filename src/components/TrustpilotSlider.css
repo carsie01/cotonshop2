@@ -1,16 +1,19 @@
 .trustpilot-wrapper {
-  padding: 40px 0;
+  padding: 10px 20px;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  background-color: #e5e5e5;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .trustpilot-slider {
   display: flex;
+  justify-content: space-between;
   align-items: center;
-  max-width: 1200px;
   width: 100%;
-  padding: 0 20px;
+ padding-left: 40px;
   position: relative;
+  height: 200px;
 }
 
 
@@ -43,15 +46,15 @@
   flex: 1;
   display: flex;
   overflow: hidden;
-  gap: 20px;
-  justify-content: center;
+  justify-content: space-around;
   padding: 0 20px;
 }
 
 .review-card {
   border-radius: 10px;
   padding: 16px;
-  width: 250px;
+  min-width: 250px;
+  max-width: 290px;
   flex-shrink: 0;
   
 }
@@ -77,18 +80,19 @@
 .arrow {
   position: absolute;
   background-color: transparent;
-  border: 1px solid #bbbbbb00;
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  font-size: 18px;
-  top: 50%;
-  transform: translateY(-50%);
+  border: none;
+  width: 40px;
+  height: 40px;
   cursor: pointer;
+  border-radius: 50%;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   z-index: 10;
 }
 .arrow:hover{
-  background-color: #8e4a01;
+  transform: scale(1.5);
 
 }
 
@@ -115,25 +119,8 @@
   }
 }
 
-@media (max-width: 768px) {
-  .trustpilot-cards {
-    gap: 16px;
-    padding: 0 10px;
-  }
 
-  .review-card {
-    width: 90%;
-    max-width: 300px;
-  }
-
-  .arrow {
-    width: 26px;
-    height: 26px;
-    font-size: 16px;
-  }
-}
-
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .review-card {
     padding: 14px;
     font-size: 14px;

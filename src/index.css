@@ -2,12 +2,13 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+
 }
 
 body {
   font-family: Arial, sans-serif;
-  background: #E6F1F7;
-  color: #333;
+  background: #F9F7F1;
+  color: #545252;
 }
 
 header {
@@ -22,11 +23,13 @@ header {
 }
 
 /* ==== White box layout ==== */
-.whiteboks {
-  max-width: 1200px;
+.whiteboks {display: flex;
+  justify-content: center;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
+  background-color: #ffffff;
+  
 }
 
 /* ==== Navbar ==== */
@@ -38,6 +41,8 @@ header {
   background-color: white;
   border-bottom: 1px solid #ddd;
   position: relative;
+ width: 3000px;
+  
 }
 
 .navbar-logo img {
@@ -57,8 +62,8 @@ header {
   padding: 8px 12px;
   font-size: 16px;
   border-radius: 4px;
-  border: 3px solid #68c7f3;
-  color: #68c7f3;
+  border: 3px solid #125B6B;
+  color: #125B6B;
 }
 
 /* ==== Nav-ikoner ==== */
@@ -84,7 +89,7 @@ header {
   position: absolute;
   top: -8px;
   right: -12px;
-  background: #E37500;
+  background: #125B6B;
   color: white;
   font-size: 12px;
   padding: 2px 6px;
@@ -102,7 +107,7 @@ header {
 
 /* ==== Kategoribar (desktop) ==== */
 .category-bar {
-  background-color: #B9D9E8;
+  background-color: #ffffff;
   display: flex;
   justify-content: center;
   font-weight: bold;
@@ -132,7 +137,7 @@ header {
 
 .category-link:hover,
 .category-link:focus {
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   outline: none;
 }
@@ -178,7 +183,7 @@ header {
 
 .dropdown li a:hover,
 .dropdown li a:focus {
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   outline: none;
 }
@@ -235,7 +240,7 @@ header {
 
 .mobile-category-button:hover {
   color: #ffffff;
-  background-color: #E37500;
+  background-color: #125B6B;
 }
 
 /* ==== Underkategorier i mobilmenu ==== */
@@ -261,7 +266,7 @@ header {
 
 .mobile-sub-item:hover,
 .mobile-sub-item:focus {
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   text-decoration: none;
   outline: none;
@@ -330,7 +335,7 @@ body.menu-open {
 
 .mobile-search-form button {
   padding: 10px 16px;
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   border: none;
   border-radius: 6px;

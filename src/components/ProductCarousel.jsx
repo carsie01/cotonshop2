@@ -10,10 +10,10 @@ export default function ProductCarousel({ title, products }) {
   useEffect(() => {
     const updateItemsPerPage = () => {
       const width = window.innerWidth;
-      if (width < 600) {
-        setItemsPerPage(1);
-      } else if (width < 900) {
+      if (width < 800) {
         setItemsPerPage(2);
+      } else if (width < 1000) {
+        setItemsPerPage(3);
       } else if (width < 1200) {
         setItemsPerPage(3);
       } else {

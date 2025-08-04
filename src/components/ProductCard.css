@@ -5,41 +5,74 @@
   flex-direction: column;
   justify-content: space-between;
   background: white;
-  border-radius: 8px;
-  padding: 12px;
-  transition: 0.3s;
+  padding: 10px;
+  transition: transform 0.3s, box-shadow 0.3s;
   position: relative;
   border: 1px solid transparent;
+  box-shadow: 0px 0 5px 5px rgba(96, 95, 95, 0.1);
+  cursor: pointer;
 }
 
 .product-card:hover {
   z-index: 10;
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  border: 2px solid #333;
+  border: 2px solid #125B6B;
 }
 
-/* Billeder */
-.product-card img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: contain;
-}
-.product-card button:focus-visible {
-  outline: 2px solid #333;
-  outline-offset: 2px;
-}
+/* === Billeder === */
 
-.image-wrapper {
-  height: 250px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 8px;
-  padding-bottom: 30px;
+.image-wrapper{
+  aspect-ratio: 3 / 4;
+  width: 100%;
   position: relative;
+  margin-bottom: 8px;
+  overflow: hidden;
+  border-radius: 6px;
+
 }
-/* Skjuler element visuelt, men holder det tilgængeligt for skærmlæsere */
+
+.product-image-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;        /* centrer indhold horisontalt */
+  justify-content: center; 
+}
+
+.product-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: opacity 0.3s ease;
+  display: block;
+}
+
+.product-image.main {
+  opacity: 1;
+  z-index: 1;
+}
+
+.product-image.hover {
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.product-card:hover .product-image.main {
+  opacity: 0;
+}
+
+.product-card:hover .product-image.hover {
+  opacity: 1;
+}
+
+/* === Accessibility === */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -47,12 +80,12 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0 0 0 0);
+  clip: rect(0, 0, 0, 0);
   white-space: nowrap;
   border: 0;
 }
 
-/* Mærker */
+/* === Badge === */
 .product-badge {
   position: absolute;
   top: 8px;
@@ -63,11 +96,11 @@
   color: #fff;
   border-radius: 999px;
   line-height: 1;
+  z-index: 10;
 }
 
 .badge-discount {
   background-color: #c0392b;
-  margin-bottom: 4px;
 }
 
 .badge-new {
@@ -75,90 +108,74 @@
   top: 32px;
 }
 
-/* Tekst */
-.product-card .product-card p {
-  margin: 4px 0;
-  font-size: 14px;
-  color: #333;
-}
-
-.product-card .product-name {
-  font-size: 18px;
-  font-weight: 600;
-}
-
-.product-card .brand {
-  font-size: 14px;
-  color: #203db3;
-}
-
-.product-card .product-price {
+/* === Tekst === */
+.product-name {
   font-size: 16px;
-  font-weight: bold;
-  color: #2d2d2d;
+  font-weight: 600;
+  margin: 4px 0;
 }
+
+.brand {
+  font-size: 14px;
+  color: #20b320;
+  margin: 2px 0;
+}
+
+
+.product-price{
+  font-size: 12px;
+  font-weight: bold;
+  color: #c51717;
+}
+
 
 .old-price {
-  font-size: 13px;
+  font-size: 9px;
   text-decoration: line-through;
-  color: #a82b2b;
+  color: #5b1111;
   margin-left: 6px;
 }
 
 .price-wrapper {
+  display: flex;
+  align-items: baseline;
   margin-top: 8px;
+  gap: 6px;
 }
 
 .savings {
   font-size: 13px;
   color: #555;
+  
 }
 
 .shipping-info {
   font-size: 12px;
   color: #666;
+  
 }
 
 /* === Knapper === */
-.card-actions {
+.card-actions  {
   display: flex;
-  flex-direction: column;
   justify-content: space-between;
   gap: 8px;
-  margin-top: auto;
-
+  margin-top: 10px;
   opacity: 0;
   visibility: hidden;
   transform: translateY(10px);
   transition: opacity 0.3s ease, transform 0.3s ease;
 }
 
-/* Vis kun ved hover */
 .product-card:hover .card-actions,
-.product-card:focus .card-actions,
-.product-card:focus-within .card-actions {
+.product-card:focus-within .card-actions  {
   opacity: 1;
   visibility: visible;
   transform: translateY(0);
 }
-.view-details {
-  background: transparent;
-  border: none;
-  padding: 6px;
-  font-size: 14px;
-  color: #333;
-  cursor: pointer;
-}
-
-.view-details:hover,
-.view-details:focus {
-  background-color: transparent !important;
-  text-decoration: underline;
-  outline: none;
-}
 
 .add-to-cart {
-  background-color: #E37500;
+  background-color: #125B6B;
   border: none;
   padding: 6px 12px;
   border-radius: 6px;
@@ -166,10 +183,11 @@
   cursor: pointer;
   font-size: 14px;
   flex: 1;
+  font-weight: 500;
 }
 
 .add-to-cart:hover {
-  background-color: #8e4a01;
+  background-color: #0f4b56;
 }
 
 .heart-button {
@@ -184,31 +202,36 @@
 
 .heart-button:hover {
   border-color: #999;
-  background-color: #E37500;
+  background-color: #f4f4f4;
 }
-/* Gælder kun i modal */
+
+/* === Fokus === */
+.product-card button:focus-visible {
+  outline: 2px solid #333;
+  outline-offset: 2px;
+}
+
+/* === Modalvisning (minified kort) === */
 .product-card.modal-card {
-  max-width: 150px;          
-  padding: 8px;             
+  max-width: 150px;
+  padding: 8px;
   font-size: 13px;
   border: 1px solid #eee;
   border-radius: 6px;
   box-shadow: none;
-  height: auto;             
+  height: auto;
 }
 
-
 .product-card.modal-card .image-wrapper {
-  height: 120px;             
-  padding-bottom: 0;
+  aspect-ratio: auto;
+  height: 120px;
   margin-bottom: 6px;
 }
 
 .product-card.modal-card .product-image {
-  height: 80px;
+  height: 100%;
   object-fit: contain;
 }
-
 
 .product-card.modal-card .product-name {
   font-size: 14px;
@@ -222,13 +245,11 @@
   margin-bottom: 2px;
 }
 
-
 .product-card.modal-card .savings,
 .product-card.modal-card .shipping-info {
   display: none;
 }
 
-/* skjul knapper helt */
 .product-card.modal-card .card-actions {
   display: none !important;
 }
