@@ -64,8 +64,9 @@ export default function InfoAccordionSection() {
   return (
     <section className="info-section" aria-label="Information om Cotonshoppen">
       <div className="info-grid">
-        {infos.map((item) => (
-          <div key={item.id} className="info-box">
+      {infos.map((item) => (
+  <div key={item.id} className={`info-box ${openId === item.id ? "open" : ""}`}>
+
             <button
                 className={`info-toggle ${openId === item.id ? "open" : ""}`}
                 onClick={() => toggle(item.id)}
@@ -73,7 +74,6 @@ export default function InfoAccordionSection() {
                 aria-controls={`panel-${item.id}`}
                 id={`btn-${item.id}`}
               >
-                <span className="info-icon">🐾</span>
                 <span className="info-title">{item.title}</span>
                 <span className="info-arrow" aria-hidden="true"
                >

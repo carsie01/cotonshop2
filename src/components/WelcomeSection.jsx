@@ -11,18 +11,17 @@ export default function WelcomeSection() {
         />
 
         <div className="welcome-text">
-          <h2 id="welcome-heading">Velkommen til Cotonshoppen.dk</h2>
+          <h2 id="welcome-heading">Drevet af kærlighed til hunde</h2>
           <p>
-            Alle lykkelige hundeejere husker spændingen og forventningen op til, at den lille, nye hvalp kom hjem til jeres hus den første gang!
+          Cotonshoppen blev grundlagt i 2008 af ægteparret Christina og Ole som en lille hobbyvirksomhed - drevet af deres fælles passion for hunde.
           </p>
+          <br></br>
           <p>
-            Uanset, om I allerede har en dejlig hund, eller netop nu går og tæller ned til dagen, hvor jeres lille hvalp kommer hjem, er vi stolte af at kunne hjælpe jer med alt, hvad I skal bruge.
+          Christina har altid haft en særlig kærlighed til racen Coton de Tulear, som hun har haft gennem mange år og deltaget i udstillinger med. Det var netop hendes passion for racen, der blev den primære drivkraft bag etableringen af Cotonshoppen.
           </p>
+          <br></br>
           <p>
-            Hos Cotonshoppen.dk har vi samlet alt til hunde og hvalpe ét sted, for at gøre det hele endnu lettere for dig.
-          </p>
-          <p>
-            Vi har Danmarks største udvalg af kvalitetstilbehør til hunde – uanset race, størrelse og alder. Hvorvidt du er "almindelig" hundeejer, opdrætter, udstiller, eller førstegangskøber, gør heller ikke spor – Vi har alt, hvad du har brug for!
+          I dag er Cotonshoppen vokset til en specialiseret forretning med fokus på kvalitetsprodukter til hunde – men inspirationen bag forbliver den samme. Parrets to hunde, Sally og Madonna, spiller fortsat en vigtig rolle i virksomheden. De er med på kontoret hver dag, hvor de tester nye produkter og bidrager med indhold til virksomhedens medier og kommunikation.
           </p>
         </div>
       </div>

@@ -2,10 +2,14 @@
     padding: 60px 20px;
     display: flex;
     justify-content: center;
+   
   }
   
   .welcome-content {
     display: flex;
+    justify-content: center;
+   
+   
     flex-direction: row;
     gap: 40px;
     max-width: 1100px;
@@ -16,8 +20,8 @@
   .welcome-image {
     flex: 1 1 250px;
     max-width: 400px;
-    border-radius: 12px;
     object-fit: cover;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
   
   .welcome-text {
@@ -36,8 +40,12 @@
     .welcome-image {
       flex: 1 1 150px;
       max-width: 250px;
-      border-radius: 12px;
       object-fit: cover;
+
+    }
+    .welcome-section{
+      display: flex;
+      justify-content: center;
     }
 
   }

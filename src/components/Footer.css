@@ -1,140 +1,128 @@
 .footer {
-  background-color: #B9D9E8;
+  background-color: #f8f7f3;
+  padding: 2rem 1rem;
+  font-family: sans-serif;
   color: #333;
-  font-size: 14px;
 }
 
-.container {
-  margin: 0 auto;
-  padding: 0 20px;
+/* Sociale medier */
+.footer-social {
+  text-align: center;
+  margin-bottom: 2rem;
 }
-
-
-.footer-top {
+.footer-social p {
+  font-weight: bold;
+}
+.social-icons {
   display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: center;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+.social-icons a {
+  color: #000;
+  font-size: 20px;
+}
+
+/* Nyhedsbrev */
+.footer-newsletter {
+  background-color: #d6cfc2;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  text-align: center;
+}
+.footer-newsletter h3 {
+  margin-bottom: 1rem;
+}
+.footer-newsletter form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.footer-newsletter input {
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+}
+.footer-newsletter button {
+  padding: 10px;
+  background-color: #125B6B;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Guides */
+.footer-guides {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.guides-grid {
+  display: flex;
+  justify-content: center;
   gap: 20px;
-  margin-bottom: 40px;
-  max-width: 1200px;
-  padding: 40px 0 20px;
+  margin-top: 1rem;
+}
+.guides-grid img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 
-.footer-col {
-  flex: 1 1 200px;
-  min-width: 160px;
+/* Infobar */
+.footer-infobar {
+  background-color: #d6cfc2;
+  display: flex;
+  justify-content: space-around;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+  flex-wrap: wrap;
+  gap: 10px;
 }
 
+/* Eksisterende footer-top, footer-bottom beholdes */
+.footer-top {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
 .footer-col h3 {
-  margin-bottom: 12px;
-  font-size: 16px;
+  font-size: 1rem;
+  margin-bottom: 1rem;
 }
-
 .footer-col ul {
   list-style: none;
   padding: 0;
 }
-
-.footer-col ul li {
-  margin-bottom: 6px;
+.footer-col li {
+  margin-bottom: 0.5rem;
 }
-
 .footer-col a {
-  color: #333;
   text-decoration: none;
+  color: #333;
 }
 
-.footer-col a:hover {
-  text-decoration: underline;
-}
-
-
-.social-icons {
-  display: flex;
-  gap: 1rem;
-  list-style: none;
-  padding: 0;
-  flex-wrap: wrap;
-}
-
-.social-icons a {
-  color: white;
-  padding: 0.5rem;
-  border-radius: 50%;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-  width: 36px;
-  height: 36px;
-}
-
-.social-icons a:hover {
-  background-color: #9EBEC5;
-}
-
-/* Nederste del */
+/* Bundmærker */
 .footer-bottom {
   display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
+  flex-direction: column;
   align-items: center;
-  padding-top: 20px;
-  background-color: #E6F1F7;
-  padding: 20px 40px;
+  gap: 1rem;
 }
-
 .footer-bottom img {
-  height: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  max-height: 40px;
+  margin: 0 8px;
 }
-
-.trust-section img {
-  height: 30px;
-
+.cert-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
-
-.cert-section img {
-  height: 70px;
-  width: 150px;
-  padding-left: 40px;
-}
-
-/* RESPONSIVE TILPASNINGER */
-@media (max-width: 768px) {
-
-  .footer-top {
-    flex-direction: column;
-    text-align: center; 
-  }
-
-  .footer-col {
-    width: 100%;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 4px; 
-  }
-
-  .footer-col h3 {
-    margin-bottom: 8px; 
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-    align-items: center; 
-    text-align: center;
-  }
-
-  .footer-bottom img {
-    margin-bottom: 10px;
-  }
-
-  .social-icons {
-    justify-content: center;
-  }
-
-}
-
- 

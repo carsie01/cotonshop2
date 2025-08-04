@@ -1,38 +1,51 @@
+/* === Sektionen generelt === */
 .info-section {
+  background-color: #d6cfc2; /* Beige baggrund */
   padding: 60px 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   margin-top: 2rem;
+  border-radius: 16px;
 }
 
+/* === Overskrift === */
+.info-section h2 {
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2.5rem;
+  color: #000;
+}
 
+/* === Grid layout === */
 .info-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 30px;
-  max-width: 1200px;
+  max-width: 1000px;
   width: 100%;
-  margin: 0 auto;
+  align-items: start; /* 💡 Så hver boks får sin egen højde */
 }
 
+/* === Info-bokse === */
 .info-box {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
   display: flex;
   flex-direction: column;
-  align-items: center;
-padding-top: 8px;
-padding-bottom: 12px;
-padding-left: 20px;
-padding-right: 30px;
-  overflow: hidden;
 }
 
-.info-box:hover {
- background-color: #fff;
- border-radius: 8px;
- 
+/* === Aktiv (åben) boks === */
+.info-box.open {
+  background-color: #f9f9f9;
 }
 
+/* === Toggle-knap === */
 .info-toggle {
   all: unset;
   display: flex;
@@ -41,31 +54,45 @@ padding-right: 30px;
   gap: 12px;
   width: 100%;
   cursor: pointer;
-  padding: 20px;
   font-weight: bold;
   font-size: 16px;
   color: #333;
-  position: relative;
 }
 
+/* === Hover/focus effekt på knap === */
 .info-toggle:hover,
 .info-toggle:focus {
   color: #9EBEC5;
 }
 
-.info-icon {
-  font-size: 30px;
-  flex-shrink: 0;
-}
+/* === Ikon + titel + pil === */
 
 .info-title {
   flex: 1;
   display: flex;
   align-items: center;
 }
-.info-content{
-  background-color: rgb(255, 255, 255);
-  padding: 40px;
-  border-radius: 8px;
+.info-arrow {
+  font-size: 18px;
 }
 
+/* === Indhold der vises når boksen er åben === */
+.info-content {
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #eee;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* === Mobilvenligt layout === */
+@media (max-width: 900px) {
+  .info-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .info-grid {
+    grid-template-columns: 1fr;
+  }
+}
