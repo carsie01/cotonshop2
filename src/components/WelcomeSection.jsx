@@ -1,6 +1,6 @@
 import "./WelcomeSection.css";
 
-export default function WelcomeSection() {
+export default function WelcomeSection({ title, products }) {
   return (
     <section className="welcome-section" aria-labelledby="welcome-heading">
       <div className="welcome-content">
@@ -11,7 +11,7 @@ export default function WelcomeSection() {
         />
 
         <div className="welcome-text">
-          <h2 id="welcome-heading">Drevet af kærlighed til hunde</h2>
+        <h2 className="section-title">{title}</h2>
           <p>
           Cotonshoppen blev grundlagt i 2008 af ægteparret Christina og Ole som en lille hobbyvirksomhed - drevet af deres fælles passion for hunde.
           </p>

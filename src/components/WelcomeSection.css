@@ -1,5 +1,5 @@
 .welcome-section {
-    padding: 60px 20px;
+    padding: 60px 40px;
     display: flex;
     justify-content: center;
    
@@ -31,22 +31,17 @@
     color: #333;
   }
   
-  .welcome-text h2 {
-    font-size: 24px;
-    margin-bottom: 16px;
-    color: #222;
-  }
-  @media (max-width: 768px) {
+ 
+  @media (max-width: 950px) {
     .welcome-image {
       flex: 1 1 150px;
       max-width: 250px;
       object-fit: cover;
 
     }
-    .welcome-section{
-      display: flex;
-      justify-content: center;
-    }
+    .welcome-text {
+     max-width: 800px;
+    }  
 
   }
 

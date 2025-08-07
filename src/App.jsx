@@ -35,7 +35,7 @@ export default function App() {
               <ProductCarousel title="Nyt på shoppen" products={popularProducts} />
               <ProductCarousel title="Sælger hurtigt" products={recommendedProducts} />
               <TrustpilotSlider />
-              <WelcomeSection />
+              <WelcomeSection title="Drevet af kærlighed til hunde"/>
               
           
             </>
