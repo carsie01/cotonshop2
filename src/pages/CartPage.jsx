@@ -23,6 +23,7 @@ export default function CartPage() {
         <p>Din kurv er tom.</p>
       ) : (
         <div className="cart-container">
+          
           <table className="cart-table">
             <thead>
               <tr>
