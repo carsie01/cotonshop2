@@ -25,6 +25,7 @@ header {
 /* ==== White box layout ==== */
 .whiteboks {display: flex;
   justify-content: center;
+  align-items: center;
   margin: 0 auto;
   padding: 0 20px;
   width: 100%;
@@ -352,23 +353,56 @@ body.menu-open {
   padding: 0 6px;
   cursor: pointer;
 }
+/* Ny række kun til logo */
+/* Ny række til logo */
+.navbar-top {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ 
+ 
+}
 
-/* ==== RESPONSIVT ==== */
+.navbar-logo img {
+  max-height: 40px; /* Justér afhængigt af logoets proportioner */
+}
+
+/* Justér navbar til kun at have ikoner og burger */
+
 @media (max-width: 1175px) {
-  .navbar {
-    padding: 12px 16px;
-      
+  @media (max-width: 1175px) {
+    .navbar-top {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 8px 0 4px;
+      background-color: white;
+      border-bottom: 1px solid #ddd;
+    }
   
+    .navbar-logo img {
+      max-height: 50px;
+      width: auto;
+    }
+  }
+
+  .burger-menu {
+    display: block;
+    order: -1;
+    font-size: 26px;
+  }
+
+  .nav-icons {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    margin-left: auto;
+    padding: 0;
   }
 
   .whiteboks {
     width: 100%;
     padding: 0;
-   
-  }
-
-  .burger-menu {
-    display: block;
   }
 
   .search-form {
@@ -378,4 +412,7 @@ body.menu-open {
   .category-bar {
     display: none;
   }
+
+
 }
+

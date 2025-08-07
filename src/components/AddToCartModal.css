@@ -41,10 +41,10 @@
   top: 15px;
   right: 20px;
   cursor: pointer;
-  color: #ff0000;
+  color: #125B6B;
 }
 .modal-close:hover {
-  background-color: #ff0000;
+  background-color: #125B6B;
   color: #fff;
 
   border-radius: 40px;

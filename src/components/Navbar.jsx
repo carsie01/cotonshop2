@@ -293,12 +293,8 @@ export default function Navbar() {
           )}
 
 <Link to="/" className="navbar-logo" aria-label="Hjem">
-  <img
-    src={isMobile ? "/images/logo-mobile.png" : "/images/logo.png"}
-    alt="Cotonshoppen.dk – For All Dogs"
-    style={{ width: isMobile ? "60px" : "200px", height: "auto" }}
-  />
-</Link>
+        <img src="/images/logo.png" alt="Cotonshoppen.dk" />
+      </Link>
 
           {!isMobile && (
             <form className="search-form" role="search" onSubmit={handleSubmit}>
@@ -315,6 +311,7 @@ export default function Navbar() {
           )}
 
           <div className="nav-icons">
+            
             {isMobile && (
               <button className="search-toggle" onClick={toggleSearch} aria-label="Åbn søgning">
                 <Search size={24} strokeWidth={1.75} />

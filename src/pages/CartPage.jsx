@@ -68,7 +68,6 @@ export default function CartPage() {
             )}
 
             <div className="summary-actions">
-              <button className="continue">Shop videre</button>
               <button className="checkout">Til kassen</button>
               <button className="clear" onClick={clearCart}>Tøm kurv</button>
             </div>

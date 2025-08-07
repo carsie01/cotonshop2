@@ -1,17 +1,18 @@
 .footer {
   background-color: #f8f7f3;
-  padding: 2rem 1rem;
+  padding: 2rem 1rem 0;
   font-family: sans-serif;
   color: #333;
 }
 
-/* Sociale medier */
+/* === Sociale medier === */
 .footer-social {
   text-align: center;
   margin-bottom: 2rem;
 }
 .footer-social p {
   font-weight: bold;
+  margin-bottom: 0.5rem;
 }
 .social-icons {
   display: flex;
@@ -19,13 +20,14 @@
   gap: 16px;
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .social-icons a {
   color: #000;
   font-size: 20px;
 }
 
-/* Nyhedsbrev */
+/* === Nyhedsbrev === */
 .footer-newsletter {
   background-color: #d6cfc2;
   padding: 2rem;
@@ -34,7 +36,8 @@
   margin: 0 auto 2rem;
   text-align: center;
 }
-.footer-newsletter h3 {
+.footer-newsletter h2 {
+  font-size: 1.2rem;
   margin-bottom: 1rem;
 }
 .footer-newsletter form {
@@ -56,10 +59,13 @@
   cursor: pointer;
 }
 
-/* Guides */
+/* === Guides === */
 .footer-guides {
   text-align: center;
   margin-bottom: 2rem;
+}
+.footer-guides h2 {
+  font-size: 1.2rem;
 }
 .guides-grid {
   display: flex;
@@ -74,24 +80,31 @@
   border-radius: 10px;
 }
 
-/* Infobar */
+/* === Infobar === */
 .footer-infobar {
   background-color: #d6cfc2;
   display: flex;
-  justify-content: space-around;
-  padding: 1rem;
-  margin-bottom: 2rem;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem;
   font-weight: bold;
   flex-wrap: wrap;
+  text-align: center;
   gap: 10px;
+  margin-bottom: 2rem;
+}
+.footer-infobar div {
+  flex: 1 1 150px;
 }
 
-/* Eksisterende footer-top, footer-bottom beholdes */
+/* === Link-kolonner og kontakt === */
 .footer-top {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 1.5rem;
-  margin-bottom: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+  border-top: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
 }
 .footer-col h3 {
   font-size: 1rem;
@@ -100,6 +113,7 @@
 .footer-col ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 .footer-col li {
   margin-bottom: 0.5rem;
@@ -108,9 +122,14 @@
   text-decoration: none;
   color: #333;
 }
+.footer-col address {
+  font-style: normal;
+  line-height: 1.6;
+}
 
-/* Bundmærker */
+/* === Badges og certifikater === */
 .footer-bottom {
+  padding: 1rem 0 2rem;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -125,4 +144,24 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 10px;
+}
+.trust-section {
+  text-align: center;
+}
+
+/* === Skjult tekst til screenreadere === */
+.visually-hidden {
+  position: absolute;
+  left: -9999px;
+}
+.info-item{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+gap: 10px;
+}
+.info-icon{
+  max-width: 30px;
+  max-height: 30px;
 }

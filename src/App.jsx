@@ -10,7 +10,6 @@ import CartPage from "./pages/CartPage";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 import TrustpilotSlider from "./components/TrustpilotSlider";
 import WelcomeSection from "./components/WelcomeSection";
-import InfoAccordionSection from "./components/InfoAccordionSection";
 import KategoriSide from "./pages/KategoriSide";
 import SoegeSide from "./pages/SoegeSide";
 
@@ -37,7 +36,7 @@ export default function App() {
               <ProductCarousel title="Sælger hurtigt" products={recommendedProducts} />
               <TrustpilotSlider />
               <WelcomeSection />
-              <InfoAccordionSection />
+              
           
             </>
           }

@@ -70,28 +70,31 @@ export default function Footer() {
       </section>
 
       {/* Infobar */}
+      
       <section className="footer-infobar" aria-label="Kundefordele">
-        <div>🚚 Hurtig levering</div>
-        <div>📦 Fri fragt over 499 kr</div>
-        <div>⭐ 9.8 på Trustpilot</div>
-        <div>🔁 60 dages returret</div>
-      </section>
+  <div className="info-item">
+    <img src="/images/truck.svg" alt="" aria-hidden="true" className="info-icon" />
+    <span className="info-text">Hurtig levering</span>
+  </div>
+  <div className="info-item">
+    <img src="/images/freeshipping.svg" alt="" aria-hidden="true" className="info-icon" />
+    <span className="info-text">Fri fragt over 499 kr</span>
+  </div>
+  <div className="info-item">
+    <img src="/images/star.svg" alt="" aria-hidden="true" className="info-icon" />
+    <span className="info-text">9.8 på Trustpilot</span>
+  </div>
+  <div className="info-item">
+    <img src="/images/rollback.svg" alt="" aria-hidden="true" className="info-icon" />
+    <span className="info-text">60 dages returret</span>
+  </div>
+</section>
+      
 
       {/* Links og information */}
       <section className="footer-top container" aria-labelledby="footer-nav-heading">
-        <h2 id="footer-nav-heading" className="visually-hidden">Navigation og kontakt</h2>
-
-        <div className="footer-col">
-          <h3>Følg os</h3>
-          <ul>
-            <li><a href="https://facebook.com" target="_blank" rel="noopener noreferrer">Facebook</a></li>
-            <li><a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a></li>
-            <li><a href="https://pinterest.com" target="_blank" rel="noopener noreferrer">Pinterest</a></li>
-            <li><a href="https://tiktok.com" target="_blank" rel="noopener noreferrer">TikTok</a></li>
-          </ul>
-        </div>
-
-        <div className="footer-col">
+        
+      <div className="footer-col">
           <h3>Kontakt os</h3>
           <address>
             <strong>Hej@cotonshoppen.dk</strong><br />
@@ -114,6 +117,33 @@ export default function Footer() {
         </div>
 
         <div className="footer-col">
+          <h3>Følg os</h3>
+          <ul className="social-icons">
+            <li>
+              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+                <FaFacebookF />
+              </a>
+            </li>
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+                <FaInstagram />
+              </a>
+            </li>
+            <li>
+              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+                <FaPinterestP />
+              </a>
+            </li>
+            <li>
+              <a href="https://tiktok.com" target="_blank" rel="noopener noreferrer" aria-label="TikTok">
+                <FaTiktok />
+              </a>
+            </li>
+          </ul>
+        </div>
+
+
+        <div className="footer-col">
           <h3>Information</h3>
           <ul>
             <li><a href="#">Hundeguides</a></li>
@@ -128,11 +158,8 @@ export default function Footer() {
 
       {/* Badges og certifikater */}
       <section className="footer-bottom container" aria-label="Certificeringer og sikkerhed">
-        <div className="trust-section">
-          <p><strong>Fremragende</strong></p>
-          <img src="/images/stars-5.png" alt="Trustpilot 5 stjerner" />
-        </div>
         <div className="cert-section">
+        <img src="/images/stars-5.png" alt="Trustpilot 5 stjerner" />
           <img src="/images/emærket.png" alt="E-mærket webshop" />
           <img src="/images/payment.png" alt="Betalingsikoner" />
           <img src="/images/vet.png" alt="Registreret webshop" />

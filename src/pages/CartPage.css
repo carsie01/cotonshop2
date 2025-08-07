@@ -82,7 +82,7 @@
     margin-top: 15px;
   }
   
-  .continue,
+  
   .checkout,
   .clear {
     padding: 10px 20px;
@@ -92,18 +92,23 @@
     cursor: pointer;
   }
   
-  .continue {
-    background-color: #6d4c41;
-    color: white;
-  }
+
   
   .checkout {
-    background-color: #E37500;
+    background-color: #125B6B;
     color: white;
+  }
+  .checkout :hover {
+    background-color: #9EBEC5;
+    color: #125B6B;
   }
   
   .clear {
-    background-color: #f44336;
+    background-color: #7c2019;
+    color: white;
+  }
+  .clear :hover {
+    background-color: #964f49;
     color: white;
   }
   
