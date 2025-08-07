@@ -2,34 +2,12 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import products from "../data/products";
 import ProductCard from "../components/ProductCard";
-
+import CustomDropdown from "../components/CustomDropdown"; // <-- Nu importeret korrekt
 import "./KategoriSide.css";
-
-
-function CustomDropdown({ label, options, value, onChange }) {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="custom-dropdown">
-      <button type="button" onClick={() => setOpen(!open)} className="dropdown-button">
-        {value || label} 
-      </button>
-      {open && (
-        <ul className="dropdown-list">
-          <li onClick={() => { onChange(""); setOpen(false); }}>Alle</li>
-          {options.map((opt) => (
-            <li key={opt} onClick={() => { onChange(opt); setOpen(false); }}>
-              {opt}
-            </li>
-          ))}
-        </ul>
-      )}
-    </div>
-  );
-}
 
 export default function KategoriSide() {
   const { kategori = "nyheder", slug } = useParams();
+
   const sti = slug
     ? `/${decodeURIComponent(kategori).toLowerCase()}/${decodeURIComponent(slug).toLowerCase()}`
     : `/${decodeURIComponent(kategori).toLowerCase()}`;
@@ -76,6 +54,7 @@ export default function KategoriSide() {
     });
 
   const visteBegrænset = visteProdukter.slice(0, visibleCount);
+
 
   const overskrifter = {
     nyheder: {
@@ -131,86 +110,109 @@ export default function KategoriSide() {
 
   return (
     <main className="kategori-side">
-      <div className="kategori-layout">
-        <aside className="filters">
-          <div className="filter-header">
-            <h2>FILTRER</h2>
-            
-          </div>
+  <div className="kategori-layout">
+    
+    {/* VENSTRE SIDE – desktop filtre */}
+    <aside className="filters">
+  <div className="filter-header">
+    <h2>FILTRER</h2>
+  </div>
 
-          <div className="filter-section">
-            <button className="filter-toggle" onClick={() => setShowKategori(!showKategori)}>
-              Kategorier <span>{showKategori ? "▲" : "▼"}</span>
-            </button>
-            {showKategori && (
-  <CustomDropdown
-    label="Vælg kategori"
-    options={underkategorier.map(k => k.split("/").pop())}
-    value={valgtUnderkategori && valgtUnderkategori.split("/").pop()}
-    onChange={(val) =>
-      setValgtUnderkategori(val ? underkategorier.find(k => k.endsWith(val)) : "")
-    }
-  />
-)}
-          </div>
+  <div className="filter-section">
+    <CustomDropdown
+      label="Vælg kategori"
+      options={underkategorier.map(k => k.split("/").pop())}
+      value={valgtUnderkategori && valgtUnderkategori.split("/").pop()}
+      onChange={(val) =>
+        setValgtUnderkategori(val ? underkategorier.find(k => k.endsWith(val)) : "")
+      }
+    />
+  </div>
 
-          <div className="filter-section">
-            <button className="filter-toggle" onClick={() => setShowBrand(!showBrand)}>
-              Mærker <span>{showBrand ? "▲" : "▼"}</span>
-            </button>
-            {showBrand && (
-              <CustomDropdown
-                label="Vælg mærke"
-                options={brands}
-                value={valgtBrand}
-                onChange={setValgtBrand}
-              />
-            )}
-          </div>
+  <div className="filter-section">
+    <CustomDropdown
+      label="Vælg mærke"
+      options={brands}
+      value={valgtBrand}
+      onChange={setValgtBrand}
+    />
+  </div>
 
-          <div className="filter-section">
-            <button className="filter-toggle" onClick={() => setShowPris(!showPris)}>
-              Prisniveau <span>{showPris ? "▲" : "▼"}</span>
-            </button>
-            {showPris && (
-              <CustomDropdown
-                label="Vælg pris"
-                options={["Laveste pris", "Højeste pris"]}
-                value={
-                  sortering === "pris-asc" ? "Laveste pris" :
-                  sortering === "pris-desc" ? "Højeste pris" : ""
-                }
-                onChange={(val) =>
-                  setSortering(val === "Laveste pris" ? "pris-asc" : val === "Højeste pris" ? "pris-desc" : "")
-                }
-              />
-            )}
-          </div>
-        </aside>
+  <div className="filter-section">
+    <CustomDropdown
+      label="Vælg pris"
+      options={["Laveste pris", "Højeste pris"]}
+      value={
+        sortering === "pris-asc" ? "Laveste pris" :
+        sortering === "pris-desc" ? "Højeste pris" : ""
+      }
+      onChange={(val) =>
+        setSortering(val === "Laveste pris" ? "pris-asc" : val === "Højeste pris" ? "pris-desc" : "")
+      }
+    />
+  </div>
+</aside>
 
-        <section className="produkt-oversigt">
-          <div className="intro-text">
-          <h1>{sideInfo.titel}</h1>
-          <p>{sideInfo.tekst}</p>
-          </div>
-          <div className="product-grid">
-            {visteBegrænset.map((product) => (
-              <ProductCard key={product.id} product={product} />
-            ))}
-            {visteBegrænset.length === 0 && (
-              <p>Ingen produkter matcher dine filtre.</p>
-            )}
-          </div>
 
-          {visibleCount < visteProdukter.length && (
-            <div style={{ textAlign: "center", marginTop: "24px" }}>
-              <button className="load-more-button" onClick={() => setVisibleCount(visibleCount + 20)}aria-label="Indlæs flere produkter">
-                Se flere produkter
-              </button>
-            </div>
-          )}
-        </section>
+    {/* HØJRE SIDE – produktvisning */}
+    <section className="produkt-oversigt">
+
+      {/* MOBIL: filter-knapper som knapper på små skærme */}
+      <div className="mobile-filters">
+        <CustomDropdown
+          label="Kategori"
+          options={underkategorier.map(k => k.split("/").pop())}
+          value={valgtUnderkategori && valgtUnderkategori.split("/").pop()}
+          onChange={(val) =>
+            setValgtUnderkategori(val ? underkategorier.find(k => k.endsWith(val)) : "")
+          }
+        />
+        <CustomDropdown
+          label="Mærker"
+          options={brands}
+          value={valgtBrand}
+          onChange={setValgtBrand}
+        />
+        <CustomDropdown
+          label="Pris"
+          options={["Laveste pris", "Højeste pris"]}
+          value={
+            sortering === "pris-asc" ? "Laveste pris" :
+            sortering === "pris-desc" ? "Højeste pris" : ""
+          }
+          onChange={(val) =>
+            setSortering(val === "Laveste pris" ? "pris-asc" : val === "Højeste pris" ? "pris-desc" : "")
+          }
+        />
       </div>
-    </main>
+
+      {/* INTRO */}
+      <div className="intro-text">
+        <h1>{sideInfo.titel}</h1>
+        <p>{sideInfo.tekst}</p>
+      </div>
+
+      {/* PRODUKTER */}
+      <div className="product-grid">
+        {visteBegrænset.map((product) => (
+          <ProductCard key={product.id} product={product} />
+        ))}
+        {visteBegrænset.length === 0 && (
+          <p>Ingen produkter matcher dine filtre.</p>
+        )}
+      </div>
+
+      {/* LOAD MORE */}
+      {visibleCount < visteProdukter.length && (
+        <div style={{ textAlign: "center", marginTop: "24px" }}>
+          <button className="load-more-button" onClick={() => setVisibleCount(visibleCount + 20)} aria-label="Indlæs flere produkter">
+            Se flere produkter
+          </button>
+        </div>
+      )}
+    </section>
+  </div>
+</main>
+
   );
 }
