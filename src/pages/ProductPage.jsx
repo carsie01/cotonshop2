@@ -104,8 +104,8 @@ export default function ProductPage() {
               <Heart
                 size={20}
                 strokeWidth={1.75}
-                fill={isFavorite ? "#E37500" : "none"}
-                color={isFavorite ? "#E37500" : "#333"}
+                fill={isFavorite ? "#125B6B" : "none"}
+                color={isFavorite ? "#125B6B" : "#333"}
               />
             </button>
           </div>

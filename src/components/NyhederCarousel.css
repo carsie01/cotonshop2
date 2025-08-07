@@ -116,22 +116,27 @@
 }
 .carousel-text-overlay {
   
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   width: 100%;
 }
 
 .carousel-title {
-  font-size: 1.50rem;
-  font-weight: bold;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
   margin-bottom: 0.25rem;
   color: #125B6B;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
  
 }
 
 .carousel-description {
-  font-size: 1rem;
-  color: #545252;
-  line-height: 1.4;
+  font-size: 16px;
+  color: #125B6B;
+  line-height: 1.7;
+  font-weight: 400;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 .carousel-heading {
   font-size: 1.5rem;
@@ -205,11 +210,29 @@
   }
 
   .carousel-dots {
-    display: none !important;
+    display: none 
   }
 
   .carousel-button {
     position: static;
     transform: none;
   }
+  .carousel-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 0.25rem;
+  color: #125B6B;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  
+ 
+}
+
+.carousel-description {
+  font-size: 16px;
+  color: #125B6B;
+  line-height: 1.7;
+  font-weight: 600;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
 }

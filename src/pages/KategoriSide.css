@@ -134,7 +134,7 @@
 
 .load-more-button {
   padding: 10px 20px;
-  background-color: #E37500;
+  background-color: #125B6B;
   color: white;
   border: none;
   border-radius: 6px;
@@ -145,7 +145,7 @@
 }
 
 .produkt-oversigt button:hover {
-  background-color: #9C5000;
+  background-color: #638f98;
 }
 
 /* === RESPONSIV === */

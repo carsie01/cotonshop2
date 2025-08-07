@@ -19,11 +19,27 @@ header {
 }
 .section-title {
   font-family: 'Inter', sans-serif;
-  font-size: 2.50rem;     /* cirka 28px */
-  font-weight: 400;
+  font-size: 2.80rem;     /* cirka 28px */
+  font-weight: 500;
   color: #545252;
   margin-bottom: 15px;
   text-align: left;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+p{ font-family: 'Inter', sans-serif;
+  font-size: 16px;     /* cirka 28px */
+  font-weight: 400;
+  line-height: 1.7;
+
+}
+h2{
+  font-family: 'Inter', sans-serif;
+  font-size: 2.80rem;     /* cirka 28px */
+  font-weight: 500;
+  color: #545252;
+  margin-bottom: 15px;
+  text-align: left;
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 
@@ -404,6 +420,7 @@ body.menu-open {
       color: #545252;
       margin-bottom: 15px;
       text-align: left;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 
     }
     .category-bar {

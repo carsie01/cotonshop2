@@ -7,20 +7,20 @@ export default function Footer() {
       {/* Sociale medier */}
       <div className="footer-social">
         <p>Følg med på vores sociale medier</p>
-        <nav aria-label="Sociale medier">
+        <div aria-label="Sociale medier">
           <ul className="social-icons">
             <li>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/cotonshoppen.dk?locale=da_DK" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebookF />
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/cotonshoppen.dk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>
             </li>
             <li>
-              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <a href="https://dk.pinterest.com/Cotonshoppen/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
                 <FaPinterestP />
               </a>
             </li>
@@ -30,7 +30,7 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-        </nav>
+        </div>
       </div>
 
       {/* Nyhedsbrev */}
@@ -55,19 +55,38 @@ export default function Footer() {
 
       {/* Nyttige guides */}
       <section className="footer-guides" aria-labelledby="guides-heading">
-        <h2 id="guides-heading">Nyttige guides</h2>
-        <div className="guides-grid">
-          <a href="/guide1" aria-label="Se guide om valg af hundekurv">
-            <img src="/images/guide1.jpg" alt="Hund i kurv - guide 1" />
-          </a>
-          <a href="/guide2" aria-label="Se guide om hvalpepleje">
-            <img src="/images/guide2.jpg" alt="Hund kigger op - guide 2" />
-          </a>
-          <a href="/guide3" aria-label="Se guide om hundefoder">
-            <img src="/images/guide3.jpg" alt="Hund med skål - guide 3" />
-          </a>
-        </div>
-      </section>
+  <h2 id="guides-heading">Nyttige guides</h2>
+  
+  <div className="guides-grid">
+    <div className="guide-card">
+      <a href="https://cotonshoppen.dk/information/diy-lav-selv-hundeis-1/" aria-label="Se guide om hvordan du laver dine egne hundeis">
+        <img src="/images/hundeis.jpg" alt="Opfrifter til lækre hundeis til din bedste ven" />
+      </a>
+      <h3><a href="/guide1">Lav dine egne hundeis</a></h3>
+    </div>
+
+    <div className="guide-card">
+      <a href="/guide2" aria-label="Se guide om hvad du skal bruge til din hvalp">
+        <img src="/images/hundehvalp.jpg" alt="Se guiden til alt du skal bruge til din hvalp" />
+      </a>
+      <h3><a href="https://cotonshoppen.dk/information/hvad-skal-jeg-bruge-til-min-nye-hvalp/">Hvad skal du bruge til din nye hvalp?</a></h3>
+    </div>
+
+    <div className="guide-card">
+      <a href="/guide3" aria-label="Se guide om hundetandpleje">
+        <img src="/images/hundetandbørste.jpg" alt="Se den store guide til din hunds tandpleje" />
+      </a>
+      <h3><a href="https://cotonshoppen.dk/information/tandpleje-til-hunde-den-store-guide/#tab_page_general">Den store guide til tandpleje</a></h3>
+    </div>
+  </div>
+
+  <div className="all-guides-button-wrapper">
+    <a href="https://cotonshoppen.dk/information/hundeguides/" className="all-guides-button">Se alle guides</a>
+  </div>
+</section>
+
+
+
 
       {/* Infobar */}
       
@@ -118,19 +137,19 @@ export default function Footer() {
 
         <div className="footer-col">
           <h3>Følg os</h3>
-          <ul className="social-icons">
+          <ul className="social-iconss">
             <li>
-              <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+              <a href="https://www.facebook.com/cotonshoppen.dk?locale=da_DK" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
                 <FaFacebookF />
               </a>
             </li>
             <li>
-              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+              <a href="https://www.instagram.com/cotonshoppen.dk/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
                 <FaInstagram />
               </a>
             </li>
             <li>
-              <a href="https://pinterest.com" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
+              <a href="https://dk.pinterest.com/Cotonshoppen/" target="_blank" rel="noopener noreferrer" aria-label="Pinterest">
                 <FaPinterestP />
               </a>
             </li>
@@ -146,7 +165,7 @@ export default function Footer() {
         <div className="footer-col">
           <h3>Information</h3>
           <ul>
-            <li><a href="#">Hundeguides</a></li>
+            <li><a href="https://cotonshoppen.dk/information/hundeguides/">Hundeguides</a></li>
             <li><a href="#">Om Cotonshoppen</a></li>
             <li><a href="#">Ambassadører</a></li>
             <li><a href="#">Job hos os</a></li>
