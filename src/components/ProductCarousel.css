@@ -119,6 +119,12 @@
 @media (max-width: 900px) {
   .product-card.carousel-card {
     max-width: 48%;
+   
+  }
+  .product-carousel {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin: 30px 0; /* Optional: mindre margin på små skærme */
   }
 }
 

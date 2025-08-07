@@ -31,7 +31,7 @@ export default function App() {
           element={
             <>
             <HeroSection />
-              <NyhederCarousel />
+            <NyhederCarousel title="Nyheder" />
               <ProductCarousel title="Nyt på shoppen" products={popularProducts} />
               <ProductCarousel title="Sælger hurtigt" products={recommendedProducts} />
               <TrustpilotSlider />

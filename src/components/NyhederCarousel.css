@@ -6,9 +6,12 @@
     justify-content: center;    /* centrer indhold vertikalt – kun hvis du ønsker det */
     margin: 0 auto;             /* centrer containeren på siden */
     padding: 2rem 1rem;
+    padding-bottom: 30px;
     max-width: 90%;
     width: 100%;
     margin-top: 1rem; /* eller f.eks. 48px */
+    border-bottom: 1px solid #ddd;
+    text-align: left;
   }
   
 
@@ -20,6 +23,7 @@
   overflow-x: auto;
   -ms-overflow-style: none;  /* IE og Edge */
   scrollbar-width: none; 
+  
 }
 .carousel-wrapper::-webkit-scrollbar {
   display: none;             /* Chrome, Safari og Opera */
@@ -30,6 +34,7 @@
   scroll-snap-type: x mandatory;
   overflow-x: auto;
   scroll-behavior: smooth;
+  
 }
 
 .carousel-slide {
@@ -43,6 +48,11 @@
   box-sizing: border-box;
   text-align: center;
   scroll-snap-align: start;
+  text-decoration: none;
+}
+.carousel-image:hover {
+  transform: scale(1.05);
+  
 }
 
 .carousel-image {
@@ -65,31 +75,8 @@
   border-radius: 10px;
 }
 
-/* Knap overlay */
-.carousel-button-overlay {
-  margin-top: auto;
-  color: #125B6B;
-  font-weight: bold;
-  text-decoration: underline;
-}
 
-/* Knap (hvis brugt) */
-.carousel-button {
-  margin-top: 1rem;
-  background-color: #125B6B;
-  color: white;
-  border: 2px solid white;
-  padding: 14px 24px;
-  font-size: 18px;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
 
-.carousel-button:hover {
-  background-color: #9EBEC5;
-  border: none;
-}
 
 /* Dots – mobil og tablet */
 .carousel-dots {
@@ -120,9 +107,45 @@
   outline: 2px solid #125B6B;
   outline-offset: 2px;
 }
+.carousel-heading {
+  text-align: left;
+  width: 100%;
+  padding: 0 0.5rem; /* juster efter behov */
+  
+ 
+}
+.carousel-text-overlay {
+  
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.carousel-title {
+  font-size: 1.50rem;
+  font-weight: bold;
+  margin-bottom: 0.25rem;
+  color: #125B6B;
+ 
+}
+
+.carousel-description {
+  font-size: 1rem;
+  color: #545252;
+  line-height: 1.4;
+}
+.carousel-heading {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #545252;
+  text-align: left;
+  width: 100%;
+  max-width: 90%;
+}
+
 
 /* MOBIL + TABLET swipe layout med "peek" */
-@media (max-width: 1023px) {
+@media (max-width: 900px) {
   .carousel-wrapper {
     overflow-x: auto;
     scroll-snap-type: x mandatory;

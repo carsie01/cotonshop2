@@ -49,7 +49,7 @@ export default function ProductCarousel({ title, products }) {
 
   return (
     <section className="product-carousel" aria-label={title}>
-      <h2>{title}</h2>
+      <h2 className="section-title">{title}</h2>
 
       <div className="carousel-content">
         <button

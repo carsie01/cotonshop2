@@ -1,186 +1,128 @@
-import { useState, useRef } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import "./NyhederCarousel.css";
+
 
 const slides = [
   {
     id: 1,
     image: "/images/nyhed1.jpg",
-    alt: "billede af nyhedsbrev. Spar 10 procent på nye hundesenge og farver fra ollipet.",
-    link: "/hundetilbehoer",
-    text: "SE UDVALGET HER",
+    alt: "Billede af engelsk bulldog i kurv",
+    link: "/maerker/ollipet",
+    title: "Se Nyheder fra Ollipet",
+    description: "Opdag de nye farver og modeller i vores populære hundesenge.",
   },
   {
     id: 2,
     image: "/images/nyhed2.jpg",
-    alt: "billede af nyhedsbanner. Mors dag, fejre det med forkælelse. Spar op til 30 procent på udvalgte varer.",
-    link: "/tilbud",
-    text: "SE HER",
+    alt: "Skålesæt i mocka farve",
+    link: "/tilbud/sæt",
+    title: "10 % på sæt af varer",
+    description: "Forkæl dig selv og din firbenede ven med skarpe tilbud.",
   },
   {
     id: 3,
     image: "/images/nyhed3.jpg",
-    alt: "billede af nyhedsbanner. Spar 10 procent på nyheder og nye farver i en dusty army grøn og en mat gul, fra dog copenhagen.",
-    link: "/dogcopenhagen",
-    text: "FIND DEM HER",
+    alt: "Banner med nye sommerfarver",
+    link: "/nyheder",
+    title: "Alt du skal bruge til sommeren",
+    description: "Dusty army grøn og mat gul er årets nye sommerfarver.",
   },
 ];
 
-export default function NyhederCarousel() {
+export default function NyhederCarousel({ title }) {
   const [current, setCurrent] = useState(0);
-  const [liveMessage, setLiveMessage] = useState("");
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 1000);
   const trackRef = useRef(null);
   const slideRefs = useRef([]);
 
-  const goToSlide = (index) => {
-    slideRefs.current[index]?.scrollIntoView({
-      behavior: "smooth",
-      block: "nearest",
-      inline: "center", // midtstiller i stedet for start
-    });
-    setCurrent(index);
-    setLiveMessage(`${slides[index].alt} ${slides[index].text}`);
-  };
+  // Opdater viewport på resize
+  useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 1000);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
 
-  const scrollTimeout = useRef(null);
+  // Registrér scroll (mobil)
+  useEffect(() => {
+    if (!isMobile) return;
 
-const handleScroll = () => {
-  if (scrollTimeout.current) {
-    cancelAnimationFrame(scrollTimeout.current);
-  }
-
-  scrollTimeout.current = requestAnimationFrame(() => {
     const track = trackRef.current;
-    if (!track || slideRefs.current.length === 0) return;
+    if (!track) return;
 
-    const trackRect = track.getBoundingClientRect();
-    const trackCenter = trackRect.left + trackRect.width / 2;
+    const handleScroll = () => {
+      const trackRect = track.getBoundingClientRect();
+      const centerX = trackRect.left + trackRect.width / 2;
+      let closestIndex = 0;
+      let closestDistance = Infinity;
 
-    let closestIndex = 0;
-    let smallestDistance = Infinity;
+      slideRefs.current.forEach((slide, i) => {
+        const rect = slide.getBoundingClientRect();
+        const slideCenter = rect.left + rect.width / 2;
+        const distance = Math.abs(slideCenter - centerX);
+        if (distance < closestDistance) {
+          closestDistance = distance;
+          closestIndex = i;
+        }
+      });
 
-    slideRefs.current.forEach((slide, index) => {
-      if (!slide) return;
-      const slideRect = slide.getBoundingClientRect();
-      const slideCenter = slideRect.left + slideRect.width / 2;
-      const distance = Math.abs(slideCenter - trackCenter);
+      setCurrent(closestIndex);
+    };
 
-      if (distance < smallestDistance) {
-        smallestDistance = distance;
-        closestIndex = index;
-      }
-    });
+    const el = trackRef.current;
+    el.addEventListener("scroll", handleScroll, { passive: true });
+    return () => el.removeEventListener("scroll", handleScroll);
+  }, [isMobile]);
 
-    setCurrent((prev) => {
-      if (prev !== closestIndex) {
-        setLiveMessage(`${slides[closestIndex].alt} ${slides[closestIndex].text}`);
-        return closestIndex;
-      }
-      return prev;
-    });
-  });
-};
-
-
-  const touchStartX = useRef(null);
-  const touchEndX = useRef(null);
-
-  const handleTouchStart = (e) => {
-    touchStartX.current = e.changedTouches[0].screenX;
-  };
-
-  const handleTouchEnd = (e) => {
-    touchEndX.current = e.changedTouches[0].screenX;
-    handleSwipeGesture();
-  };
-
-  const handleSwipeGesture = () => {
-    if (!touchStartX.current || !touchEndX.current) return;
-    const distance = touchStartX.current - touchEndX.current;
-    const slideCount = slides.length;
-    let newIndex = current;
-
-    if (distance > 50 && current < slideCount - 1) {
-      newIndex = current + 1;
-    } else if (distance < -50 && current > 0) {
-      newIndex = current - 1;
+  const goToSlide = (index) => {
+    if (slideRefs.current[index]) {
+      slideRefs.current[index].scrollIntoView({
+        behavior: "smooth",
+        inline: "center",
+        block: "nearest",
+      });
+      setCurrent(index);
     }
-
-    goToSlide(newIndex);
   };
 
   return (
-    <section
-      className="carousel-container"
-      aria-label="Nyheder karusel"
-      aria-describedby="carousel-desc"
-    >
-      <p className="sr-only" id="carousel-desc">
-        Karusel med nyheder. Brug swipe eller prikkerne nedenfor for at skifte indhold.
-      </p>
+    <section className="carousel-container" aria-label="Nyheder karusel">
+      <h2 className="section-title">{title}</h2>
 
-      <div
-        className="carousel-wrapper"
-        onTouchStart={handleTouchStart}
-        onTouchEnd={handleTouchEnd}
-      >
-        <div
-          className="carousel-track"
-          ref={trackRef}
-          onScroll={handleScroll}
-        >
+      <div className="carousel-wrapper">
+        <div className="carousel-track" ref={trackRef}>
           {slides.map((slide, index) => (
             <Link
-              to={slide.link}
               key={slide.id}
-              className="carousel-slide clickable-slide"
-              aria-label={`Nyhed ${index + 1}: ${slide.alt}`}
+              to={slide.link}
+              className="carousel-slide"
               ref={(el) => (slideRefs.current[index] = el)}
+              aria-label={`Slide ${index + 1}: ${slide.title}`}
             >
-              <img
-                src={slide.image}
-                alt={slide.alt}
-                className="carousel-image"
-              />
-              <div className="carousel-button-overlay">{slide.text}</div>
+              <img src={slide.image} alt={slide.alt} className="carousel-image" />
+              <div className="carousel-text-overlay">
+                <h3 className="carousel-title">{slide.title}</h3>
+                <p className="carousel-description">{slide.description}</p>
+              </div>
             </Link>
           ))}
         </div>
       </div>
 
-      {/* Skærmlæser-besked */}
-      <div
-        aria-live="polite"
-        aria-atomic="true"
-        role="status"
-        className="sr-only"
-        id="carousel-announcer"
-      >
-        {liveMessage && (
-          <>
-            <img
-              src={slides[current].image}
-              alt={slides[current].alt}
-              style={{ display: "none" }}
+      {isMobile && (
+        <div className="carousel-dots" role="tablist">
+          {slides.map((_, index) => (
+            <button
+              key={index}
+              className={`dot ${index === current ? "active" : ""}`}
+              onClick={() => goToSlide(index)}
+              aria-label={`Gå til slide ${index + 1}`}
+              role="tab"
+              aria-selected={index === current}
             />
-            <span>{slides[current].text}</span>
-          </>
-        )}
-      </div>
-
-      {/* Navigation dots */}
-      <div className="carousel-dots" role="tablist">
-        {slides.map((_, index) => (
-          <button
-            key={index}
-            className={`dot ${index === current ? "active" : ""}`}
-            onClick={() => goToSlide(index)}
-            aria-label={`Gå til slide ${index + 1}`}
-            role="tab"
-            aria-selected={index === current}
-          />
-        ))}
-      </div>
+          ))}
+        </div>
+      )}
     </section>
   );
 }

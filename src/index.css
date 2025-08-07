@@ -1,12 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
 * {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  
 
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Inter', sans-serif;
   background: #F9F7F1;
   color: #545252;
 }
@@ -14,6 +17,16 @@ body {
 header {
   width: 100%;
 }
+.section-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2.50rem;     /* cirka 28px */
+  font-weight: 400;
+  color: #545252;
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+
 
 /* ==== Topinfo ==== */
 .top-info {
@@ -91,7 +104,7 @@ header {
   top: -8px;
   right: -12px;
   background: #125B6B;
-  color: white;
+  color: #E6F1F7;
   font-size: 12px;
   padding: 2px 6px;
   border-radius: 999px;
@@ -364,12 +377,12 @@ body.menu-open {
 }
 
 .navbar-logo img {
-  max-height: 40px; /* Justér afhængigt af logoets proportioner */
+  max-height: 60px; /* Justér afhængigt af logoets proportioner */
 }
 
 /* Justér navbar til kun at have ikoner og burger */
 
-@media (max-width: 1175px) {
+
   @media (max-width: 1175px) {
     .navbar-top {
       display: flex;
@@ -384,12 +397,25 @@ body.menu-open {
       max-height: 50px;
       width: auto;
     }
+    .section-title {
+      font-family: 'Inter', sans-serif;
+      font-size: 1.90rem;     /* cirka 28px */
+      font-weight: 500;
+      color: #545252;
+      margin-bottom: 15px;
+      text-align: left;
+
+    }
+    .category-bar {
+      display: none;
+    }
   }
 
   .burger-menu {
     display: block;
     order: -1;
-    font-size: 26px;
+    font-size: 40px;
+    padding-right: 10px;
   }
 
   .nav-icons {
@@ -398,6 +424,7 @@ body.menu-open {
     align-items: center;
     margin-left: auto;
     padding: 0;
+    
   }
 
   .whiteboks {
@@ -409,10 +436,8 @@ body.menu-open {
     display: none;
   }
 
-  .category-bar {
-    display: none;
-  }
+ 
 
 
-}
+
 
