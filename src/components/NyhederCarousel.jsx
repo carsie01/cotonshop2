@@ -25,8 +25,8 @@ const slides = [
     image: "/images/nyhed3.jpg",
     alt: "Banner med nye sommerfarver",
     link: "/nyheder",
-    title: "Alt du skal bruge til sommeren",
-    description: "Dusty army grøn og mat gul er årets nye sommerfarver.",
+    title: "Vores favoritter",
+    description: "Se vores kunders favorriter",
   },
 ];
 

@@ -16,6 +16,23 @@ body {
 
 header {
   width: 100%;
+             /* <-- nødvendig for sticky */
+  z-index: 1000;          /* så den ligger over indhold/dropdowns */
+
+}
+/* NYT: sticky + slide-in på hele headeren */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #F9F7F1;
+  transform: translateY(-100%);
+  transition: transform .25s ease, box-shadow .2s ease;
+}
+
+.site-header.show {
+  transform: translateY(0);
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
 }
 .section-title {
   font-family: 'Inter', sans-serif;
@@ -70,9 +87,9 @@ h2{
   padding: 18px 25px;
   background-color: white;
   border-bottom: 1px solid #ddd;
-  position: relative;
- width: 3000px;
- position: sticky;
+  position: static;
+ width: 100%;
+
   
 }
 
@@ -220,20 +237,7 @@ h2{
 }
 
 
-/* ==== Mobilmenu (overlay sidebar) ==== */
-.mobile-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 80%;
-  height: 100%;
-  background: white;
-  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-  z-index: 1001;
-  padding: 20px;
-  overflow-y: auto;
-  transition: transform 0.3s ease;
-}
+
 
 .close-menu {
   background: none;
@@ -302,20 +306,7 @@ h2{
   text-decoration: none;
   outline: none;
 }
-/* Mobilmenu container */
-#mobile-menu {
-  padding: 20px;
-  background: white;
-  width: 310px;
-  max-width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  overflow-y: auto;
-  z-index: 9999;
-  box-shadow: 2px 0 6px rgba(0, 0, 0, 0.1);
-}
+
 
 
 body.menu-open {
@@ -396,39 +387,39 @@ body.menu-open {
 .navbar-logo img {
   max-height: 60px; /* Justér afhængigt af logoets proportioner */
 }
-
-/* Justér navbar til kun at have ikoner og burger */
-
-
-  @media (max-width: 1175px) {
-    .navbar-top {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 8px 0 4px;
-      background-color: white;
-      border-bottom: 1px solid #ddd;
-    }
-  
-    .navbar-logo img {
-      max-height: 50px;
-      width: auto;
-    }
-    .section-title {
-      font-family: 'Inter', sans-serif;
-      font-size: 1.90rem;     /* cirka 28px */
-      font-weight: 500;
-      color: #545252;
-      margin-bottom: 15px;
-      text-align: left;
-      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-
-    }
-    .category-bar {
-      display: none;
-    }
+/* Kun mobil/tablet */
+@media (max-width: 1175px) {
+  /* Toplinje + logo */
+  .navbar-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 8px 0 4px;
+    background-color: #fff;
+    border-bottom: 1px solid #ddd;
   }
 
+  .navbar-logo img {
+    max-height: 50px;
+    width: auto;
+  }
+
+  .section-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.90rem;
+    font-weight: 500;
+    color: #545252;
+    margin-bottom: 15px;
+    text-align: left;
+    text-shadow: 0 4px 12px rgba(0,0,0,.15);
+  }
+
+  /* Skjul desktop-kategoribar helt */
+  .category-bar {
+    display: none !important;
+  }
+
+  /* Navbar layout på mobil */
   .burger-menu {
     display: block;
     order: -1;
@@ -442,7 +433,6 @@ body.menu-open {
     align-items: center;
     margin-left: auto;
     padding: 0;
-    
   }
 
   .whiteboks {
@@ -454,8 +444,72 @@ body.menu-open {
     display: none;
   }
 
- 
+  /* ===== Mobil side-drawer (venstre skuffe) ===== */
+  #mobile-menu.mobile-categories {
+    position: fixed;
+   min-height: 100vh;
+    height: 100%;
+    width: 50vw;  
+    top: 0;         /* ~halv skærm */
+    max-width: 420px;
+    min-width: 280px;
+    background: #fff;
+    z-index: 1001;
+    overflow-y: auto;
+    box-shadow: 2px 0 12px rgba(0,0,0,.18);
+    transform: translateX(-100%);;
+    transition: transform .3s ease;
+    padding: 20px;
+  }
+
+  #mobile-menu.open {
+    transform: translateX(0);
+  }
+
+  .mobile-categories,
+  .mobile-category-group,
+  .mobile-subcategories {
+    width: 100%;
+  }
+
+  /* Backdrop bag skuffen */
+  .menu-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.35);
+    z-index: 1000;
+    opacity: 0;
+    min-height: 200vh;
+    pointer-events: none;
+    transition: opacity .2s ease;
+  }
+  .menu-backdrop.show {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  /* Stop desktop-dropdown CSS fra at lække på mobil */
+  .dropdown {
+    position: static;
+    width: 100%;
+    min-width: 100%;
+    border: 0;
+    box-shadow: none;
+    background: transparent;
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+  }
+  .dropdown li a {
+    display: block;
+    padding: 12px 16px;
+    background: #fff;
+    border-bottom: 1px solid #eee;
+  }
+}
 
 
 
 
+/* Lås body-scroll når menuen er åben (bruges i din useEffect) */
+body.menu-open { overflow: hidden; }

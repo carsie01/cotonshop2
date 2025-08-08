@@ -1,64 +1,75 @@
 const products = [
     {
-        id: "prod1",
-        name: "Ollipet City Lux sæt | Små Roser z1",
-        image: "/images/product1hover.jpg",
-        hoverImage: "/images/product1.jpg",     // vises ved hover
-        alt: "Billedet viser sele-sættet med små røde roser på hvid baggrund.",
+        id: "prod24",
+        name: "Ollipet Hide-a-Treat | Croissant",
+        image: "/images/product24hover.jpg",
+        hoverImage:"/images/product24.jpg",
+        alt: "Legetøj formet som croissant med skjult hulrum",
         brand: "Ollipet",
-        price: "329.40",
-        oldPrice: "366.00",       
-        rabat: 10,            
+        price: "39.00",
         highlights: [
-            
-          "1 stk Ollipet City Lux Step-in hundesele | Små Roser",
-          "1 stk Ollipet City Lux line | Små Roser",
-          "1 stk. Ollipet City Lux høm-høm taske | Små Roser",
-          "1 stk Ollipet City Lux bandana | Små Roser"
+          "Spændene interaktivt legetøj, der aktiverer hunden",
+          "Med indbygget lyd",
+          "Kan gemme på godbidder",
+          "Kan stimulere hunden",
+          "Måler ca. 20 cm i længden"
         ],
         description: `
-         
-        <p>
-<strong>Ollipet City Lux sæt | Små Roser</strong></p> <p>Træd ind i byens pulserende liv med din firbenede kammerat ved din side og vores fortryllende Ollipet City Lux Serie med Små Roser!
-Dette unikke tilbehørssæt tilbyder både stil og funktionalitet til jeres urbane eventyr og gåture.
-
-         </strong> </p>
-          <p>
-       Den delikate City Lux Serie prydes med små rosendetaljer, der tilføjer en subtil elegance til din hunds udseende. De smukke roser er ikke kun en æstetisk detalje, men også et udtryk for den omsorg og kærlighed, du giver din hund. Kvaliteten af materialerne sikrer en holdbarhed, der matcher byens hektiske tempo.
-          </p><p>Hold byens gader rene med den elegante høm høm-taske. Den diskrete fastgørelse til selen eller linen sikrer, at du altid er klar til at tage ansvar, uanset hvor I går.</p>
-          <p>Oplev byen med et strejf af elegance og praktisk design med Ollipet City Lux Serie med Små Roser. Dette sæt er skabt til at gøre jeres byeventyr mindeværdige og behagelige.
-Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser.</p>
-         
-          <ul>
-            <li>Lækkert design</li>
-            <li>God pasform</li>
-             <li>Også god hvalpesele</li>
-            <li>Step-in sele, der ikke skal over hovedet</li>
-             <li>Med indvendig åndbar mesh</li>
-            <li>Med kliklås og D-ringe til linen</li>
-             <li>Med refleks</li>
-          </ul>
-         
+          <p><strong>Styrk relationen mellem dig og din hund med dette interaktive legetøj</strong></p> 
+          <p>Ollipet Hide-a-Treat | Croissant er den ideelle mulighed for at skabe en hyggelig aktivitetsleg med din pelsede kammerat.</p>
+          <p>Dette charmerende hundelegetøj har form som en lækker croissant med en tilknyttet blok smør, der vil vække glæden hos din hund. Croissanten og smøren kan adskilles fra hinanden, hvilket giver dig mulighed for at skjule godbidder indeni. Din hund skal arbejde for at få fat i belønningen ved at tage det smørfyldte hoved af croissanten og finde de gemte godbidder i hulerummet. Dette skaber en sjov og udfordrende aktivitet, der holder din hund engageret og stimuleret. </p>
+          <p>Udover den spændene leg har dette hundelegetøj knitrende lyde og pivende lyde i begge dele. Disse lyde har flere fordele, der gør leg og træning endnu mere underholdene og givende for både dig og din firbenede ven. Lydene fanger din hunds opmærksomhed, og opfordrer den til at være endnu mere aktiv under legen.</p>
+          <p>Med en en Ollipet Hide-a-Treat | Croissant, er du med til at skabe en sjov og interaktiv leg, der ikke kun styrker båndet mellem dig og din hund, men også holder den mentalt stimuleret.</p>
         `,
-      
-
         kategorier: [
-          "/hundetilbehoer",
-          "/hundetilbehoer/seler",
-          "/tilbud",
-          "/tilbud/saet",
+          "/hundelegetøj",
+          "/hundelegetøj/plys",
+          "/hundelegetøj/aktivitet",
+          "/hundefoder/tørfoder",
+          "/hvalpeudstyr",
+          "/hvalpeudstyr/legetøj",
+          "/nyheder",
           "/maerker/ollipet"
         ],
-      
-
-        tags: ["nyhed", "populaer"]
+        tags: ["anbefalet"]
       }
-      ,
+      ,{
+        id: "prod30",
+        name: "Ollipet For Wagging Tails | Step in Sele",
+        image: "/images/product30hover.jpg",
+        hoverImage:"/images/product30.jpg",
+        alt: "Step-in hundesele i khaki nylon mesh – åndbart og komfortabelt",
+        brand: "Ollipet",
+        price: "118.15",
+        oldPrice: "139.00",
+        rabat: 15,
+        highlights: [
+          "Step-in design – ingen sele over hovedet",
+          "Åndbart mesh for høj komfort",
+          "Ideel til hvalpe, små og mellemstore hund",
+          "Mulighed for at tilkøbe matchende snor",
+          "Kan anvendes som kølevest"
+        ],
+        description: `
+          <p><strong>Stilfuld og komfortabel hundesele med smart step-in funktion</strong></p>
+          <p>Gør gåturen til en fornøjelse for både dig og din hund med Ollipet For Wagging Tails | Step in Sele – en flot og funktionel hundesele, der kombinerer komfort, design og brugervenlighed. Den smarte step-in funktion betyder, at du helt undgår at skulle trække selen hen over hundens hoved – noget mange hunde ikke bryder sig om. I stedet træder hunden nemt ned i selen, hvorefter du lukker den med et snuptag på ryggen af hunden. Med sine flotte farver og lette, åndbare materialer er denne hundesele ikke kun praktisk, men også elegant – perfekt til alt fra hverdagsgåturen til hyggelige udflugter. </p>
+          <p>OBS: Denne sele kan med fordel anvendes som kølevest en barm sommerdag, hvor man blot skyller den op under den kolde hane, hvorefter man giver den på sin hund.</p>
+        `,
+        kategorier: [
+          "/nyheder",
+          "/hundetilbehoer",
+          "/hundetilbehoer/halsbaandogsele",
+          "/hvalpeudstyr",
+          "/hvalpeudstyr/snorogsele",
+          "/maerker/wellnesscore"
+        ],
+        tags: ["populaer"]
+      },
       {
         id: "prod2",
         name: "Rund Hvalpe kravlegård | Kanvas",
-        image: "/images/product2.jpg",
-        hoverImage:"/images/produck2hover.jpg",
+        image: "/images/produck2hover.jpg",
+        hoverImage:"/images/product2.jpg",
         alt: "Hvalpegården, der har lynlåsåbning i den ene sektion og i toppen, er også perfekt på campingferien eller hundeudstilling med din voksne hund (af små racer). I gården kan den/de få skygge og ligge i fred og ro mens den sover, uden du skal bekymre dig om, hvor den er henne.",
         brand: "Ollipet",
       
@@ -101,6 +112,67 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
       
 
         tags: ["populaer"]
+      },    {
+        id: "prod34",
+        name: "Ollipet Flora høm-høm taske | Sand",
+        image: "/images/product34.jpg",
+        hoverImage:"/images/product34hover.jpg",
+        alt: "Sød og stilren hundeposetaske i sandfarve med blomsterprint",
+        brand: "Ollipet",
+        price: "79.00",
+        highlights: [
+          "Dansk design",
+          "Fastgøres let til hundens line eller lignende vha. karabinhage",
+          "Med lynlåslukning",
+          "Mål: Ca. 8x 4,5 cm",
+          "Matcher resten af Ollipet Flora-serien | Sand"
+        ],
+        description: `
+          <p><strong>En super fin, lille taske, så du kan opbevare hundeposerne med sti</strong></p>
+          <p>Med denne fine Ollipet Flora Høm-Høm taske, kan du diskret opbevare din hunds efterladenskaber, mens I nyder en gåtur.</p>
+          <p>Denne kompakte, men rummelige søde lille taske har plads til en rulle hundeposer. Den er praktisk udstyret med en karabinhage og lynlås i "guld", der gør det let at fastgøre den til hundens line, dine bukser, jakken eller lignende, så du altid har en høm-høm pose lige ved hånden, når du og din firbenede ven er ude at gå.</p>
+          <p>Lynlåsen gør det let at fylde tasken op med nye poser, når den sidste er brugt. Den smukke Ollipet Flora Høm-Høm taske er både bekvem og funktionel.</p>
+          <p>Lavet af smukt stof, har denne taske et ekstra smart og trendy design, der matcher resten af Ollipet Flora-seriens produkter, så du kan fuldende din hunds look med matchende udstyr til jeres gåture.</p>
+        `,
+        kategorier: [
+          "/nyheder",
+          "/hundetilbehoer",
+          "/hundetilbehoer/poser",
+          "/maerker/ollipet"
+        ]
+      },
+      {
+        id: "prod35",
+        name: "Ollipet Flora Step-in hundesele",
+        image: "/images/product35.jpg",
+        hoverImage:"/images/product35hover.jpg",
+        alt: "Sandfarvet step-in hundesele med hvidt blomsterdesign",
+        brand: "Ollipet",
+        price: "189.00",
+        highlights: [
+          "Step-in sele",
+          "Giver god støtte henover hundens bryst",
+          "Justerbar velcro",
+          "Reflekser der gør din hund synlig i mørket",
+          "Også god som hvalpesele og til miniracer"
+        ],
+        description: `
+          <p><strong>Forkæl både dig selv og din elskede hund med denne elegante hundesele fra Ollipet!</strong></p>
+          <p>Vi har designet den fineste step-in sele i Ollipets Flora-serie! Step-in selen er helt eksklusiv med sit design. Forestil dig en smuk sandfarve, lige med et strejf af meget svag rosa, og så med lyse sandfarvede blomster.  </p>
+          <p>Det bedste ved denne sele er, at den ikke bare er super smuk - den føles også fantastisk. Den er så blød og behagelig at røre ved, og samtidig super stilfuld og moderne.
+Derudover er den designet med det lette, åndbare mesh-for.</p>
+          <p>Glem alt besvær med at få selen over hovedet på din firbenede ven. Denne sele er lavet til nem påføring. Du skal bare guide poterne gennem hullerne, placere den omkring kroppen og klikke den sikkert på plads med velcro og et klikspænde på ryggen.</p>
+          <p>Der er også tænkt på praktiske detaljer. Selen har to rustfri D-stålringe på ryggen, perfekt til at fastgøre hundens line. Og med refleksdetaljer bliver I begge mere synlige under aftenturene, så I kan færdes sikkert i mørket. Så hvad venter du på? Gør din hund glad med denne luksuriøse sele fra Ollipets Flora-serie!</p>
+        `,
+        kategorier: [
+          "/nyheder",
+          "/hundetilbehoer",
+          "/hundetilbehoer/halsbaandogsele",
+          "/hvalpeudstyr",
+          "/hvalpeudstyr/snorogsele",
+          "/maerker/ollipet"
+        ],
+        tags: ["anbefalet"]
       },
       
       {
@@ -147,6 +219,65 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           "/nyheder"
         ],
         tags: ["anbefalet"]
+      },  {
+        id: "prod41",
+        name: "Ollipet Paris City Bag 3i1",
+        image: "/images/product41hover.jpg",
+        hoverImage:"/images/product41.jpg",
+        alt: "flot og minimalistisk design. tasken ligner en halv cirkel, med lædder remme i toppen. siderne kan foldes ned til autostol og kurv. farven er grå med brun læder",
+        brand: "Ollipet",
+        price: "300,00",
+     
+        highlights: ["Transporttaske, autostol og hundekurv i én", "Polstrede sider og aftagelig vendbar bund med aftageligt betræk", "Med indvendig integreret line som kan fastgøres til hundens sele", "Justerbar og aftagelig skulderstrop", "Kan holde hunde op til 8 kg"],
+        description: `
+          <p><strong>Transporttaske, autostol og hundekurv i én</strong></p>
+          <p>Ollipet Paris City Bag 3i1 er som navnet indikerer tre produkter i ét: En transporttaske, en autostol og en hundeseng. Produktet er fremstillet af smukke, slidstærke materialer, der ligeledes er komfortable for hunden at ligge på samt op ad.</p>
+            <p>Siderne på Paris City Bag er polstrede for at give din hund en ekstra behagelig behagelig oplevelse, når den hviler hovedet på dem eller ligger op ad dem.</p>
+              <p>Bunden er naturligvis også polstret, så hunden også har en blød "madras" at ligge på. Taskens bund har desuden et afstivende indlæg, som er med til at sørge for, at tasken holder sin facon. </p>
+                <pTasken har i toppen to korte stropper i et læderlignende materiale. Den har derudover en lang, aftagelig skulderstrop, som du med fordel kan anvende, når du bærer din hund og ønsker at have begge hænder frie på samme tid. ></p>
+                  <p>Indvendigt har tasken en integreret line med karabinhage, som du kan fastgøre til hundens sele, så din firbenede ven bliver hvor den skal. Dette er meget praktisk, både når du anvender Paris City Bag som taske, men også når den bruges som autostol</p>
+              <p>Når du vil anvende Paris City Bag som autostol, folder du blot dens ene side ned. Siden fastgøres til bunden af tasken ved hjælp af den mindste af de to stropper, der sider øverst, og remmen, der sidder nederst på siden af tasken. Her føres remmen gennem stroppen, hvorefter den lukkes sammen om den ved hjælp af trykknappen. </p>
+                <p>Autostolen fastgøres til bilsædet ved hjælp af skulderstroppen, som føres rundt om sædets ryglæn. </p>
+                  <p>OBS! Bemærk at Ollipet Paris City Bag 3i1 ikke er et sikkerhedsgodkendt produkt til brug i bil under kørslen. Hvis du ønsker størst mulig sikkerhed for dit kæledyr under bilkørsel anbefaler vi, at du installerer et decideret bur bagerst i din bil</p>
+        `,
+        kategorier: ["/transport","/transport/autostol","/diverse", "/nyheder",  "/hundetilbehoer",
+            "/hundetilbehoer/sengogkurv",],
+        tags: ["populaer","nyhed", 
+          ]
+      },
+      {
+        id: "prod29",
+        name: "Ollipet hundespisesæt | grå",
+        image: "/images/product29.jpg",
+        hoverImage:"/images/product29hover.jpg",
+        alt: "Spisesæt med grå silikoneunderlag og rustfri skåle",
+        brand: "Ollipet",
+        price: "317.74",
+        oldPrice: "357.00",
+        rabat: 11,
+        highlights: [
+          "Stilfuldt sæt med to skåle og underlag",
+          "2 stk. Ollipet Nordic Delight hundeskål | grå",
+          "1 stk Ollipet Oval spiseunderlag | grå",
+          "Skridsikkert",
+          "Skåner gulve for spildt vand"
+        ],
+        description: `
+          <p><strong>Nordic Delight hundeskåle & spiseunderlag sæt – Stilrent og praktisk</strong></p>
+          <p> Forbedr din hunds måltider med dette elegante sæt af Nordic Delight mad- og vandskåle sammen med et smukt Ollipet ovalt spiseunderlag. Hundeskålene har en moderne, mat sølvfinish og kommer i en stilfuld hvid farve, der passer til enhver indretning. Med en skridsikker bund forbliver skålene sikkert på plads, selv under de mest entusiastiske måltider. Begge skåle tåler opvaskemaskine, hvilket gør rengøringen nem og bekvem. Spiseunderlaget i en frisk ferskenfarve beskytter dit gulv mod spild og holder foder og vand på plads med sin forhøjede kant. Underlaget er lavet af slidstærkt silikone, som kan rengøres let med en fugtig klud. Dette sæt er den perfekte kombination af stil og funktionalitet til både hund og hjem.</p>
+          <p>1 stk Ollipet oval spiseunderlag | grå | 45 x 25 x 1 cm
+2 stk Ollipet Nordic Delight hundeskål | grå | 1000 ml vand. Diameter ca 16 cm.</p>
+        `,
+        kategorier: [
+          "/hundetilbehoer",
+          "/hundetilbehoer/skåle",
+          "/hundefoder/tørfoder",
+          "/tilbud",
+          "/tilbud/sæt",
+          "/nyheder",
+          "/maerker/ollipet"
+        ],
+        tags: ["populaer"]
       },
       {
         id: "prod4",
@@ -201,8 +332,8 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
         {
           id: "prod5",
           name: "Yaki Tyggeben",
-          image: "/images/product5.jpg",
-          hoverImage:"/images/product5hover.jpg",
+          image: "/images/product5hover.jpg",
+          hoverImage:"/images/product5.jpg",
           alt: "100% naturlig hundetyggeben med lang tyggetid",
           brand: "Yaki dog snacks",
           price: "35.95",
@@ -232,11 +363,12 @@ Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser
           ],
           tags: ["anbefalet"]
         },
+        
         {
           id: "prod6",
           name: "Ollipet Hvil og Spis Kit | z1",
-          image: "/images/product6.jpg",
-          hoverImage:"/images/product6hover.jpg",
+          image: "/images/product6hover.jpg",
+          hoverImage:"/images/product6.jpg",
           alt: "Matchende sæt i skandinavisk stil. Inkluderer seng, skåle og underlag i pastel farver.",
           brand: "Ollipet",
           price: "572.60",
@@ -576,8 +708,8 @@ Ollipet Poteklippemaskine 2i1 oplades nemt med det medfølgende USB-ladekabel.</
           {
             id: "prod14",
             name: "Ollipet Fødekassesæt",
-            image: "/images/product14.jpg",
-            hoverImage:"/images/product14hover.jpg",
+            image: "/images/product14hover.jpg",
+            hoverImage:"/images/product14.jpg",
             alt: "Fødekasse, vetbed-tæppe og tisseunderlag i ét sæt",
             brand: "Ollipet",
             price: "609.30",
@@ -967,45 +1099,12 @@ Den er naturligt konserveret, hvilket sikrer friskhed og kvalitet, og den er sæ
               "/maerker/starmark"
             ]
           },
-          {
-            id: "prod24",
-            name: "Ollipet Hide-a-Treat | Croissant",
-            image: "/images/product24hover.jpg",
-            hoverImage:"/images/product24.jpg",
-            alt: "Legetøj formet som croissant med skjult hulrum",
-            brand: "Ollipet",
-            price: "39.00",
-            highlights: [
-              "Spændene interaktivt legetøj, der aktiverer hunden",
-              "Med indbygget lyd",
-              "Kan gemme på godbidder",
-              "Kan stimulere hunden",
-              "Måler ca. 20 cm i længden"
-            ],
-            description: `
-              <p><strong>Styrk relationen mellem dig og din hund med dette interaktive legetøj</strong></p> 
-              <p>Ollipet Hide-a-Treat | Croissant er den ideelle mulighed for at skabe en hyggelig aktivitetsleg med din pelsede kammerat.</p>
-              <p>Dette charmerende hundelegetøj har form som en lækker croissant med en tilknyttet blok smør, der vil vække glæden hos din hund. Croissanten og smøren kan adskilles fra hinanden, hvilket giver dig mulighed for at skjule godbidder indeni. Din hund skal arbejde for at få fat i belønningen ved at tage det smørfyldte hoved af croissanten og finde de gemte godbidder i hulerummet. Dette skaber en sjov og udfordrende aktivitet, der holder din hund engageret og stimuleret. </p>
-              <p>Udover den spændene leg har dette hundelegetøj knitrende lyde og pivende lyde i begge dele. Disse lyde har flere fordele, der gør leg og træning endnu mere underholdene og givende for både dig og din firbenede ven. Lydene fanger din hunds opmærksomhed, og opfordrer den til at være endnu mere aktiv under legen.</p>
-              <p>Med en en Ollipet Hide-a-Treat | Croissant, er du med til at skabe en sjov og interaktiv leg, der ikke kun styrker båndet mellem dig og din hund, men også holder den mentalt stimuleret.</p>
-            `,
-            kategorier: [
-              "/hundelegetøj",
-              "/hundelegetøj/plys",
-              "/hundelegetøj/aktivitet",
-              "/hundefoder/tørfoder",
-              "/hvalpeudstyr",
-              "/hvalpeudstyr/legetøj",
-              "/nyheder",
-              "/maerker/ollipet"
-            ],
-            tags: ["anbefalet"]
-          },
+         
           {
             id: "prod25",
             name: "Ollipet HoliMoli Snusebold hundelegetøj",
-            image: "/images/product25.jpg",
-            hoverImage:"/images/product25hover.jpg",
+            image: "/images/product25hover.jpg",
+            hoverImage:"/images/product25.jpg",
             alt: "Fleecestykker i latexbold til gemmeleg",
             brand: "Ollipet",
             price: "119.00",
@@ -1138,72 +1237,8 @@ Lad din hund nyde godt af massage af tandkødet med Trixies Mintfresh Ring - det
               "/maerker/trixie"
             ]
           },
-          {
-            id: "prod29",
-            name: "Ollipet hundespisesæt | grå",
-            image: "/images/product29.jpg",
-            hoverImage:"/images/product29hover.jpg",
-            alt: "Spisesæt med grå silikoneunderlag og rustfri skåle",
-            brand: "Ollipet",
-            price: "317.74",
-            oldPrice: "357.00",
-            rabat: 11,
-            highlights: [
-              "Stilfuldt sæt med to skåle og underlag",
-              "2 stk. Ollipet Nordic Delight hundeskål | grå",
-              "1 stk Ollipet Oval spiseunderlag | grå",
-              "Skridsikkert",
-              "Skåner gulve for spildt vand"
-            ],
-            description: `
-              <p><strong>Nordic Delight hundeskåle & spiseunderlag sæt – Stilrent og praktisk</strong></p>
-              <p> Forbedr din hunds måltider med dette elegante sæt af Nordic Delight mad- og vandskåle sammen med et smukt Ollipet ovalt spiseunderlag. Hundeskålene har en moderne, mat sølvfinish og kommer i en stilfuld hvid farve, der passer til enhver indretning. Med en skridsikker bund forbliver skålene sikkert på plads, selv under de mest entusiastiske måltider. Begge skåle tåler opvaskemaskine, hvilket gør rengøringen nem og bekvem. Spiseunderlaget i en frisk ferskenfarve beskytter dit gulv mod spild og holder foder og vand på plads med sin forhøjede kant. Underlaget er lavet af slidstærkt silikone, som kan rengøres let med en fugtig klud. Dette sæt er den perfekte kombination af stil og funktionalitet til både hund og hjem.</p>
-              <p>1 stk Ollipet oval spiseunderlag | grå | 45 x 25 x 1 cm
-2 stk Ollipet Nordic Delight hundeskål | grå | 1000 ml vand. Diameter ca 16 cm.</p>
-            `,
-            kategorier: [
-              "/hundetilbehoer",
-              "/hundetilbehoer/skåle",
-              "/hundefoder/tørfoder",
-              "/tilbud",
-              "/tilbud/sæt",
-              "/nyheder",
-              "/maerker/ollipet"
-            ],
-            tags: ["populaer"]
-          },
-          {
-            id: "prod30",
-            name: "Ollipet For Wagging Tails | Step in Sele",
-            image: "/images/product30hover.jpg",
-            hoverImage:"/images/product30.jpg",
-            alt: "Step-in hundesele i khaki nylon mesh – åndbart og komfortabelt",
-            brand: "Ollipet",
-            price: "118.15",
-            oldPrice: "139.00",
-            rabat: 15,
-            highlights: [
-              "Step-in design – ingen sele over hovedet",
-              "Åndbart mesh for høj komfort",
-              "Ideel til hvalpe, små og mellemstore hund",
-              "Mulighed for at tilkøbe matchende snor",
-              "Kan anvendes som kølevest"
-            ],
-            description: `
-              <p><strong>Stilfuld og komfortabel hundesele med smart step-in funktion</strong></p>
-              <p>Gør gåturen til en fornøjelse for både dig og din hund med Ollipet For Wagging Tails | Step in Sele – en flot og funktionel hundesele, der kombinerer komfort, design og brugervenlighed. Den smarte step-in funktion betyder, at du helt undgår at skulle trække selen hen over hundens hoved – noget mange hunde ikke bryder sig om. I stedet træder hunden nemt ned i selen, hvorefter du lukker den med et snuptag på ryggen af hunden. Med sine flotte farver og lette, åndbare materialer er denne hundesele ikke kun praktisk, men også elegant – perfekt til alt fra hverdagsgåturen til hyggelige udflugter. </p>
-              <p>OBS: Denne sele kan med fordel anvendes som kølevest en barm sommerdag, hvor man blot skyller den op under den kolde hane, hvorefter man giver den på sin hund.</p>
-            `,
-            kategorier: [
-              "/nyheder",
-              "/hundetilbehoer",
-              "/hundetilbehoer/halsbaandogsele",
-              "/hvalpeudstyr",
-              "/hvalpeudstyr/snorogsele",
-              "/maerker/wellnesscore"
-            ],
-            tags: ["populaer"]
-          },
+   
+          
           {
             id: "prod31",
             name: "Ollipet For Wagging Tails | Hundesnor",
@@ -1284,69 +1319,61 @@ Lad din hund nyde godt af massage af tandkødet med Trixies Mintfresh Ring - det
               "/hundetilbehoer/hundetegn",
               "/maerker/imarc"
             ]
-          },
-          {
-            id: "prod34",
-            name: "Ollipet Flora høm-høm taske | Sand",
-            image: "/images/product34.jpg",
-            hoverImage:"/images/product34hover.jpg",
-            alt: "Sød og stilren hundeposetaske i sandfarve med blomsterprint",
+          }, {
+            id: "prod1",
+            name: "Ollipet City Lux sæt | Små Roser z1",
+            image: "/images/product1hover.jpg",
+            hoverImage: "/images/product1.jpg",     // vises ved hover
+            alt: "Billedet viser sele-sættet med små røde roser på hvid baggrund.",
             brand: "Ollipet",
-            price: "79.00",
+            price: "329.40",
+            oldPrice: "366.00",       
+            rabat: 10,            
             highlights: [
-              "Dansk design",
-              "Fastgøres let til hundens line eller lignende vha. karabinhage",
-              "Med lynlåslukning",
-              "Mål: Ca. 8x 4,5 cm",
-              "Matcher resten af Ollipet Flora-serien | Sand"
+                
+              "1 stk Ollipet City Lux Step-in hundesele | Små Roser",
+              "1 stk Ollipet City Lux line | Små Roser",
+              "1 stk. Ollipet City Lux høm-høm taske | Små Roser",
+              "1 stk Ollipet City Lux bandana | Små Roser"
             ],
             description: `
-              <p><strong>En super fin, lille taske, så du kan opbevare hundeposerne med sti</strong></p>
-              <p>Med denne fine Ollipet Flora Høm-Høm taske, kan du diskret opbevare din hunds efterladenskaber, mens I nyder en gåtur.</p>
-              <p>Denne kompakte, men rummelige søde lille taske har plads til en rulle hundeposer. Den er praktisk udstyret med en karabinhage og lynlås i "guld", der gør det let at fastgøre den til hundens line, dine bukser, jakken eller lignende, så du altid har en høm-høm pose lige ved hånden, når du og din firbenede ven er ude at gå.</p>
-              <p>Lynlåsen gør det let at fylde tasken op med nye poser, når den sidste er brugt. Den smukke Ollipet Flora Høm-Høm taske er både bekvem og funktionel.</p>
-              <p>Lavet af smukt stof, har denne taske et ekstra smart og trendy design, der matcher resten af Ollipet Flora-seriens produkter, så du kan fuldende din hunds look med matchende udstyr til jeres gåture.</p>
+             
+            <p>
+    <strong>Ollipet City Lux sæt | Små Roser</strong></p> <p>Træd ind i byens pulserende liv med din firbenede kammerat ved din side og vores fortryllende Ollipet City Lux Serie med Små Roser!
+    Dette unikke tilbehørssæt tilbyder både stil og funktionalitet til jeres urbane eventyr og gåture.
+    
+             </strong> </p>
+              <p>
+           Den delikate City Lux Serie prydes med små rosendetaljer, der tilføjer en subtil elegance til din hunds udseende. De smukke roser er ikke kun en æstetisk detalje, men også et udtryk for den omsorg og kærlighed, du giver din hund. Kvaliteten af materialerne sikrer en holdbarhed, der matcher byens hektiske tempo.
+              </p><p>Hold byens gader rene med den elegante høm høm-taske. Den diskrete fastgørelse til selen eller linen sikrer, at du altid er klar til at tage ansvar, uanset hvor I går.</p>
+              <p>Oplev byen med et strejf af elegance og praktisk design med Ollipet City Lux Serie med Små Roser. Dette sæt er skabt til at gøre jeres byeventyr mindeværdige og behagelige.
+    Vælg stil, funktionalitet og kvalitet med Ollipet City Lux Serie med Små Roser.</p>
+             
+              <ul>
+                <li>Lækkert design</li>
+                <li>God pasform</li>
+                 <li>Også god hvalpesele</li>
+                <li>Step-in sele, der ikke skal over hovedet</li>
+                 <li>Med indvendig åndbar mesh</li>
+                <li>Med kliklås og D-ringe til linen</li>
+                 <li>Med refleks</li>
+              </ul>
+             
             `,
+          
+    
             kategorier: [
-              "/nyheder",
               "/hundetilbehoer",
-              "/hundetilbehoer/poser",
-              "/maerker/ollipet"
-            ]
-          },
-          {
-            id: "prod35",
-            name: "Ollipet Flora Step-in hundesele",
-            image: "/images/product35.jpg",
-            hoverImage:"/images/product35hover.jpg",
-            alt: "Sandfarvet step-in hundesele med hvidt blomsterdesign",
-            brand: "Ollipet",
-            price: "189.00",
-            highlights: [
-              "Step-in sele",
-              "Giver god støtte henover hundens bryst",
-              "Justerbar velcro",
-              "Reflekser der gør din hund synlig i mørket",
-              "Også god som hvalpesele og til miniracer"
-            ],
-            description: `
-              <p><strong>Forkæl både dig selv og din elskede hund med denne elegante hundesele fra Ollipet!</strong></p>
-              <p>Vi har designet den fineste step-in sele i Ollipets Flora-serie! Step-in selen er helt eksklusiv med sit design. Forestil dig en smuk sandfarve, lige med et strejf af meget svag rosa, og så med lyse sandfarvede blomster.  </p>
-              <p>Det bedste ved denne sele er, at den ikke bare er super smuk - den føles også fantastisk. Den er så blød og behagelig at røre ved, og samtidig super stilfuld og moderne.
-Derudover er den designet med det lette, åndbare mesh-for.</p>
-              <p>Glem alt besvær med at få selen over hovedet på din firbenede ven. Denne sele er lavet til nem påføring. Du skal bare guide poterne gennem hullerne, placere den omkring kroppen og klikke den sikkert på plads med velcro og et klikspænde på ryggen.</p>
-              <p>Der er også tænkt på praktiske detaljer. Selen har to rustfri D-stålringe på ryggen, perfekt til at fastgøre hundens line. Og med refleksdetaljer bliver I begge mere synlige under aftenturene, så I kan færdes sikkert i mørket. Så hvad venter du på? Gør din hund glad med denne luksuriøse sele fra Ollipets Flora-serie!</p>
-            `,
-            kategorier: [
-              "/nyheder",
-              "/hundetilbehoer",
-              "/hundetilbehoer/halsbaandogsele",
-              "/hvalpeudstyr",
-              "/hvalpeudstyr/snorogsele",
+              "/hundetilbehoer/seler",
+              "/tilbud",
+              "/tilbud/saet",
               "/maerker/ollipet"
             ],
-            tags: ["anbefalet"]
+          
+    
+            tags: ["nyhed", "populaer"]
           },
+      
           {
             id: "prod36",
             name: "Vandtætte strømpestøvler m. velcrobånd",
@@ -1411,7 +1438,7 @@ Derudover er den designet med det lette, åndbare mesh-for.</p>
             id: "prod38",
             name: "Ollipet Hundebur af Stål ",
             image: "/images/product38.jpg",
-            hoverImage:"/images/product37hover.jpg",
+            hoverImage:"/images/product38hover.jpg",
             alt: "firkantet sort stål hundebur",
             brand: "Ollipet",
             price: "389",
@@ -1474,32 +1501,7 @@ Derudover er den designet med det lette, åndbare mesh-for.</p>
             kategorier: ["/hundetilbehoer",  "/transport",  "/transport/klapvogn","/nyheder",],
             tags: ["populaer"]
           },
-          {
-            id: "prod41",
-            name: "Ollipet Paris City Bag 3i1",
-            image: "/images/product41hover.jpg",
-            hoverImage:"/images/product41.jpg",
-            alt: "flot og minimalistisk design. tasken ligner en halv cirkel, med lædder remme i toppen. siderne kan foldes ned til autostol og kurv. farven er grå med brun læder",
-            brand: "Ollipet",
-            price: "300,00",
-         
-            highlights: ["Transporttaske, autostol og hundekurv i én", "Polstrede sider og aftagelig vendbar bund med aftageligt betræk", "Med indvendig integreret line som kan fastgøres til hundens sele", "Justerbar og aftagelig skulderstrop", "Kan holde hunde op til 8 kg"],
-            description: `
-              <p><strong>Transporttaske, autostol og hundekurv i én</strong></p>
-              <p>Ollipet Paris City Bag 3i1 er som navnet indikerer tre produkter i ét: En transporttaske, en autostol og en hundeseng. Produktet er fremstillet af smukke, slidstærke materialer, der ligeledes er komfortable for hunden at ligge på samt op ad.</p>
-                <p>Siderne på Paris City Bag er polstrede for at give din hund en ekstra behagelig behagelig oplevelse, når den hviler hovedet på dem eller ligger op ad dem.</p>
-                  <p>Bunden er naturligvis også polstret, så hunden også har en blød "madras" at ligge på. Taskens bund har desuden et afstivende indlæg, som er med til at sørge for, at tasken holder sin facon. </p>
-                    <pTasken har i toppen to korte stropper i et læderlignende materiale. Den har derudover en lang, aftagelig skulderstrop, som du med fordel kan anvende, når du bærer din hund og ønsker at have begge hænder frie på samme tid. ></p>
-                      <p>Indvendigt har tasken en integreret line med karabinhage, som du kan fastgøre til hundens sele, så din firbenede ven bliver hvor den skal. Dette er meget praktisk, både når du anvender Paris City Bag som taske, men også når den bruges som autostol</p>
-                  <p>Når du vil anvende Paris City Bag som autostol, folder du blot dens ene side ned. Siden fastgøres til bunden af tasken ved hjælp af den mindste af de to stropper, der sider øverst, og remmen, der sidder nederst på siden af tasken. Her føres remmen gennem stroppen, hvorefter den lukkes sammen om den ved hjælp af trykknappen. </p>
-                    <p>Autostolen fastgøres til bilsædet ved hjælp af skulderstroppen, som føres rundt om sædets ryglæn. </p>
-                      <p>OBS! Bemærk at Ollipet Paris City Bag 3i1 ikke er et sikkerhedsgodkendt produkt til brug i bil under kørslen. Hvis du ønsker størst mulig sikkerhed for dit kæledyr under bilkørsel anbefaler vi, at du installerer et decideret bur bagerst i din bil</p>
-            `,
-            kategorier: ["/transport","/transport/autostol","/diverse", "/nyheder",  "/hundetilbehoer",
-                "/hundetilbehoer/sengogkurv",],
-            tags: ["populaer","nyhed", 
-              ]
-          },
+        
           {
             id: "prod42",
             name: "Ollipet Cykelkurv | 3i1",

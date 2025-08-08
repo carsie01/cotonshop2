@@ -63,13 +63,13 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
       name: "Hundelegetøj",
       path: "/hundelegetøj",
       subcategories: [
-        { name: "Slidestærkt legetøj", path: "/hundelegetoj/slidestærkt" },
-        { name: "Plys legetøj", path: "/hundelegetoj/plys" },
-        { name: "Aktivitetslegetøj", path: "/hundelegetoj/aktivitet" },
-        { name: "Snuse og slikkemåtte", path: "/hundelegetoj/snuseogslikmåtte" },
-        { name: "Bolde", path: "/hundelegetoj/blodt" },
-        { name: "Tandrensende legetøj", path: "/hundelegetoj/tandrens" },
-        { name: "Se alle", path: "/hundelegetoj" },
+        { name: "Slidestærkt legetøj", path: "/hundelegetøj/slidestærkt" },
+        { name: "Plys legetøj", path: "/hundelegetøj/plys" },
+        { name: "Aktivitetslegetøj", path: "/hundelegetøj/aktivitet" },
+        { name: "Snuse og slikkemåtte", path: "/hundelegetøj/snuseogslikmåtte" },
+        { name: "Bolde", path: "/hundelegetøj/blodt" },
+        { name: "Tandrensende legetøj", path: "/hundelegetøj/tandrens" },
+        { name: "Se alle", path: "/hundelegetøj/" },
       ],
     },
     {
@@ -136,7 +136,43 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
     },
   ];
   
-
+  function useRevealOnScroll() {
+    const [show, setShow] = useState(true);
+    const lastY = useRef(0);
+    const ticking = useRef(false);
+  
+    useEffect(() => {
+      const threshold = 12;     // ignorér små bevægelser
+      const revealAfter = 100;  // først aktiv efter 100px scroll
+  
+      const onScroll = () => {
+        const y = window.scrollY || 0;
+        if (ticking.current) return;
+        ticking.current = true;
+  
+        requestAnimationFrame(() => {
+          const delta = y - lastY.current;
+          const goingDown = delta > threshold;
+          const goingUp = delta < -threshold;
+  
+          if (y < revealAfter) {
+            setShow(true);
+          } else if (goingDown) {
+            setShow(false);
+          } else if (goingUp) {
+            setShow(true);
+          }
+          lastY.current = y;
+          ticking.current = false;
+        });
+      };
+  
+      window.addEventListener("scroll", onScroll, { passive: true });
+      return () => window.removeEventListener("scroll", onScroll);
+    }, []);
+  
+    return show;
+  }
 export default function Navbar() {
   const { cart } = useCart();
   const [search, setSearch] = useState("");
@@ -148,6 +184,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const searchRef = useRef();
   const mobileMenuRef = useRef();
+  const showHeader = useRevealOnScroll(); // 🔹 tilføj denne linje
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const toggleSearch = () => setShowMobileSearch((prev) => !prev);
@@ -208,77 +245,15 @@ export default function Navbar() {
     };
   }, [menuOpen]);
   
-
-
   return (
-    <header>
+    <header className={`site-header ${showHeader ? "show" : ""}`}>
       <div className="top-info">
         🇩🇰 Danskejet | Gratis fragt over 499 kr. | 60 dages returret | Hurtig levering
       </div>
-
+  
       <div className="whiteboks">
         <div className="navbar">
-        {isMobile && menuOpen && (
-  <nav
-    id="mobile-menu"
-    ref={mobileMenuRef}
-    className="mobile-categories"
-    role="navigation"
-    aria-label="Mobil navigation"
-  >
-    {categories.map((cat, index) => {
-      const isOpen = openMobileCategory === index;
-      const subId = `mobile-sub-${index}`;
-      const buttonId = `mobile-btn-${index}`;
-
-      return (
-        <div key={cat.name} className="mobile-category-group">
-          <button
-            id={buttonId}
-            className="mobile-category-button"
-            aria-expanded={isOpen}
-            aria-controls={subId}
-            onClick={() =>
-              setOpenMobileCategory((prev) =>
-                prev === index ? null : index
-              )
-            }
-            onKeyDown={(e) => {
-              if (e.key === "Escape") setOpenMobileCategory(null);
-            }}
-          >
-            {cat.name} <span>{isOpen ? "▲" : "▼"}</span>
-          </button>
-
-          {isOpen && (
-            <ul
-              id={subId}
-              className="mobile-subcategories"
-              aria-labelledby={buttonId}
-            >
-              {cat.subcategories.map((sub) => (
-                <li key={sub.name}>
-                  <Link
-                    to={sub.path}
-                    className="mobile-sub-item"
-                    onClick={() => {
-                      setMenuOpen(false);
-                      setOpenMobileCategory(null);
-                    }}
-                  >
-                    {sub.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      );
-    })}
-  </nav>
-)}
-
-
+          {/* Burger (mobil) */}
           {isMobile && (
             <button
               className="burger-menu"
@@ -291,11 +266,13 @@ export default function Navbar() {
               ☰
             </button>
           )}
-
-<Link to="/" className="navbar-logo" aria-label="Hjem">
-        <img src="/images/logo.png" alt="Cotonshoppen.dk" />
-      </Link>
-
+  
+          {/* Logo */}
+          <Link to="/" className="navbar-logo" aria-label="Hjem">
+            <img src="/images/logo.png" alt="Cotonshoppen.dk" />
+          </Link>
+  
+          {/* Søg (desktop) */}
           {!isMobile && (
             <form className="search-form" role="search" onSubmit={handleSubmit}>
               <label htmlFor="search" className="sr-only">Søg efter produkter</label>
@@ -309,9 +286,9 @@ export default function Navbar() {
               />
             </form>
           )}
-
+  
+          {/* Ikoner */}
           <div className="nav-icons">
-            
             {isMobile && (
               <button className="search-toggle" onClick={toggleSearch} aria-label="Åbn søgning">
                 <Search size={24} strokeWidth={1.75} />
@@ -330,13 +307,14 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-
+  
+      {/* Kategoribar (desktop) */}
       {!isMobile && (
         <nav className="category-bar" aria-label="Primær kategorinavigation">
           {categories.map((cat, index) => {
             const dropdownId = `dropdown-${index}`;
             const linkId = `category-link-${index}`;
-
+  
             return (
               <div
                 key={cat.name}
@@ -361,7 +339,7 @@ export default function Navbar() {
                 >
                   {cat.name}
                 </Link>
-
+  
                 <ul
                   id={dropdownId}
                   className={`dropdown ${openDropdown === dropdownId ? "visible" : "hidden"}`}
@@ -387,38 +365,107 @@ export default function Navbar() {
         </nav>
       )}
   
-        {isMobile && showMobileSearch && (
-          <div className="mobile-search-overlay"
+      {/* Backdrop (mobil) */}
+      {isMobile && (
+        <button
+          type="button"
+          className={`menu-backdrop ${menuOpen ? "show" : ""}`}
+          aria-label="Luk menu"
+          onClick={() => setMenuOpen(false)}
+        />
+      )}
+  
+      {/* Mobilmenu: venstreskuffe – mountet altid for animation */}
+      {isMobile && (
+        <nav
+          id="mobile-menu"
+          ref={mobileMenuRef}
+          className={`mobile-categories ${menuOpen ? "open" : ""}`}
+          role="navigation"
+          aria-label="Mobil navigation"
+          aria-hidden={!menuOpen}
+        >
+          {categories.map((cat, index) => {
+            const isOpen = openMobileCategory === index;
+            const subId = `mobile-sub-${index}`;
+            const buttonId = `mobile-btn-${index}`;
+  
+            return (
+              <div key={cat.name} className="mobile-category-group">
+                <button
+                  id={buttonId}
+                  className="mobile-category-button"
+                  aria-expanded={isOpen}
+                  aria-controls={subId}
+                  onClick={() =>
+                    setOpenMobileCategory((prev) => (prev === index ? null : index))
+                  }
+                  onKeyDown={(e) => {
+                    if (e.key === "Escape") setOpenMobileCategory(null);
+                  }}
+                >
+                  {cat.name} <span>{isOpen ? "▲" : "▼"}</span>
+                </button>
+  
+                {isOpen && (
+                  <ul id={subId} className="mobile-subcategories" aria-labelledby={buttonId}>
+                    {cat.subcategories.map((sub) => (
+                      <li key={sub.name}>
+                        <Link
+                          to={sub.path}
+                          className="mobile-sub-item"
+                          onClick={() => {
+                            setMenuOpen(false);
+                            setOpenMobileCategory(null);
+                          }}
+                        >
+                          {sub.name}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                )}
+              </div>
+            );
+          })}
+        </nav>
+      )}
+  
+      {/* Mobil søgning overlay */}
+      {isMobile && showMobileSearch && (
+        <div
+          className="mobile-search-overlay"
           role="dialog"
           aria-modal="true"
           aria-label="Mobil søgning"
-          onClick={() => setShowMobileSearch(false)}>
-            <form
-              className="mobile-search-form"
-              role="search"
-              onSubmit={handleSubmit}
-              onClick={(e) => e.stopPropagation()}
+          onClick={() => setShowMobileSearch(false)}
+        >
+          <form
+            className="mobile-search-form"
+            role="search"
+            onSubmit={handleSubmit}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <input
+              type="search"
+              placeholder="Søg her..."
+              value={search}
+              ref={searchRef}
+              onChange={(e) => setSearch(e.target.value)}
+              autoFocus
+            />
+            <button type="submit">Søg</button>
+            <button
+              type="button"
+              onClick={() => setShowMobileSearch(false)}
+              aria-label="Luk søgning"
+              className="search-close-btn"
             >
-              <input
-                type="search"
-                placeholder="Søg her..."
-                value={search}
-                ref={searchRef}
-                onChange={(e) => setSearch(e.target.value)}
-                autoFocus
-              />
-              <button type="submit">Søg</button>
-              <button
-                type="button"
-                onClick={() => setShowMobileSearch(false)}
-                aria-label="Luk søgning"
-                className="search-close-btn"
-              >
-                <X size={20} />
-              </button>
-            </form>
-          </div>
-        )}
-      </header>
-    );
-  }
+              <X size={20} />
+            </button>
+          </form>
+        </div>
+      )}
+    </header>
+  );
+}
