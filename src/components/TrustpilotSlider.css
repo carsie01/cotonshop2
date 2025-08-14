@@ -104,7 +104,7 @@
   right: 10px;
 }
 
-/* === Responsive === */
+
 @media (max-width: 1024px) {
   .trustpilot-summary {
     display: none;

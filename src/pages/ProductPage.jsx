@@ -43,7 +43,6 @@ export default function ProductPage() {
   return (
     <main className="product-detail">
       <div className="product-container">
-        {/* Billede */}
         <div className="product-images">
           {(isPopular || discount) && (
             <div className="top-badges">
@@ -112,10 +111,10 @@ export default function ProductPage() {
 
         
           <div className="shipping-info fixed">
-            <p>✅ Dansk kundeservice og topkarakter på Trustpilot</p>
-            <p>✅ Tryghed, når du handler</p>
-            <p>✅ Gratis fragt over 499 kr. og 60 dages returret</p>
-            <p>✅ Mulighed for afhentning i Aarhus</p>
+            <p>-  Dansk kundeservice og topkarakter på Trustpilot</p>
+            <p>-  Tryghed, når du handler</p>
+            <p>-  Gratis fragt over 499 kr. og 60 dages returret</p>
+            <p>-  Mulighed for afhentning i Aarhus</p>
           </div>
         </div>
       </div>

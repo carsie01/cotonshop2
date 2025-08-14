@@ -142,8 +142,8 @@ import { Heart, User, ShoppingCart, Search, X } from "lucide-react";
     const ticking = useRef(false);
   
     useEffect(() => {
-      const threshold = 12;     // ignorér små bevægelser
-      const revealAfter = 100;  // først aktiv efter 100px scroll
+      const threshold = 12;    
+      const revealAfter = 100;  
   
       const onScroll = () => {
         const y = window.scrollY || 0;
@@ -184,7 +184,7 @@ export default function Navbar() {
   const navigate = useNavigate();
   const searchRef = useRef();
   const mobileMenuRef = useRef();
-  const showHeader = useRevealOnScroll(); // 🔹 tilføj denne linje
+  const showHeader = useRevealOnScroll(); 
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
   const toggleSearch = () => setShowMobileSearch((prev) => !prev);
@@ -365,7 +365,7 @@ export default function Navbar() {
         </nav>
       )}
   
-      {/* Backdrop (mobil) */}
+   
       {isMobile && (
         <button
           type="button"
@@ -375,7 +375,7 @@ export default function Navbar() {
         />
       )}
   
-      {/* Mobilmenu: venstreskuffe – mountet altid for animation */}
+      
       {isMobile && (
         <nav
           id="mobile-menu"
@@ -431,7 +431,7 @@ export default function Navbar() {
         </nav>
       )}
   
-      {/* Mobil søgning overlay */}
+   
       {isMobile && showMobileSearch && (
         <div
           className="mobile-search-overlay"

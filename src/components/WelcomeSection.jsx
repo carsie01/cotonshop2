@@ -6,7 +6,7 @@ export default function WelcomeSection({ title, products }) {
       <div className="welcome-content">
         <img
           src="/images/velkomst-hunde.jpg"
-          alt="To hvide hunde ligger i en hundeseng"
+          alt="Christina på stranden sammen med sally og madonna"
           className="welcome-image"
         />
 

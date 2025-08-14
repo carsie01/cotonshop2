@@ -6,7 +6,7 @@ export default function ProductCarousel({ title, products }) {
   const [startIndex, setStartIndex] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(4);
 
-  // Responsivt: Juster items per page
+
   useEffect(() => {
     const updateItemsPerPage = () => {
       const width = window.innerWidth;

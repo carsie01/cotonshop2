@@ -10,7 +10,8 @@ export default function HeroSection() {
         />
         <img
           src="/images/hero1.png"
-          alt="Velkommen til cotonshoppen"
+          
+          alt="billede af coton hunnden madonna"
           className="hero-image"
         />
       </picture>

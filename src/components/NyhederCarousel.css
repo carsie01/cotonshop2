@@ -2,14 +2,14 @@
   .carousel-container {
     display: flex;
     flex-direction: column;
-    align-items: center;        /* centrer indhold horisontalt */
-    justify-content: center;    /* centrer indhold vertikalt – kun hvis du ønsker det */
-    margin: 0 auto;             /* centrer containeren på siden */
+    align-items: center;        
+    justify-content: center;   
+    margin: 0 auto;            
     padding: 2rem 1rem;
     padding-bottom: 30px;
     max-width: 90%;
     width: 100%;
-    margin-top: 1rem; /* eller f.eks. 48px */
+    margin-top: 1rem;
     border-bottom: 1px solid #ddd;
     text-align: left;
   }
@@ -21,12 +21,12 @@
   overflow: hidden;
   position: relative;
   overflow-x: auto;
-  -ms-overflow-style: none;  /* IE og Edge */
+  -ms-overflow-style: none; 
   scrollbar-width: none; 
   
 }
 .carousel-wrapper::-webkit-scrollbar {
-  display: none;             /* Chrome, Safari og Opera */
+  display: none;         
 }
 
 .carousel-track {
@@ -38,7 +38,7 @@
 }
 
 .carousel-slide {
-  flex: 0 0 85%; /* viser lidt af næste kort */
+  flex: 0 0 85%; 
   max-width: 400px;
   flex-shrink: 0;
   display: flex;
@@ -65,7 +65,7 @@
   box-shadow: 0px 0 5px 5px #605f5f17;
 }
 
-/* Fokusmarkering til tastaturbrugere */
+/* fokusmarkering til tastaturbrugere */
 .carousel-slide:focus,
 .carousel-slide:focus-visible,
 .carousel-dots button:focus,
@@ -78,14 +78,14 @@
 
 
 
-/* Dots – mobil og tablet */
+/* dot mobil og tablet */
 .carousel-dots {
   margin-top: 1rem;
   display: flex;
   justify-content: center;
   gap: 10px;
-  position: relative; /* sikrer placering uden overlap */
-  z-index: 10; /* sørg for de ikke skjules */
+  position: relative; 
+  z-index: 10;
 }
 
 .dot {
@@ -110,7 +110,7 @@
 .carousel-heading {
   text-align: left;
   width: 100%;
-  padding: 0 0.5rem; /* juster efter behov */
+  padding: 0 0.5rem; 
   
  
 }
@@ -149,7 +149,7 @@
 }
 
 
-/* MOBIL + TABLET swipe layout med "peek" */
+
 @media (max-width: 900px) {
   .carousel-wrapper {
     overflow-x: auto;
@@ -187,7 +187,7 @@
   }
 }
 
-/* DESKTOP: Grid uden dots */
+
 @media (min-width: 1000px) {
   .carousel-track {
     transform: none !important;

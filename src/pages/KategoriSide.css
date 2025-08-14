@@ -1,4 +1,4 @@
-/* === DESKTOP === */
+/* DESKTOP */
 
 .kategori-layout {
   display: grid;
@@ -10,7 +10,7 @@
   align-items: start;
 }
 
-/* === SIDEBAR === */
+/*SIDEBAR*/
 .filters {
   background: #fff;
   padding: 20px;
@@ -57,7 +57,7 @@
   border-radius: 6px;
 }
 
-/* === INTRO === */
+/*INTRO*/
 .intro-text {
   margin-bottom: 30px;
 }
@@ -76,14 +76,12 @@
   color: #555;
 }
 
-/* === PRODUKTGRID === */
 .product-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 24px;
 }
 
-/* === Knap === */
 .load-more-button {
   padding: 10px 20px;
   background-color: #125B6B;
@@ -99,7 +97,7 @@
 .produkt-oversigt button:hover {
   background-color: #638f98;
 }
-/* === DROPDOWN STYLING === */
+
 
 .custom-dropdown {
   margin-top: 8px;
@@ -194,7 +192,6 @@ text-align: start;
   display: none;
 }
 
-/* === MOBILVISNING === */
 
   @media (max-width: 1100px) {
     .kategori-layout {
@@ -237,7 +234,7 @@ text-align: start;
     }
   
     .dropdown-button:after {
-      display: none; /* Fjern pil hvis ønsket */
+      display: none; 
     }
   
     .filters {

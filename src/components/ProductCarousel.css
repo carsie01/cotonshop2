@@ -1,4 +1,4 @@
-/* === Carousel wrapper === */
+/*  wrapper */
 .product-carousel {
   padding-left: 50px;
   padding-right: 50px;
@@ -7,14 +7,14 @@
   max-width: 1800px;
 }
 
-/* Overskrift */
+
 .product-carousel h2 {
   margin-left: 70px;
   font-size: 30px;
   margin-bottom: 20px;
 }
 
-/* === Indholdet i carousel === */
+/* Indholdet carousel */
 .carousel-content {
   position: relative;
   display: flex;
@@ -48,7 +48,7 @@
   padding: 0 20px;
 }
 
-/* === Navigation dots === */
+/*  dot */
 .carousel-dots {
   display: flex;
   justify-content: center;
@@ -70,7 +70,7 @@
   opacity: 1;
 }
 
-/* === Produktkort === */
+/* produktkort  */
 .product-card.carousel-card {
   max-width: 280px;
   width: 100%;
@@ -90,7 +90,7 @@
 
 
 
-/* === Produktinformation === */
+/* produktinfo*/
 .product-card .product-info {
   padding: 12px;
   display: flex;
@@ -115,7 +115,7 @@
   color: #666;
 }
 
-/* === Responsiv tilpasning === */
+
 @media (max-width: 900px) {
   .product-card.carousel-card {
     max-width: 48%;
@@ -124,7 +124,7 @@
   .product-carousel {
     padding-left: 15px;
     padding-right: 15px;
-    margin: 30px 0; /* Optional: mindre margin på små skærme */
+    margin: 30px 0; 
   }
 }
 

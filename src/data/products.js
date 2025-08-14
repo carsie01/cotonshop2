@@ -713,7 +713,7 @@ Ollipet Poteklippemaskine 2i1 oplades nemt med det medfølgende USB-ladekabel.</
             alt: "Fødekasse, vetbed-tæppe og tisseunderlag i ét sæt",
             brand: "Ollipet",
             price: "609.30",
-            oldPrice: "677.00",       // ← bruges til visning af førpris
+            oldPrice: "677.00",      
             rabat: 10, 
             highlights: [
               "Gør hvalpenes første tid til en tryg og hyggelig oplevelse med dette gennemtænkte sæt",

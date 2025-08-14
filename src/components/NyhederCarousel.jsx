@@ -10,7 +10,7 @@ const slides = [
     alt: "Billede af engelsk bulldog i kurv",
     link: "/maerker/ollipet",
     title: "Se Nyheder fra Ollipet",
-    description: "Opdag de nye farver og modeller i vores populære hundesenge.",
+    description: "Opdag de nye farver og modeller af vores populære hundesenge!",
   },
   {
     id: 2,
@@ -23,10 +23,10 @@ const slides = [
   {
     id: 3,
     image: "/images/nyhed3.jpg",
-    alt: "Banner med nye sommerfarver",
+    alt: "Sød hund, i khaki paris hunde taske ved vandet",
     link: "/nyheder",
     title: "Vores favoritter",
-    description: "Se vores kunders favorriter",
+    description: "Vores kunders favorriter er tilbage på lager!",
   },
 ];
 
@@ -36,14 +36,14 @@ export default function NyhederCarousel({ title }) {
   const trackRef = useRef(null);
   const slideRefs = useRef([]);
 
-  // Opdater viewport på resize
+
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 1000);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Registrér scroll (mobil)
+
   useEffect(() => {
     if (!isMobile) return;
 

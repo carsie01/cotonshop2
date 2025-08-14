@@ -1,7 +1,7 @@
-// src/components/ProductList.jsx
+
 import { useState } from "react";
 import ProductCard from "./ProductCard";
-import "./ProductList.css";
+
 
 export default function ProductList({ products, title }) {
   const [visibleCount, setVisibleCount] = useState(20);

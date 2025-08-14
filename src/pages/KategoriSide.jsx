@@ -111,8 +111,6 @@ export default function KategoriSide() {
   return (
     <main className="kategori-side">
   <div className="kategori-layout">
-    
-    {/* VENSTRE SIDE – desktop filtre */}
     <aside className="filters">
   <div className="filter-header">
     <h2>FILTRER</h2>
@@ -154,10 +152,8 @@ export default function KategoriSide() {
 </aside>
 
 
-    {/* HØJRE SIDE – produktvisning */}
+   
     <section className="produkt-oversigt">
-
-      {/* MOBIL: filter-knapper som knapper på små skærme */}
       <div className="mobile-filters">
         <CustomDropdown
           label="Kategori"
@@ -186,13 +182,11 @@ export default function KategoriSide() {
         />
       </div>
 
-      {/* INTRO */}
       <div className="intro-text">
         <h1>{sideInfo.titel}</h1>
         <p>{sideInfo.tekst}</p>
       </div>
 
-      {/* PRODUKTER */}
       <div className="product-grid">
         {visteBegrænset.map((product) => (
           <ProductCard key={product.id} product={product} />
@@ -202,7 +196,6 @@ export default function KategoriSide() {
         )}
       </div>
 
-      {/* LOAD MORE */}
       {visibleCount < visteProdukter.length && (
         <div style={{ textAlign: "center", marginTop: "24px" }}>
           <button className="load-more-button" onClick={() => setVisibleCount(visibleCount + 20)} aria-label="Indlæs flere produkter">

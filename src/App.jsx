@@ -13,9 +13,9 @@ import WelcomeSection from "./components/WelcomeSection";
 import KategoriSide from "./pages/KategoriSide";
 import SoegeSide from "./pages/SoegeSide";
 
-import products from "./data/products"; // importér fælles datakilde
+import products from "./data/products"; 
 
-// Filtrér produkter med tags
+
 const popularProducts = products.filter((p) => p.tags?.includes("populaer"));
 const recommendedProducts = products.filter((p) => p.tags?.includes("anbefalet"));
 
