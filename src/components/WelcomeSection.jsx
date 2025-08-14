@@ -2,7 +2,7 @@ import "./WelcomeSection.css";
 
 export default function WelcomeSection({ title, products }) {
   return (
-    <section className="welcome-section" aria-labelledby="welcome-heading">
+    <section className="welcome-section" >
       <div className="welcome-content">
         <img
           src="/images/velkomst-hunde.jpg"

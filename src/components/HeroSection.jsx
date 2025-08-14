@@ -17,9 +17,9 @@ export default function HeroSection() {
       </picture>
       <div className="hero-overlay">
         <h1 className="hero-title">Velkommen til cotonshoppen</h1>
-        <p className="hero-subtitle">
+        <h2 className="hero-subtitle">
           Danmarks største webshop inden for hundeudstyr
-        </p>
+        </h2>
       </div>
     </section>
   );

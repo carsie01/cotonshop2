@@ -33,7 +33,7 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Nyhedsbrev */}
+      
       <section className="footer-newsletter" aria-labelledby="newsletter-heading">
         <h2 id="newsletter-heading">Hold øje med vores nyheder</h2>
         <form
@@ -53,7 +53,7 @@ export default function Footer() {
         </form>
       </section>
 
-      {/* Nyttige guides */}
+      
       <section className="footer-guides" aria-labelledby="guides-heading">
   <h2 id="guides-heading">Nyttige guides</h2>
   
@@ -88,7 +88,7 @@ export default function Footer() {
 
 
 
-      {/* Infobar */}
+      
       
       <section className="footer-infobar" aria-label="Kundefordele">
   <div className="info-item">
@@ -110,8 +110,8 @@ export default function Footer() {
 </section>
       
 
-      {/* Links og information */}
-      <section className="footer-top container" aria-labelledby="footer-nav-heading">
+      
+      <section className="footer-top container" >
         
       <div className="footer-col">
           <h3>Kontakt os</h3>
@@ -175,7 +175,7 @@ export default function Footer() {
         </div>
       </section>
 
-      {/* Badges og certifikater */}
+      
       <section className="footer-bottom container" aria-label="Certificeringer og sikkerhed">
         <div className="cert-section">
         <img src="/images/stars-5.png" alt="Trustpilot 5 stjerner" />
